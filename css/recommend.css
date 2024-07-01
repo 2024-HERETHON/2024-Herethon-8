@@ -1,0 +1,183 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 1440px;
+  height: 2141px;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bar {
+  width: 1440px;
+  height: 60px;
+}
+.writer_recommend {
+  width: 1440px;
+  height: 390px;
+  flex-shrink: 0;
+  background: #fffff2;
+}
+.recommend_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#writer_title {
+  margin-top: 36px;
+  margin-left: 162px;
+  margin-bottom: 24px;
+}
+.writer_box {
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+}
+.writer {
+  display: flex;
+  width: 182px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.writer_text {
+  display: flex;
+  width: 79px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.writer_name {
+  margin: 0px;
+  color: #444;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.writer_tag {
+  margin: 0px;
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 최신 글 추천 */
+.recent_post_recommend {
+  width: 1116px;
+  height: 791px;
+  flex-shrink: 0;
+}
+.post_frame {
+  display: flex;
+  gap: 24px;
+}
+.post {
+  display: flex;
+  width: 546px;
+  height: 218px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+}
+.post_img {
+  margin-left: auto;
+  margin-right: 36px;
+  margin-top: 47px;
+  width: 207px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+}
+.post_text {
+  padding-top: 23px;
+  padding-left: 30px;
+}
+.subhead {
+  margin: 0px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.head {
+  padding-top: 12px;
+  margin: 0px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.post_writer {
+  margin: 0px;
+  padding-top: 36px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.post_buttons {
+  display: flex;
+  gap: 24px;
+  padding-top: 40px;
+}
+.post_heart {
+  display: flex;
+  gap: 4px;
+  border: none;
+  background-color: #fff;
+}
+.post_comment {
+  display: flex;
+  gap: 4px;
+  border: none;
+  background-color: #fff;
+}
+.post_bookmark {
+  display: flex;
+  gap: 4px;
+  border: none;
+  background-color: #fff;
+}
+.line {
+  width: 1116px;
+  height: 1px;
+  background: #eee;
+}
+.page_move_bar {
+  display: flex;
+  width: 1116px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+}
+.page_move_button {
+  border: none;
+  background-color: #fff;
+}
+
+/* 알고리즘 추천 전체 */
+.algorithm_post_recommend {
+  margin-top: 36px;
+}
