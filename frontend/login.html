@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="LoginInputBox">
+                <div class="LoginInputBoxName">로그인</div>
+                <div class="LoginInputBoxNormalElements">
+                    <div class="LoginInputBoxNormal">
+                        <div class="LoginInputBoxInput">
+                            <div class="LoginInputBoxEmail">
+                                <input
+                                    type="text"
+                                    placeholder="이메일"
+                                    class="Inputbox"
+                                />
+                            </div>
+                            <div class="LoginInputBoxPwd">
+                                <input
+                                    type="password"
+                                    placeholder="비밀번호"
+                                    class="Inputbox password-input"
+                                    id="password"
+                                />
+                                <div class="eyes" onclick="togglePassword()">
+                                    <img
+                                        src="img/pwdshowbtn.png"
+                                        class="fas fa-eye"
+                                        id="togglePassword"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="LoginInputBoxCheckSave">
+                            <input type="checkbox" />
+                            <div class="LoginInputBoxCheckSavetextElement">
+                                <div class="LoginInputBoxCheckSavetext">
+                                    아이디 정보 저장
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="LoginInputBoxLogin">
+                            <button type="button" class="Inputbtn">
+                                로그인
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="LoginInputBoxNormalElements">
+                    <div class="LoginInputBoxelse">또는</div>
+                </div>
+
+                <div class="LoginInputBoxLoginElseElements">
+                    <div class="LoginInputBoxLoginElse">
+                        <div class="LoginInputBoxKakao">
+                            <button type="button" class="InputbtnElse">
+                                카카오계정으로 로그인
+                            </button>
+                        </div>
+                        <div class="LoginInputBoxGoogle">
+                            <button type="button" class="InputbtnElse">
+                                구글로 로그인
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="LoginMoreElseElements">
+                    <div class="LoginMore">
+                        <div class="LoginMoreOption">
+                            <div>
+                                <a href="sign.html" class="link">회원가입</a>
+                            </div>
+                            <div class="LoginMoreOptionelse">
+                                <div>
+                                    <a href="sign.html" class="link"
+                                        >계정찾기</a
+                                    >
+                                </div>
+                                <div>|</div>
+                                <div>
+                                    <a href="sign.html" class="link"
+                                        >비밀번호 찾기</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/login.js"></script>
+    </body>
+</html>

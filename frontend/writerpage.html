@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/writerpage.css" />
+        <title>작가 상세 페이지</title>
+    </head>
+    <nav>
+        <div class="Left">
+            <div class="Title">이름</div>
+        </div>
+        <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                    ><img src="./img/close.png"
+                /></a>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="writerintro">
+            <div class="writerintroimg">
+                <img
+                    src="./img/작가인기프로필.png"
+                    class="writerintroimgclass"
+                />
+            </div>
+            <div class="writerintroname">이영영</div>
+            <div class="writerintrointer">관심 분야</div>
+            <div class="writerintorintercate">
+                <div class="writerintorintercatew">#영화</div>
+                <div class="writerintorintercatew">#도서</div>
+            </div>
+        </div>
+        <div class="switchpage">
+            <button
+                onclick="showContent('page1', this)"
+                class="btnswitch active"
+            >
+                작가 소개
+            </button>
+
+            <button onclick="showContent('page2', this)" class="btnswitch">
+                작성한 글
+            </button>
+        </div>
+        <div id="page1" class="content active">
+            <div class="pageelements">
+                <div class="writerintroduce">
+                    <div class="writerintroducetitle">작가의 말</div>
+                    <div class="writerintroducewriting">
+                        현재 영화 평론가로 블로그를 운영하고 있습니다. 진실되고
+                        솔직한 감정을 담아, 영화를 사랑하는 마음으로 글을
+                        씁니다. 독자와 함께 영화의 다양한 감동을 나누고
+                        싶습니다. 다양한 장르의 영화를 통해 세상을 바라보는
+                        시각을 넓히고, 영화 속 이야기들이 주는 깊은 울림을
+                        전하고자 합니다. 여러분과 함께 영화의 매력을 발견하는
+                        여정을 이어가고 싶습니다.
+                    </div>
+                </div>
+                <div class="writerinfo">
+                    <div class="writerinfotitle">작가 정보</div>
+                    <div class="wrtierinfomation">
+                        <li>사자대학교 영화학 전공</li>
+                        <li>2024년 6월 가입 후 활동</li>
+                        <li>2016년부터 네이버 블로그 운영</li>
+                    </div>
+                    <div class="writerotherpage">
+                        <div class="writerlink">
+                            <div class="wrtierlinkicon">
+                                <div class="iconimg">
+                                    <img
+                                        src="./img/blog.png"
+                                        class="iconimgclass"
+                                    />
+                                </div>
+                                <div class="writerlinkurls">
+                                    https://blog.naver.com/coolion
+                                </div>
+                            </div>
+                            <div class="writerlinkurl">
+                                <div class="iconimg">
+                                    <img
+                                        src="./img/gmail.png"
+                                        class="iconimgclass"
+                                    />
+                                </div>
+                                <div class="writerlinkurls">
+                                    coolion@gmail.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="otherwriter">
+                    <div class="otherwritertitle">비슷한 취향의 다른 작가</div>
+                    <div class="otherwriterinfo">
+                        <div class="otherwriterelements">
+                            <div class="otherwriterimg">
+                                <img
+                                    src="./img/작가인기프로필.png"
+                                    class="otherwriterimgclass"
+                                />
+                            </div>
+                            <div class="otherwritername">영평가</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page2" class="content">
+            <div class="pageelements">
+                <div class="writings">
+                    <div class="writingscontents">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html'"
+                            class="writingscontentsbox"
+                        >
+                            <div class="writingscontentselements">
+                                <div class="writingscontentsIntro">
+                                    기묘한 우물 속으로 나를 찾아 떠나는 여정
+                                </div>
+                                <div class="writingscontentsMain">
+                                    <div class="writingscontentstext">
+                                        <div class="writingscontentsTitle">
+                                            무라카미 하루키가 전하는 이데아
+                                        </div>
+                                        <div class="writingscontentsWho">
+                                            <div class="writingscontentsWhoby">
+                                                by
+                                            </div>
+                                            <div
+                                                class="writingscontentsWhoname"
+                                            >
+                                                최정이
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="writingscontentsImg">
+                                        <img
+                                            src="./img/실시간인기도서1.png"
+                                            class="writingscontentsImgclass"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="writingscontentsMore">
+                                    <div class="writingscontentsHeart"></div>
+                                    <div class="writingscontentsComments"></div>
+                                    <div class="writingscontentsSaved"></div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/writerpage.js"></script>
+    </body>
+</html>

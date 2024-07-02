@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/sign.css" />
+        <title>회원가입</title>
+    </head>
+    <body>
+        <div class="Total">
+            <div class="Left">
+                <div class="img"></div>
+                <div class="introtext">
+                    <div class="introduce1">
+                        당신의 어휘력을 높이기위하 매일의 기록
+                    </div>
+                    <div class="introduce2">
+                        지금 바로 가입하고 함께 성장해봐요!
+                    </div>
+                </div>
+            </div>
+            <div class="Right">
+                <div class="container">
+                    <div class="LoginInputBox">
+                        <div class="LoginInputBoxName">회원가입</div>
+                        <div class="LoginInputBoxNormalElements">
+                            <div class="LoginInputBoxNormal">
+                                <div class="LoginInputBoxInput">
+                                    <div class="LoginInputBoxEmail">
+                                        <input
+                                            type="text"
+                                            placeholder="이메일"
+                                            class="Inputbox"
+                                        />
+                                    </div>
+                                    <div class="LoginInputBoxPwd">
+                                        <input
+                                            type="password"
+                                            placeholder="비밀번호"
+                                            class="Inputbox password-input"
+                                            id="password"
+                                        />
+                                        <div
+                                            class="eyes"
+                                            onclick="togglePassword('password', 'togglePassword1')"
+                                        >
+                                            <img
+                                                src="img/pwdshowbtn.png"
+                                                class="fas fa-eye"
+                                                id="togglePassword1"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="LoginInputBoxChecktext">
+                                        영문, 숫자 조합의 8자 이상 20자 이하로
+                                        입력해주세요.
+                                    </div>
+                                    <div class="LoginInputBoxPwd">
+                                        <input
+                                            type="password"
+                                            placeholder="비밀번호 확인"
+                                            class="Inputbox password-input"
+                                            id="confirmPassword"
+                                        />
+                                        <div
+                                            class="eyes"
+                                            onclick="togglePassword('confirmPassword', 'togglePassword2')"
+                                        >
+                                            <img
+                                                src="img/pwdshowbtn.png"
+                                                class="fas fa-eye"
+                                                id="togglePassword2"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="LoginInputBoxCheckSave">
+                                    <input type="checkbox" />
+                                    <div
+                                        class="LoginInputBoxCheckSavetextElement"
+                                    >
+                                        <div class="LoginInputBoxCheckSavetext">
+                                            이용약관 및 개인정보 처리방침에
+                                            동의합니다.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="LoginInputBoxLogin">
+                                    <button type="button" class="Inputbtn">
+                                        회원가입
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="LoginInputBoxNormalElements">
+                            <div class="LoginInputBoxelse">또는</div>
+                        </div>
+
+                        <div class="LoginInputBoxLoginElseElements">
+                            <div class="LoginInputBoxLoginElse">
+                                <div class="LoginInputBoxKakao">
+                                    <button type="button" class="InputbtnElse">
+                                        카카오계정으로 회원가입
+                                    </button>
+                                </div>
+                                <div class="LoginInputBoxGoogle">
+                                    <button type="button" class="InputbtnElse">
+                                        구글로 회원가입
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="LoginMoreElseElements">
+                            <div class="LoginMore">
+                                <div class="LoginMoreOption">
+                                    <div>이미 회원이신가요?</div>
+                                    <div class="LoginMoreOptionelse">
+                                        <div>
+                                            <a href="login.html" class="link"
+                                                >로그인</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/sign.js"></script>
+    </body>
+</html>

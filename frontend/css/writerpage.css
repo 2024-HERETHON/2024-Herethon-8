@@ -1,0 +1,304 @@
+/*페이지 이동 */
+.content {
+    display: none;
+}
+.content.active {
+    display: block;
+}
+
+/*맨 위에 작가 소개*/
+.writerintro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.writerintroimg {
+    width: 200px; /* 원하는 너비와 높이로 설정 */
+    height: 200px;
+    border: none; /* 초록색 테두리 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    overflow: hidden; /* 원형을 벗어나는 이미지 부분 숨기기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.writerintroimgclass {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.writerintroname {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 2%;
+    color: #444444;
+}
+.writerintrointer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444444;
+    margin-bottom: 2%;
+}
+.writerintorintercate {
+    display: flex;
+    flex-direction: row;
+    color: #5e6f52;
+    margin-bottom: 2%;
+    font-weight: bold;
+    width: 100%;
+
+    justify-content: center;
+}
+.writerintorintercate div {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/*버튼*/
+.switchpage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btnswitch {
+    border: none;
+    background-color: white;
+    color: #d9d9d9;
+    font-size: 18px;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-bottom: 1.5%;
+    border-bottom: 1.5px solid #d9d9d9;
+    font-size: 20px;
+}
+.btnswitch.active {
+    border-bottom-color: #5e6f52;
+    color: #5e6f52;
+}
+
+/*작가정보 페이지*/
+.pageelements {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+.writerintroduce {
+    width: 70%;
+    margin-bottom: 10%;
+}
+.writerintroducetitle {
+    font-size: 20px;
+    margin-bottom: 2%;
+    color: #444444;
+    font-weight: bold;
+}
+.writerintroducewriting {
+    font-size: 16px;
+    color: #444444;
+    margin-bottom: 5%;
+}
+
+.writerinfo {
+    width: 70%;
+    text-align: left;
+    margin-bottom: 4%;
+}
+.writerinfotitle,
+.otherwritertitle {
+    font-size: 20px;
+    margin-bottom: 2%;
+    color: #444444;
+    font-weight: bold;
+}
+.wrtierinfomation {
+    margin: 4%;
+    color: #444444;
+}
+
+.otherwriter {
+    width: 70%;
+    text-align: left;
+    margin-bottom: 10%;
+    margin-top: 3%;
+}
+
+.otherwriterinfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.otherwriterimg {
+    width: 60px; /* 원하는 너비와 높이로 설정 */
+    height: 60px;
+    border: none; /* 초록색 테두리 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    overflow: hidden; /* 원형을 벗어나는 이미지 부분 숨기기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.otherwriterimgclass {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.otherwritertitle {
+    color: #444444;
+}
+.otherwritername {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+.otherwriterelements {
+    margin-right: 10%;
+}
+
+/*페이지2*/
+.writings {
+    width: 831px;
+    margin: 3%;
+}
+.writingscontents {
+    width: 100%;
+}
+
+.writingscontentselements {
+    margin: 3%;
+}
+.writingscontentsbox {
+    margin-bottom: 3%;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+    transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+} /* 마우스를 올렸을 때 그림자 강화 */
+.writingscontentsbox:hover {
+    box-shadow: 0 8px 12px #5e6f52;
+}
+
+.writingscontentsIntro {
+    text-align: left;
+    color: #444444;
+}
+.writingscontentsMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.writingscontentstext {
+    margin-top: 4%;
+    margin-right: 1%;
+}
+.writingscontentsTitle {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+.writingscontentsWho {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    width: 100%;
+    margin-top: 3%;
+}
+.writingscontentsWhoname {
+    margin-left: 1%;
+}
+.writingscontentsImgclass {
+    width: 210px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.writerTitle {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: bold;
+}
+.writercategolry {
+    margin-right: 3px;
+}
+/*나브바 css*/
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.Selectbar div,
+.Right div {
+    margin-right: 10px;
+}
+.Selectbar,
+.Right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Title {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+    text-decoration-line: none;
+    font-size: 15px;
+}
+.navlink {
+    color: #444444;
+    font-weight: bold;
+}
+
+.navlinklogin,
+.navlinksign {
+    color: #5e6f52;
+    font-weight: bold;
+}
+
+.wrtierlinkicon,
+.writerlinkurl {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.iconimgclass {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+}
+.writerlinkurls,
+.iconimg {
+    display: flex;
+    justify-content: center;
+    margin-left: 8px;
+    flex-direction: column;
+}
+.writerotherpage {
+    margin-top: 8%;
+}

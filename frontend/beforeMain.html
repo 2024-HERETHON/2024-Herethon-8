@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/beforeMain.css" />
+        <title>로그인 전 메인화면</title>
+    </head>
+    <nav>
+        <div class="Left">
+            <div class="Title">이름</div>
+            <div class="Selectbar">
+                <div class="popluar">
+                    <a href="recommend.html" class="navlink">인기</a>
+                </div>
+                <div class="recommend">
+                    <a href="recommend.html" class="navlink">추천</a>
+                </div>
+                <div class="writenew">
+                    <a href="writeNew.html" class="navlink">글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="login.html" class="navlinklogin">로그인</a>
+            </div>
+            <div class="sign">
+                <a href="sign.html" class="navlinksign">회원가입</a>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="bodyelements">
+            <div class="moveimgadv">
+                <div class="moveimgadv1">
+                    <img src="./img/홍보 이미지.png" class="moveimgid" />
+                </div>
+                <div class="moveimgadv2">
+                    <img src="./img/홍보 이미지.png" class="moveimgid" />
+                </div>
+                <div class="moveimgadv3">
+                    <img src="./img/홍보 이미지.png" class="moveimgid" />
+                </div>
+            </div>
+
+            <div class="newandpopluaradv">
+                <div class="newWriting">
+                    <div class="newWritingTitle">
+                        <div class="newWritingTitletext">최신 글</div>
+                        <div class="newWritingTitlemove">
+                            <a href="writeNew.html" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="./img/movepage.png" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="newWritingShow">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html' "
+                            class="newWritingShowbtn"
+                        >
+                            <div class="newWritingElements">
+                                <div class="newWritingShowcategolory">영화</div>
+                                <div class="newWritingShowWriting">
+                                    <div class="newWritingShowWritingtext">
+                                        <div
+                                            class="newWritingShowWritingtextTitle"
+                                        >
+                                            돌아온 인사이드아웃
+                                        </div>
+                                        <div
+                                            class="newWritingShowWritingtextWhen"
+                                        >
+                                            <div
+                                                class="newWritingShowWritingtextWhenTime"
+                                            >
+                                                2 분 전
+                                            </div>
+                                            <div
+                                                class="newWritingShowWritingtextWhendivided"
+                                            >
+                                                |
+                                            </div>
+                                            <div
+                                                class="newWritingShowWritingtextWhenDate"
+                                            >
+                                                2024.07.05
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="newWritingShowWritingtextstory"
+                                        >
+                                            어른을 위한 애니메이션. 9년만에
+                                            돌아온 속편 성장해버린 우리 모두에게
+                                            전하는 위로이자 나의 불안들에게
+                                            전하는 메세지이다. 새롭게 합류한
+                                            감정으로 보여주는 어른이 되어가는
+                                            과...
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowWritingImg">
+                                        <img
+                                            src="img/메인페이지최신글.png"
+                                            class="newWritingShowWritingImgclass"
+                                            id="newWritingShowWritingImgid"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="newWritingShowMore">
+                                    <div class="newWritingShowMoreWho">
+                                        <div class="newWritingShowMoreWhoby">
+                                            By
+                                        </div>
+                                        <div class="newWritingShowMoreWhoName">
+                                            형식
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowMoreSelect">
+                                        <div
+                                            class="newWritingShowMoreSelectHeart"
+                                        >
+                                            <div class="heartImg">
+                                                <img src="./img/heart.png" />
+                                            </div>
+                                            <div class="heartCnt">1</div>
+                                        </div>
+                                        <div
+                                            class="newWritingShowMoreSelectComments"
+                                        >
+                                            <div class="commentImg">
+                                                <img src="./img/comments.png" />
+                                            </div>
+                                            <div class="commentCnt">0</div>
+                                        </div>
+                                        <div
+                                            class="newWritingShowMoreSelectScrap"
+                                        >
+                                            <div class="ScrapImg">
+                                                <img src="./img/bookmark.png" />
+                                            </div>
+                                            <div class="ScrapCnt">1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="popluarWriting">
+                    <div class="popluarWritingTitle">
+                        <div class="popluarWritingTitletext">최신 글</div>
+                        <div class="popluarWritingTitlemove">
+                            <a href="writeNew.html" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="./img/movepage.png" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="popluarWritingShow">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html' "
+                            class="popluarWritingShowbtn"
+                        >
+                            <div class="newWritingElements">
+                                <div class="popluarWritingShowcategolory">
+                                    영화
+                                </div>
+                                <div class="popluarWritingShowWriting">
+                                    <div class="popluarWritingShowWritingtext">
+                                        <div
+                                            class="popluarWritingShowWritingtextTitle"
+                                        >
+                                            돌아온 인사이드아웃
+                                        </div>
+                                        <div
+                                            class="popluarWritingShowWritingtextWhen"
+                                        >
+                                            <div
+                                                class="popluarWritingShowWritingtextWhenTime"
+                                            >
+                                                2 분 전
+                                            </div>
+                                            <div
+                                                class="popluarWritingShowWritingtextWhendivided"
+                                            >
+                                                |
+                                            </div>
+                                            <div
+                                                class="popluarWritingShowWritingtextWhenDate"
+                                            >
+                                                2024.07.05
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="popluarWritingShowWritingtextstory"
+                                        >
+                                            어른을 위한 애니메이션. 9년만에
+                                            돌아온 속편 성장해버린 우리 모두에게
+                                            전하는 위로이자 나의 불안들에게
+                                            전하는 메세지이다. 새롭게 합류한
+                                            감정으로 보여주는 어른이 되어가는
+                                            과...
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowWritingImg">
+                                        <img
+                                            src="img/메인페이지인기글.png"
+                                            class="popluarWritingShowWritingImgclass"
+                                            id="popluarWritingShowWritingImgid"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="popluarWritingShowMore">
+                                    <div class="popluarWritingShowMoreWho">
+                                        <div
+                                            class="popluarWritingShowMoreWhoby"
+                                        >
+                                            By
+                                        </div>
+                                        <div
+                                            class="popluarWritingShowMoreWhoName"
+                                        >
+                                            형식
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowMoreSelect">
+                                        <div
+                                            class="popluarWritingShowMoreSelectHeart"
+                                        >
+                                            <div class="heartImg">
+                                                <img src="./img/heart.png" />
+                                            </div>
+                                            <div class="heartCnt">1</div>
+                                        </div>
+                                        <div
+                                            class="popluarWritingShowMoreSelectComments"
+                                        >
+                                            <div class="commentImg">
+                                                <img src="./img/comments.png" />
+                                            </div>
+                                            <div class="commentCnt">0</div>
+                                        </div>
+                                        <div
+                                            class="popluarWritingShowMoreSelectScrap"
+                                        >
+                                            <div class="ScrapImg">
+                                                <img src="./img/bookmark.png" />
+                                            </div>
+                                            <div class="ScrapCnt">1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="OnlyTodayShow">
+                <div class="OnlyTodayShowTitle">
+                    <div class="OnlyTodayShowTitleL">딱</div>
+                    <div class="OnlyTodayShowTitledDate" id="todayDate">
+                        7월 5일
+                    </div>
+                    <div class="OnlyTodayShowTitleR">
+                        오늘만 볼 수 있는 뉴스!
+                    </div>
+                </div>
+                <div class="OnlyTodayShowLeft">
+                    <div class="OnlyTodayShowLeftTitle">잔여 시간</div>
+                    <div class="OnlyTodayShowLeftTime" id="timeLeft">
+                        06:15:43
+                    </div>
+                </div>
+
+                <div class="OnlyTodayShowWriting">
+                    <div class="OnlyTodayShowWritingElement">
+                        <div class="OnlyTodayShowWritingTitle">
+                            "한국판 디즈니를 꿈꾸며"
+                        </div>
+                        <div class="OnlyTodayShowWritingTexts">
+                            네이버웹툰의 모기업인 웹툰 엔터테인먼트가 미국
+                            나스닥 시장에 상장한 첫날 흥행 마감해 네이버와
+                            웹툰주가 강세다. 28일 한국거래소에 따르면 이날 오전
+                            9시 48분 현재 네이버는 전 거래일 대비 1.45%(2400원)
+                            오른 16만7800원에 거래되고 있다. 장 초반
+                            16만9000원까지 오르기도 했다. 같은 시간 웹툰주로
+                            분류되는 미스터블루(7.74%)와 핑거스토리(4.73%),
+                            대원미디어(1.88%), 키다리스튜디오(1.10%),
+                            탑코미디어(0.32%) 등도 상승세를 보이는 상황이다.
+                            이는 웹툰 엔터테인먼트가 희망범위 상단에 공모가를
+                            확정한 데 이어 첫 거래일 주가가 10%가량 급등해 상장
+                            흥행몰이에 성공한 영향으로 풀이된다.
+                        </div>
+                        <div class="Only OnlyTodayShowWritingText">
+                            <button
+                                type="button"
+                                onclick="location.href='login.html' "
+                                class="OnlyTodayShowLeftmorebtn"
+                            >
+                                읽어보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="FocuseWriterandWriting">
+                <div class="FocuseWriter">
+                    <div class="FocuseWriterTitle">주목할만한 작가</div>
+                    <div class="FocuseWriterShow">
+                        <div class="FocuseWriterShowFirst">
+                            <button
+                                type="button"
+                                onclick="location.href='login.html' "
+                                class="focusbtn"
+                            >
+                                <div class="FocuseWriterImg">
+                                    <div class="FocuseWriterShowImg">
+                                        <img
+                                            src="./img/작가프로필1.png"
+                                            class="FocuseWriterImgclass"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="FocuseWriterShowName">이영영</div>
+                                <div class="FocuseWriterShowCategolry">
+                                    #영화 #도서
+                                </div>
+                                <div class="FocuseWriterShowIntro">
+                                    현재 영화 평론가로 블로그를 운영하고
+                                    있습니다. 진실되고 솔직한 감정을 담..
+                                </div>
+                            </button>
+                        </div>
+                        <div class="FocuseWriterShowSecond">
+                            <button
+                                type="button"
+                                onclick="location.href='login.html' "
+                                class="focusbtn"
+                            >
+                                <div class="FocuseWriterImg">
+                                    <div class="FocuseWriterShowImg">
+                                        <img
+                                            src="./img/작가프로필2.png"
+                                            class="FocuseWriterImgclass"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="FocuseWriterShowName">과하학</div>
+                                <div class="FocuseWriterShowCategolry">
+                                    #과학 #영화
+                                </div>
+                                <div class="FocuseWriterShowIntro">
+                                    과학과 영화를 사랑합니다. 오랜기간
+                                    과학연구소에서 세상을 바꿀 도전을...
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="FocuseWriterMore">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html' "
+                            class="focusmore"
+                        >
+                            다른 작가도 궁금해요!
+                        </button>
+                    </div>
+                </div>
+                <div class="FocuseWriting">
+                    <div class="FocuseWritingTitle">추천 글</div>
+                    <div class="FocuseWritingShow">
+                        <div class="FocuseWritingShowFirst">
+                            <button
+                                type="button"
+                                onclick="location.href='login.html' "
+                                class="focusbtn"
+                            >
+                                <div class="FocuseWritingShowImg">
+                                    <img src="./img/메인페이지추천글1.png" />
+                                </div>
+                                <div class="FocuseWritingShowTitle">
+                                    하늘은 왜 푸른걸까?
+                                </div>
+                                <div class="FocuseWritingShowWho">
+                                    <div
+                                        class="FocuseWritingShowWhoby"
+                                        style="width: 10px"
+                                    >
+                                        by
+                                    </div>
+                                    <div class="FocuseWritingShowWhoName">
+                                        으라차
+                                    </div>
+                                </div>
+                                <div class="FocuseWritingShowIntro">
+                                    한번쯤은 모두 생각해보지않았을까?
+                                </div>
+                            </button>
+                        </div>
+                        <div class="FocuseWritingShowSecond">
+                            <button
+                                type="button"
+                                onclick="location.href='login.html' "
+                                class="focusbtn"
+                            >
+                                <div class="FocuseWritingShowImg">
+                                    <img src="./img/메인페이지추천글2.png" />
+                                </div>
+                                <div class="FocuseWritingShowTitle">
+                                    하늘은 왜 푸른걸까?
+                                </div>
+                                <div class="FocuseWritingShowWho">
+                                    <div
+                                        class="FocuseWritingShowWhoby"
+                                        style="width: 10px"
+                                    >
+                                        by
+                                    </div>
+                                    <div class="FocuseWritingShowWhoName">
+                                        으라차
+                                    </div>
+                                </div>
+                                <div class="FocuseWritingShowIntro">
+                                    한번쯤은 모두 생각해보지않았을까?
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="FocuseWritingMore">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html' "
+                            class="focusmore"
+                        >
+                            다른 추천해드릴게요.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>

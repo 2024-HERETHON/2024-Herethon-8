@@ -1,0 +1,194 @@
+body {
+    margin: 0px;
+}
+.bodybackground {
+    background-image: url("../img/상세글사진.png");
+    background-size: cover; /* 배경 이미지가 요소를 덮도록 설정 */
+    background-position: center; /* 배경 이미지가 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 배경 이미지가 반복되지 않도록 설정 */
+    width: 100%;
+}
+.bodybackgroundelements {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 450px;
+    width: 100%;
+}
+.backgroundmore {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.backgroundmore,
+.backgroundwhen {
+    margin: 2%;
+}
+
+.backgroundmore div {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.heartImg,
+.commentImg,
+.ScrapImg {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.backgroundtitle {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.backgroundwhen,
+.backgroundwho {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.backgroundwho {
+    margin-right: 10px;
+}
+
+.writingcontents,
+.comments,
+.likescrap {
+    margin-top: 4%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.likescrap,
+.backgroundHeart,
+.backgroundScrap,
+.commentsetting,
+.commentcnt,
+.commentcntelements {
+    display: flex;
+    flex-direction: row;
+}
+.commentsetting,
+.commentssetting {
+    width: 100%;
+}
+.commentsetting {
+    margin-bottom: 3%;
+}
+.commentcnt {
+    width: 15%;
+}
+.commentstitle {
+    margin-right: 3%;
+}
+
+.commentswrittingbox {
+    border: 1px solid green;
+    padding: 2%;
+    border-radius: 12px;
+}
+.commentwritingboxelements {
+    display: flex;
+    flex-direction: column;
+}
+.commentcntelementsid {
+    margin-bottom: 1%;
+}
+.commentbox {
+    border: none;
+    padding-top: 10px; /* 상단에 여백을 추가하여 placeholder 위치 조정 */
+    box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+    line-height: 1.5; /* 줄 간격 설정 */
+    padding-bottom: 20px;
+}
+
+.commentbox::placeholder {
+    line-height: normal; /* placeholder 텍스트의 줄 간격을 기본으로 설정 */
+}
+
+.commentbtnelements {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.commentregister {
+    background-color: white;
+    border: none;
+    color: #9f9f9f;
+    margin-top: 10px;
+}
+
+.commentswritten {
+    margin-top: 3%;
+    margin-bottom: 8%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.commentswrittenid {
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+.commentswrittenmore {
+    margin-top: 5%;
+    color: #9f9f9f;
+}
+.commentswrittenelements {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+    border-top: 1px solid #9f9f9f;
+}
+
+.commentswrittenid,
+.commentswrittencontents,
+.commentswrittenmore {
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.commentswrittenmore {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.commentswrittenmore div {
+    display: flex;
+    flex-direction: row;
+}
+
+.commentssetting button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: gray; /* 선택되지 않았을 때의 색상 */
+}
+
+.commentssetting button:hover {
+    background-color: #e5e5e5;
+}
+
+.commentssetting button.active {
+    background-color: white; /* 선택되었을 때의 배경색 */
+    color: black; /* 선택되었을 때의 텍스트 색상 */
+}
+
+.commentcntelementsid,
+.commentswrittenid {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.commentcnt {
+    font-size: 18px;
+    font-weight: bold;
+}
+.backgroundwhoname,
+.bodybackgroundtime {
+    margin-left: 4px;
+}
