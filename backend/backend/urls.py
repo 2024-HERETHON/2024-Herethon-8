@@ -15,11 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
 
 import accounts.views
+import posts.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +32,9 @@ urlpatterns = [
     path('accounts/authors/', accounts.views.author_list_view, name='author-list'),
     path('accounts/authors/<int:pk>/', accounts.views.author_detail_view, name='author-detail'),
     path('accounts/authors/create/', accounts.views.author_create_view, name='author-create'),
-    path('accounts/authors/mypage/', accounts.views.author_mypage_view, name='author-mypage'),  
+    path('accounts/authors/mypage/', accounts.views.author_mypage_view, name='author-mypage'), 
+    path('posts/', posts.views.post_form_view, name='post-form'),
+    path('posts/detail/<int:pk>/', posts.views.post_detail_view, name='post-detail'),
+    path('posts/detail/<int:pk>/comment/', posts.views.post_detail_view, name='post-comment'),  
 ]
+
