@@ -54,7 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     summary_charcount.textContent = summary_textarea.value.lengh;
     summary_charcount.textContent = summary_textLengh;
 
-    if (summary_textLengh >= 50) {
+    const post_textLengh = post_textarea.value.length;
+    post_charcount.textContent = post_textarea.value.length;
+    post_charcount.textContent = post_textLengh;
+
+    if (summary_textLengh >= 50 && post_textLengh >= 300) {
       summaryBottom.classList.add("exceed");
       deletBtn.removeAttribute("disabled");
       deletBtn.style.background = "#fff";
