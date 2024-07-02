@@ -8,7 +8,7 @@ from django.contrib.auth import login, logout
 from django.views import View
 from .forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
-from .models import User
+from .models import User,Post,Comment
 from django.views import View
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -59,9 +59,23 @@ def logout_view(request):
 
 @login_required
 def mypage_view(request):
-    # 사용자가 로그인한 상태이므로, 해당 사용자의 정보나 다른 내용을 보여줄 수 있습니다.
     return render(request, 'mypage.html')
 
+def user_posts_view(request):
+    user_id = request.user.id
+    user_posts = Post.objects.filter(writer_id=user_id)
+    context = {
+        'user_posts': user_posts
+    }
+    return render(request, 'myPost.html', context)
+
+def user_comments_view(request):
+    user_id = request.user.id
+    user_comments = Comment.objects.filter(writer_id=user_id)
+    context = {
+        'user_comments': user_comments
+    }
+    return render(request, 'myComment.html', context)
 
 def author_list_view(request):
     authors = Author.objects.all()

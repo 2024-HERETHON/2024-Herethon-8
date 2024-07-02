@@ -24,7 +24,7 @@
     <h3>Comments</h3>
 
     <hr>
-    <form method="post" action="{% url 'posts:post-comment' post.pk %}">
+    <form method="post" action="{% url 'post-comment' post.pk %}">
         {% csrf_token %}
         {{ comment_form.as_p }}
         <button type="submit">댓글 등록</button>

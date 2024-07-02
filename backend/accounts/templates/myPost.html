@@ -1,0 +1,86 @@
+<!-- myPost.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Posts</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/myPost.css' %}">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="bar"></div>
+            <div class="side">
+                <div class="side_title">활동내역</div>
+                <div class="side_buttons">
+                    <button class="side_button" id="my_comment">
+                        <img src="{% static 'img/my_comment.svg' %}" />
+                        <span>내가 쓴 댓글</span>
+                    </button>
+                    <button class="side_button" id="my_heart">
+                        <img src="{% static 'img/my_heart.svg' %}" />
+                        <span>좋아요 기록</span>
+                    </button>
+                    <button class="side_button" id="my_scrap">
+                        <img src="{% static 'img/my_scrap.svg' %}" />
+                        <span>스크랩 기록</span>
+                    </button>
+                    <button class="side_button" id="my_post">
+                        <img src="{% static 'img/my_post_black.svg' %}" />
+                        <span>내가 쓴 글</span>
+                    </button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="main_title" id="my_post_title">내가 쓴 글</div>
+                <div class="main_line"></div>
+                <!-- 기록 없으면 -->
+                {% if user_posts %}
+                <div class="main_boxs">
+                    {% for post in user_posts %}
+                    <div class="main_box">
+                        <div class="box_wrap">
+                            <div class="box_text">
+                                <div class="mypost_title">{{ post.title }}</div>
+                                <div class="reacts">
+                                    <div class="react" id="react_heart">
+                                        <img src="{% static 'img/my_post_heart.svg' %}" />
+                                        <span>{{ post.likes.count }}</span>
+                                    </div>
+                                    <div class="react" id="react_comment">
+                                        <img src="{% static 'img/my_post_comment.svg' %}" />
+                                        <span>{{ post.comments.count }}</span>
+                                    </div>
+                                    <div class="react" id="react_scrap">
+                                        <img src="{% static 'img/my_post_scrap.svg' %}" />
+                                        <span>{{ post.scraps.count }}</span>
+                                    </div>
+                                </div>
+                                <div class="date_time">
+                                    <span id="date">{{ post.created_at|date:"Y년 m월 d일" }}</span>
+                                    <span id="time">{{ post.created_at|time:"H:i" }}</span>
+                                </div>
+                            </div>
+                            <div class="box_img">
+                                {% if post.image %}
+                                <img src="{{ post.image.url }}" />
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="content_none">
+                    내가 쓴 글이 없습니다.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/myPost.js' %}"></script>
+</html>

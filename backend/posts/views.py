@@ -9,7 +9,7 @@ def post_form_view(request):
     if request.method == "GET":
         form = PostModelForm()
         context = {'form': form}
-        return render(request, 'posts/post_form.html', context)
+        return render(request, 'post_form.html', context)
     else:
         form = PostModelForm(request.POST, request.FILES, user=request.user)
 
@@ -17,9 +17,9 @@ def post_form_view(request):
             form.save()
         else:
             context = {'form': form}
-            return render(request, 'posts/post_form.html', context)
+            return render(request, 'post_form.html', context)
 
-        return redirect('post:post-detail',pk=form.instance.pk) 
+        return redirect('post-detail',pk=form.instance.pk) 
     
 def post_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -32,7 +32,7 @@ def post_detail_view(request, pk):
         comment.writer = request.user
         comment.created_at = timezone.now()
         comment.save()
-        return redirect('posts:post-detail', pk=post.pk)
+        return redirect('post-detail', pk=post.pk)
 
     context = {'post': post, 'comment_form': comment_form,}
-    return render(request, 'posts/post_detail.html',context)
+    return render(request, 'post_detail.html',context)
