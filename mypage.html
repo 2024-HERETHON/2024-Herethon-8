@@ -143,59 +143,35 @@
               class="menu_detail"
               id="attendance_detail"
             >
-              <div class="calendar">
-                <div id="calendar_month">2024.07월 출석</div>
-                <div id="calendar_day">
-                  <span>일</span>
-                  <span>월</span>
-                  <span>화</span>
-                  <span>수</span>
-                  <span>목</span>
-                  <span>금</span>
-                  <span>토</span>
-                </div>
-                <div id="calendar_date">
-                  <div class="calendar_day" id="date_week1">
-                    <span>01</span>
-                    <span>02</span>
-                    <span>03</span>
-                    <span>04</span>
-                    <span>05</span>
-                    <span>06</span>
-                  </div>
-                  <div class="calendar_day" id="date_week2">
-                    <span>07</span>
-                    <span>08</span>
-                    <span>09</span>
-                    <span>10</span>
-                    <span>11</span>
-                    <span>12</span>
-                    <span>13</span>
-                  </div>
-                  <div class="calendar_day" id="date_week3">
-                    <span>14</span>
-                    <span>15</span>
-                    <span>16</span>
-                    <span>17</span>
-                    <span>18</span>
-                    <span>19</span>
-                    <span>20</span>
-                  </div>
-                  <div class="calendar_day" id="date_week4">
-                    <span>21</span>
-                    <span>22</span>
-                    <span>23</span>
-                    <span>24</span>
-                    <span>25</span>
-                    <span>26</span>
-                  </div>
-                  <div class="calendar_day" id="date_week5">
-                    <span>28</span>
-                    <span>29</span>
-                    <span>30</span>
-                  </div>
-                </div>
+             <!-- 캘린더 구현 -->
+             <div id="calendar">
+              <div id="header">
+                <button id="prev">
+                  <img src="./images/calendar_prev.svg" />
+                </button>
+                <h2 id="month-year"></h2>
+                <button id="next">
+                  <img src="./images/calendar_next.svg" />
+                </button>
               </div>
+              <table id="calendar-table">
+                <thead>
+                  <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body">
+                  <!-- 캘린더 날짜 구현 -->
+                </tbody>
+              </table>
+            </div>
+             <!--  -->
               <div class="how_point">
                 <div class="how_point_title">포인트 획득 방법</div>
                 <div class="how_point_box">

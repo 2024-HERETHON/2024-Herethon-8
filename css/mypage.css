@@ -416,18 +416,30 @@
   align-items: center;
   gap: 118px;
 }
-.calendar {
-  width: 247px;
-  height: 266px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-left: 80px;
+/* 달력 구현 */
+#calendar {
+  background: white;
+  overflow: hidden;
 }
-#calendar_month {
-  padding-bottom: 8px;
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #444;
+  height: 24px;
+  margin-bottom: 15px;
+}
+
+#header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+}
+
+#month-year {
   color: #444;
   font-family: Pretendard;
   font-size: 20px;
@@ -435,9 +447,12 @@
   font-weight: 600;
   line-height: normal;
 }
-#calendar_day {
-  display: flex;
-  gap: 24px;
+
+#calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#calendar-table th {
   color: #444;
   font-family: Pretendard;
   font-size: 16px;
@@ -445,11 +460,7 @@
   font-weight: 600;
   line-height: normal;
 }
-#calendar_date {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
+#calendar-table td {
   color: #444;
   font-family: Pretendard;
   font-size: 16px;
@@ -457,14 +468,31 @@
   font-weight: 400;
   line-height: normal;
 }
-.calendar_day {
-  display: flex;
-  width: 240px;
-  gap: 20px;
+#calendar-table th,
+#calendar-table td {
+  width: 22px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
 }
-#date_week1 {
-  margin-left: auto;
+
+#calendar-table tbody td {
+  height: 22px;
+  vertical-align: top;
 }
+#calendar-table tbody.today {
+  border: 2px solid #a9b388;
+}
+#calendar-table tbody td.empty {
+  background-color: white;
+}
+
+#calendar-table tbody td.present {
+  background-color: #a9b388;
+}
+
+/*  */
+
 .how_point_title {
   padding-bottom: 36px;
   color: #e16e20;
@@ -478,6 +506,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 50px;
 }
 #how_point_info {
   display: flex;
@@ -576,6 +605,22 @@
   display: flex;
   align-items: center;
   gap: 52px;
+}
+.menu_point {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.theme_point {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 #menu1_text {
   color: #444;
