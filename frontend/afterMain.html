@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/beforeMain.css" />
-        <title>로그인 전 메인화면</title>
+        <link rel="stylesheet" href="css/afterMain.css" />
+        <title>로그인 후 메인화면</title>
     </head>
     <nav>
         <div class="Left">
@@ -312,51 +312,73 @@
                 <div class="FocuseWriter">
                     <div class="FocuseWriterTitle">주목할만한 작가</div>
                     <div class="FocuseWriterShow">
-                        <div class="FocuseWriterShowFirst">
+                        <div class="FocuseWriterShowFirst" id="writerFirst">
                             <button
                                 type="button"
-                                onclick="location.href='login.html' "
                                 class="focusbtn"
+                                onclick="changeWriterContentW()"
                             >
                                 <div class="FocuseWriterImg">
                                     <div class="FocuseWriterShowImg">
                                         <img
                                             src="./img/작가프로필1.png"
                                             class="FocuseWriterImgclass"
+                                            id="imgFirstW"
                                         />
                                     </div>
                                 </div>
-
-                                <div class="FocuseWriterShowName">이영영</div>
-                                <div class="FocuseWriterShowCategolry">
+                                <div
+                                    class="FocuseWriterShowName"
+                                    id="nameFirstW"
+                                >
+                                    이영영
+                                </div>
+                                <div
+                                    class="FocuseWriterShowCategolry"
+                                    id="categoryFirstW"
+                                >
                                     #영화 #도서
                                 </div>
-                                <div class="FocuseWriterShowIntro">
+                                <div
+                                    class="FocuseWriterShowIntro"
+                                    id="introFirstW"
+                                >
                                     현재 영화 평론가로 블로그를 운영하고
                                     있습니다. 진실되고 솔직한 감정을 담..
                                 </div>
                             </button>
                         </div>
-                        <div class="FocuseWriterShowSecond">
+                        <div class="FocuseWriterShowSecond" id="writerSecond">
                             <button
                                 type="button"
-                                onclick="location.href='login.html' "
                                 class="focusbtn"
+                                onclick="changeWriterContentW()"
                             >
                                 <div class="FocuseWriterImg">
                                     <div class="FocuseWriterShowImg">
                                         <img
                                             src="./img/작가프로필2.png"
                                             class="FocuseWriterImgclass"
+                                            id="imgSecondW"
                                         />
                                     </div>
                                 </div>
-
-                                <div class="FocuseWriterShowName">과하학</div>
-                                <div class="FocuseWriterShowCategolry">
+                                <div
+                                    class="FocuseWriterShowName"
+                                    id="nameSecondW"
+                                >
+                                    과하학
+                                </div>
+                                <div
+                                    class="FocuseWriterShowCategolry"
+                                    id="categorySecondW"
+                                >
                                     #과학 #영화
                                 </div>
-                                <div class="FocuseWriterShowIntro">
+                                <div
+                                    class="FocuseWriterShowIntro"
+                                    id="introSecondW"
+                                >
                                     과학과 영화를 사랑합니다. 오랜기간
                                     과학연구소에서 세상을 바꿀 도전을...
                                 </div>
@@ -366,7 +388,7 @@
                     <div class="FocuseWriterMore">
                         <button
                             type="button"
-                            onclick="location.href='login.html' "
+                            onclick="changeWriterContentW()"
                             class="focusmore"
                         >
                             다른 작가도 궁금해요!
@@ -376,16 +398,22 @@
                 <div class="FocuseWriting">
                     <div class="FocuseWritingTitle">추천 글</div>
                     <div class="FocuseWritingShow">
-                        <div class="FocuseWritingShowFirst">
+                        <div class="FocuseWritingShowFirst" id="contentFirst">
                             <button
                                 type="button"
-                                onclick="location.href='login.html' "
                                 class="focusbtn"
+                                onclick="changeContentR()"
                             >
                                 <div class="FocuseWritingShowImg">
-                                    <img src="./img/메인페이지추천글1.png" />
+                                    <img
+                                        src="./img/메인페이지추천글1.png"
+                                        id="imgFirstR"
+                                    />
                                 </div>
-                                <div class="FocuseWritingShowTitle">
+                                <div
+                                    class="FocuseWritingShowTitle"
+                                    id="titleFirstR"
+                                >
                                     하늘은 왜 푸른걸까?
                                 </div>
                                 <div class="FocuseWritingShowWho">
@@ -395,25 +423,37 @@
                                     >
                                         by
                                     </div>
-                                    <div class="FocuseWritingShowWhoName">
+                                    <div
+                                        class="FocuseWritingShowWhoName"
+                                        id="authorFirstR"
+                                    >
                                         으라차
                                     </div>
                                 </div>
-                                <div class="FocuseWritingShowIntro">
+                                <div
+                                    class="FocuseWritingShowIntro"
+                                    id="introFirstR"
+                                >
                                     한번쯤은 모두 생각해보지않았을까?
                                 </div>
                             </button>
                         </div>
-                        <div class="FocuseWritingShowSecond">
+                        <div class="FocuseWritingShowSecond" id="contentSecond">
                             <button
                                 type="button"
-                                onclick="location.href='login.html' "
                                 class="focusbtn"
+                                onclick="changeContentR()"
                             >
                                 <div class="FocuseWritingShowImg">
-                                    <img src="./img/메인페이지추천글2.png" />
+                                    <img
+                                        src="./img/메인페이지추천글2.png"
+                                        id="imgSecondR"
+                                    />
                                 </div>
-                                <div class="FocuseWritingShowTitle">
+                                <div
+                                    class="FocuseWritingShowTitle"
+                                    id="titleSecondR"
+                                >
                                     하늘은 왜 푸른걸까?
                                 </div>
                                 <div class="FocuseWritingShowWho">
@@ -423,11 +463,17 @@
                                     >
                                         by
                                     </div>
-                                    <div class="FocuseWritingShowWhoName">
+                                    <div
+                                        class="FocuseWritingShowWhoName"
+                                        id="authorSecondR"
+                                    >
                                         으라차
                                     </div>
                                 </div>
-                                <div class="FocuseWritingShowIntro">
+                                <div
+                                    class="FocuseWritingShowIntro"
+                                    id="introSecondR"
+                                >
                                     한번쯤은 모두 생각해보지않았을까?
                                 </div>
                             </button>
@@ -436,7 +482,7 @@
                     <div class="FocuseWritingMore">
                         <button
                             type="button"
-                            onclick="location.href='login.html' "
+                            onclick="changeContentR()"
                             class="focusmore"
                         >
                             다른 추천해드릴게요.
