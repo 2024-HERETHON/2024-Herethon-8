@@ -212,3 +212,14 @@ nav {
   font-weight: bold;
 }
 /*나브바 추가*/
+
+/*박스 동적 추가 */
+#main_box {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+/* 마우스를 올렸을 때 그림자 강화 */
+#main_box:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+/*박스 동적 추가 */

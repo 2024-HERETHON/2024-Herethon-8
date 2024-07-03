@@ -90,6 +90,7 @@
   flex-shrink: 0;
   border-radius: 12px;
   background: #fff;
+  margin-bottom: 8px;
 }
 .post_img {
   margin-left: auto;
@@ -234,3 +235,14 @@ nav {
   font-weight: bold;
 }
 /*nav 바 css */
+
+/*박스 동적 추가 */
+.post {
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+/* 마우스를 올렸을 때 그림자 강화 */
+.post:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+
+/*박스 동적 추가 */
