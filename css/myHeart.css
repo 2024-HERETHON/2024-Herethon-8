@@ -138,6 +138,16 @@
   gap: 16px;
   margin-top: 24px;
 }
+.content_none {
+  margin-top: 36px;
+
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 #main_box_post {
   width: 736px;
   height: 158px;

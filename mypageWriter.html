@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WriterPage</title>
+    <link rel="stylesheet" href="./css/mypageWriter.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="mypage_title">
+          <div class="bar"></div>
+          <!-- 인사헤더 -->
+          <div class="hello_header">
+            <div id="header1">멋쟁이처럼님 마이페이지</div>
+            <div id="header2">반갑습니다, 이영영 작가님!</div>
+          </div>
+        </div>
+        <!-- 내용 -->
+        <div class="content_wrap">
+          <!-- 프로필 -->
+          <div class="section1">
+            <div class="profile">
+              <img id="profile_img" src="./images/profile_img.svg" />
+              <p id="profile_name">이영영 (작가)</p>
+            </div>
+            <div id="profile_line"></div>
+            <!-- 관심분야 -->
+            <div class="interest">
+              <div id="interest_title">관심분야</div>
+              <div id="interest_box">
+                <div class="my_interest" id="movie">영화</div>
+                <div class="my_interest" id="book">도서</div>
+              </div>
+            </div>
+            <!-- 선택한 댓글 글자수 -->
+            <div class="comment_length">
+              <div id="comment_length_title">현재 선택한 댓글 글자수</div>
+              <div id="length_box">
+                <button class="length_select" id="50" after>50</button>
+                <button class="length_select" id="100">100</button>
+                <button class="length_select" id="150">150</button>
+                <button class="length_select" id="200">200</button>
+                <button class="length_select" id="250">250</button>
+              </div>
+            </div>
+
+            <div id="profile_line"></div>
+            <!-- 현재 포인트 -->
+            <div class="point">
+              <span id="point_title">현재 포인트</span>
+              <span class="profile_my_point" id="my_point">1050P</span>
+            </div>
+
+            <div id="profile_line"></div>
+            <!-- 오늘 활동 -->
+            <div class="today_active">
+              <div id="today_active_title">오늘 활동</div>
+
+              <div id="today_active_content">
+                <div class="today_content" id="today_comment">
+                  <div class="today_active_text">댓글 작성하기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_comment">1</span>
+                    회 완료
+                  </div>
+                </div>
+                <div class="today_content" id="today_post">
+                  <div class="today_active_text">글 작성하기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_post">0</span>
+                    회 완료
+                  </div>
+                </div>
+                <div class="today_content" id="today_news">
+                  <div class="today_active_text">오늘의 뉴스 읽기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_news">1</span>
+                    회 완료
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="profile_line"></div>
+
+            <button id="edit_profile">개인정보 수정하기</button>
+          </div>
+
+          <div class="section2">
+            <!-- 활동내역 -->
+            <div class="active_detail">
+              <div id="active_detail_title">활동내역</div>
+              <div class="mydetail_buttons">
+                <button class="my_button" id="my_comment">
+                  <img src="./images/my_comment.svg" />
+                  <span class="my_button_text" id="my_comment_text"
+                    >내가 쓴 댓글</span
+                  >
+                </button>
+                <div id="my_line"></div>
+                <button class="my_button" id="my_heart">
+                  <img src="./images/my_heart.svg" />
+                  <span class="my_button_text" id="my_heart_text"
+                    >좋아요 기록</span
+                  >
+                </button>
+                <div id="my_line"></div>
+                <button class="my_button" id="my_scrap">
+                  <img src="./images/my_scrap.svg" />
+                  <span class="my_button_text" id="my_scrap_text"
+                    >스크랩 기록</span
+                  >
+                </button>
+                <div id="my_line"></div>
+                <button class="my_button" id="my_post">
+                  <img src="./images/my_post.svg" />
+                  <span class="my_button_text" id="my_post_text"
+                    >내가 쓴 글</span
+                  >
+                </button>
+              </div>
+            </div>
+            <!-- 메뉴 -->
+            <div class="menu">
+              <div class="menu_buttons">
+                <button class="menu_button" id="attendance">출석체크</button>
+                <button class="menu_button" id="point_store">
+                  포인트 스토어
+                </button>
+              </div>
+              <div class="menu_lines">
+                <div class="line_attendance" id="line_attendance"></div>
+                <div class="line_between"></div>
+                <div class="line_point" id="line_point"></div>
+                <div class="line_right"></div>
+              </div>
+            </div>
+            <!-- 메뉴 디테일 -->
+            <!-- 출석체크 -->
+            <div
+              class="menu_detail"
+              id="attendance_detail"
+            >
+             <!-- 캘린더 구현 -->
+             <div id="calendar">
+              <div id="header">
+                <button id="prev">
+                  <img src="./images/calendar_prev.svg" />
+                </button>
+                <h2 id="month-year"></h2>
+                <button id="next">
+                  <img src="./images/calendar_next.svg" />
+                </button>
+              </div>
+              <table id="calendar-table">
+                <thead>
+                  <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body">
+                  <!-- 캘린더 날짜 구현 -->
+                </tbody>
+              </table>
+            </div>
+             <!--  -->
+              <div class="how_point">
+                <div class="how_point_title">포인트 획득 방법</div>
+                <div class="how_point_box">
+                  <div id="how_point_info">
+                    <img src="./images/how_point.svg" />
+                    <span id="info_text"
+                      >내일 하루 더 출석체크하면 포인트가 더블!</span
+                    >
+                  </div>
+                  <div id="how_point_info">
+                    <img src="./images/how_point.svg" />
+                    <span id="info_text"
+                      >경제관련 글을 읽으면 포인트를 더 모을 수 있어요!</span
+                    >
+                  </div>
+                  <div id="how_point_info">
+                    <img src="./images/how_point.svg" />
+                    <span id="info_text"
+                      >선택한 댓글 글자수마다 받을 수 있는 포인트가
+                      달라요!</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 메뉴 디테일 -->
+            <!-- 포인트 스토어 -->
+            <div class="menu_detail" id="point_store_detail" style="display: none">
+              <div class="usable_point">
+                <div class="usable_point_title">
+                  <span id="usable_point_text">사용 가능 포인트</span>
+                  <span class="usable_my_point" id="my_point">1050P</span>
+                </div>
+                <div class="usable_point_box">
+                  <div id="usable_point_info">
+                    <img src="./images/how_point.svg" />
+                    <span id="info_text"
+                      >포인트는 100단위로 사용가능해요.</span
+                    >
+                  </div>
+                  <div id="usable_point_info">
+                    <img src="./images/how_point.svg" />
+                    <span id="info_text"
+                      >현재 사용할 수 있는 항목만 볼 수 있어요.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="change">
+                <div class="change_font">
+                  <div class="font_title">글꼴 변경하기</div>
+                  <div class="font_menu_box">
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu1_text">안녕하세요, 멋쟁이처럼님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu1_point">200P</span>
+                        <button class="menu_change" id="menu1_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu2_text">안녕하세요, 멋쟁이처럼님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu2_point">200P</span>
+                        <button class="menu_change" id="menu2_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu3_text">안녕하세요, 멋쟁이처럼님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu3_point">200P</span>
+                        <button class="menu_change" id="menu3_change">변경하기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="change_theme">
+                  <div class="theme_title">테마 변경하기</div>
+                  <div class="theme_menu_box">
+                    <div class="theme_menu">
+                      <div class="theme_color" id="menu1_color">
+                        <img class="theme_color_img" src="./images/theme_color_1.svg" alt="">
+                        <span class="theme_color_text">다크모드</span>
+                      </div>
+                      <div class="theme_box">
+                        <span class="theme_point" id="theme1_point">200P</span>
+                        <button class="theme_change" id="theme1_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="theme_menu">
+                      <div class="theme_color" id="menu2_color">
+                        <img class="theme_color_img" src="./images/theme_color_2.svg" alt="">
+                        <span class="theme_color_text">컬러모드</span>
+                      </div>
+                      <div class="theme_box">
+                        <span class="theme_point" id="theme2_point">200P</span>
+                        <button class="theme_change" id="theme2_change">변경하기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/mypageWriter.js"></script>
+  </body>
+</html>

@@ -91,6 +91,19 @@
 
   margin-bottom: 24px;
 }
+
+/* 기록 없을 때 */
+.content_none {
+  margin-top: 36px;
+
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* 기록 있을 때 */
 .main_boxs {
   display: flex;
   flex-direction: column;
