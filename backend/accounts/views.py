@@ -77,6 +77,34 @@ def user_comments_view(request):
     }
     return render(request, 'myComment.html', context)
 
+@login_required
+def user_liked_posts_view(request):
+    user_id = request.user.id
+    liked_posts = Post.objects.filter(likes__user_id=user_id)
+    context = {
+        'liked_posts': liked_posts
+    }
+    return render(request, 'myHeart.html', context)
+
+@login_required
+def user_liked_comments_view(request):
+    user_id = request.user.id
+    liked_comments = Comment.objects.filter(likes__user_id=user_id)
+    context = {
+        'liked_comments': liked_comments
+    }
+    # AJAX 요청에 대한 응답으로 HTML 템플릿을 렌더링하여 보냄
+    return render(request, 'myHeart.html', context)
+
+@login_required
+def user_scrap_posts_view(request):
+    user_id = request.user.id
+    scrap_posts = Post.objects.filter(likes__user_id=user_id)
+    context = {
+        'scrap_posts': scrap_posts
+    }
+    return render(request, 'myScrap.html', context)
+
 def author_list_view(request):
     authors = Author.objects.all()
     return render(request, 'author_list.html', {'authors': authors})

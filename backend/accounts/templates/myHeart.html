@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHeart</title>
+    <link rel="stylesheet" href="{% static 'css/myHeart.css' %}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar"></div>
+        <!-- 사이드 버튼 -->
+        <div class="side">
+          <div class="side_title">활동내역</div>
+          <div class="side_buttons">
+            <button class="side_button" id="my_comment">
+              <img src="{% static 'img/my_comment.svg' %}" />
+              <span>내가 쓴 댓글</span>
+            </button>
+            <button class="side_button" id="my_heart">
+              <img src="{% static 'img/my_heart_black.svg' %}" />
+              <span>좋아요 기록</span>
+            </button>
+            <button class="side_button" id="my_scrap">
+              <img src="{% static 'img/my_scrap.svg' %}" />
+              <span>스크랩 기록</span>
+            </button>
+            <button class="side_button" id="my_post">
+              <img src="{% static 'img/my_post.svg' %}" />
+              <span>내가 쓴 글</span>
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main_title" id="my_comment_title">좋아요 기록</div>
+          <div class="main_menu">
+            <button class="main_menu_button" id="post">
+              <span id="post_button">글</span>
+              <span class="menu_line" id="post_button_line"></span>
+            </button>
+            <button class="main_menu_button" id="comment">
+              <span id="comment_button">댓글</span>
+              <span class="menu_line" id="comment_button_line"></span>
+            </button>
+          </div>
+          <!-- 좋아요한 글 기록-->
+          <div class="main_boxs" id="main_boxs_post">
+            {% for post in liked_posts %}
+            <div class="main_box" id="main_box_post">
+              <div class="box_wrap" id="box_wrap_post">
+                <div class="box_text" id="box_text_post">
+                  <div class="post_title1" id="post_title1">
+                    {{ post.title }}
+                  </div>
+                  <div class="post_title2" id="post_title2">
+                    {{ post.content }}
+                  </div>
+                  <div class="writer">By {{ post.writer }}</div>
+                </div>
+                <div class="box_img">
+                  <img src="{% static 'img/my_heart_img1.svg' %}" />
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- 좋아요한 댓글 -->
+          <div class="main_boxs" id="main_boxs_comment" style="display: none">
+            {% for comment in liked_comments %}
+            <div class="main_box" id="main_box_comment">
+              <div class="box_wrap" id="box_wrap_comment">
+                <div class="heart_post_title" id="heart_post_title">
+                  원문 | {{ comment.post }}
+                </div>
+                <div class="heart_comment_content" id="heart_comment_content">
+                  {{ comment.content }}
+                </div>
+                <div class="bottom">
+                  <div class="id_date_time">
+                    <span id="id">{{ comment.writer }}</span>
+                    <span id="date">{{ comment.created_at }}</span>
+                    <!-- 시간 추가 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/myHeart.js' %}"></script>
+</html>

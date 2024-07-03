@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+
     // 댓글수 태그 버튼
     const lengthButtons = document.querySelectorAll(".length_select");
   

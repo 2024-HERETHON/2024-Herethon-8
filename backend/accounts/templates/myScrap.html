@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyScrap</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/myScrap.css' %}" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="container">
+      <div class="bar"></div>
+      <div class="side">
+        <div class="side_title">활동내역</div>
+        <div class="side_buttons">
+          <button class="side_button" id="my_comment">
+            <img src="{% static 'img/my_comment.svg' %}" />
+            <span>내가 쓴 댓글</span>
+          </button>
+          <button class="side_button" id="my_heart">
+            <img src="{% static 'img/my_heart.svg' %}" />
+            <span>좋아요 기록</span>
+          </button>
+          <button class="side_button" id="my_scrap">
+            <img src="{% static 'img/my_scrap_black.svg' %}" />
+            <span>스크랩 기록</span>
+          </button>
+          <button class="side_button" id="my_post">
+            <img src="{% static 'img/my_post.svg' %}" />
+            <span>내가 쓴 글</span>
+          </button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="main_title" id="my_comment_title">스크랩 기록</div>
+        <div class="main_line"></div>
+        {% if scrap_posts %}
+        <div class="main_boxs">
+          {% for post in scrap_posts %}
+          <div class="main_box">
+            <div class="box_wrap">
+              <div class="box_text">
+                <div class="post_title1">{{ post.title }}</div>
+                <div class="post_title2">{{ post.content }}</div>
+                <div class="writer">By {{ post.writer.nickname }}</div>
+              </div>
+              <div class="box_img">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" />
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="content_none" id="none">현재 스크랩한 글이 없습니다.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+<script src="{% static 'js/myScrap.js' %}"></script>
+</html>

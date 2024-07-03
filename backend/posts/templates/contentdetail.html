@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/contentdetail.css' %}" />
+        <title>Document</title>
+    </head>
+    <nav></nav>
+    <body>
+        <div class="bodyelements">
+            <div class="bodybackground">
+                <div class="bodybackgroundelements">
+                    <div class="backgroundmore">
+                        <div class="backgroundHeart">
+                            <div class="heartImg">
+                                <img src="{% static 'img/heartw.png' %}" />
+                            </div>
+                            <div class="heartCnt" id="backgroundHeartCount">1</div>
+                        </div>
+                        <div class="backgroundComments">
+                            <div class="commentImg">
+                                <img src="{% static 'img/commentsw.png' %}" />
+                            </div>
+                            <div class="commentCnt">0</div>
+                        </div>
+                        <div class="backgroundScrap">
+                            <div class="ScrapImg">
+                                <img src="{% static 'img/bookmarkw.png' %}"  />
+                            </div>
+                            <div class="ScrapCnt"  id="backgroundScrapCount">1</div>
+                        </div>
+                    </div>
+                    <div class="backgroundtitle">
+                        {{ post.title }}
+                    </div>
+                    <div class="backgroundwhen">
+                        <div class="backgroundwho">
+                            <div class="backgroundwhoby">by</div>
+                            <div class="backgroundwhoname">{{ user.nickname }}</div>
+                        </div>
+                        <div class="bodybackgrounddate">{{ post.created_at|date:"Y년 n월 j일" }}</div>
+                        <div class="bodybackgroundtime">{{ post.created_at|time:"H:i" }}</div>
+                    </div> 
+                </div>
+            </div>
+            <div class="writingselements">
+                <div class="writingcontents">
+                    {{ post.content }}
+                </div>
+                <hr style="width: 50%; margin-top: 3%; color: #EEEEEE;">
+                <div class="likescrap">
+                    <div class="backgroundHeart">
+                        <div class="heartImg">
+                            <img src="{% static 'img/heart.png' %}" id="heartImage" />
+                        </div>
+                        <div class="heartCnt" id="heartCount">{{ post.like_count }}</div>
+                    </div>
+                    <div class="backgroundScrap">
+                        <div class="ScrapImg">
+                            <img src="{% static 'img/bookmark.png' %}" id="scrapImage"/>
+                        </div>
+                        <div class="ScrapCnt"id="scrapCount">{{ post.scrap_count }}</div>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="commentsetting">
+                        <div class="commentcnt">
+                            <div class="commentstitle">댓글</div>
+                            <div class="commentcntelements">
+                                <div class="commentnumber">{{ comments|length }}</div>
+                                <div class="commentnumberR">개</div>
+                            </div>
+                        </div>
+                        <div class="commentssetting">
+                            <button id="sortOldest">등록순</button>
+                            <button id="sortNewest">최신순</button>
+                        </div>
+                    </div>
+                    <div class="commentswrittingbox">
+                        <div class="commentwritingboxelements">
+                            <div class="commentcntelementsid">{{ user.nickname }}</div>
+                            <textarea
+                                type="text"
+                                placeholder="50자 이상으로 댓글을 남겨보세요"
+                                class="commentbox"
+                                cols="40"
+                                rows="5"
+                            ></textarea>
+                            <div class="commentbtnelements">
+                                <input type="submit" class="commentregister" value="등록"></input>
+                            </div>
+                        </div>
+                    </div>
+                    {% if comments %}
+                            {% for comment in comments %}
+                    <div class="commentswritten" id="commentsContainer">
+                        <div class="commentswrittenelements">
+                            <div class="commentswrittenid">{{ comment.writer.username }}</div>
+                            <div class="commentswrittencontents">{{ comment.content }}</div>
+                            <div class="commentswrittenmore">
+                                <div class="commentswritteninfo">
+                                    <div class="commentswrittendate">{{ comment.created_at|date:"Y년 n월 j일" }}</div>
+                                    <span>ㅤ</span>
+                                    <div class="commentswrittentime">{{ comment.created_at|time:"H:i" }}</div>
+                                </div>
+                                <div class="heart">
+                                    <div class="heartImg">
+                                        <img src="{% static 'img/heart.png' %}" id="heartImage" />
+                                    </div>
+                                    <div class="heartCnt" id="heartCount">{{ comment.like_count }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        <p>댓글이 없습니다.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/comments.js' %}"></script>
+    </body>
+</html>
