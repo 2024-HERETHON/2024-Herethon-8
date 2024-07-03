@@ -36,6 +36,11 @@ class Post(models.Model):
     def like_count(self):
         return self.likes.count()
     
+    def comment_count(self):
+        if self.comments.exists():  # comments가 존재하는지 확인
+            return self.comments.count()
+        return 0  # comments가 없는 경우 0을 반환
+    
     def scrap_count(self):
         return self.scraps.count()
 
@@ -46,7 +51,9 @@ class Comment(models.Model):
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='작성자', null=True)
 
     def like_count(self):
-        return self.likes.count()
+        if self.likes.exists():  # comments가 존재하는지 확인
+            return self.likes.count()
+        return 0 
     
     
 

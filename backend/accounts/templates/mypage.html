@@ -14,8 +14,13 @@
           <div class="bar"></div>
           <!-- 인사헤더 -->
           <div class="hello_header">
-            <div id="header1">{{user.nickname}}님 마이페이지</div>
-            <div id="header2">반갑습니다, {{user.nickname}}님!</div>
+            {% if user.author %}
+              <div id="header1">{{ user.nickname }}님 마이페이지</div>
+              <div id="header2">반갑습니다, {{ user.nickname }} 작가님!</div>
+            {% else %}
+              <div id="header1">{{ user.nickname }}님 마이페이지</div>
+              <div id="header2">반갑습니다, {{ user.nickname }}님!</div>
+            {% endif %}
           </div>
         </div>
         <!-- 내용 -->
@@ -94,33 +99,30 @@
             <div class="active_detail">
               <div id="active_detail_title">활동내역</div>
               <div class="mydetail_buttons">
-                <button class="my_button" id="my_comment">
-                  <img src="{% static 'img/my_comment.svg' %}" />
-                  <span class="my_button_text" id="my_comment_text"
-                    >내가 쓴 댓글</span
-                  >
-                </button>
-                <div id="my_line"></div>
-                <button class="my_button" id="my_heart">
-                  <img src="{% static 'img/my_heart.svg' %}" />
-                  <span class="my_button_text" id="my_heart_text"
-                    >좋아요 기록</span
-                  >
-                </button>
-                <div id="my_line"></div>
-                <button class="my_button" id="my_scrap">
-                  <img src="{% static 'img/my_scrap.svg' %}" />
-                  <span class="my_button_text" id="my_scrap_text"
-                    >스크랩 기록</span
-                  >
-                </button>
-                <div id="my_line"></div>
-                <button class="my_button" id="my_post">
-                  <img src="{% static 'img/my_post.svg' %}" />
-                  <span class="my_button_text" id="my_post_text"
-                    >내가 쓴 글</span
-                  >
-                </button>
+                <a href="{% url 'myComment' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_comment">
+                      <img src="{% static 'img/my_comment.svg' %}" alt="My Comments" />
+                      <span class="my_button_text" id="my_comment_text">내가 쓴 댓글</span>
+                  </button>
+                </a>
+                <a href="{% url 'liked_posts' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_heart">
+                      <img src="{% static 'img/my_heart.svg' %}" alt="My Likes" />
+                      <span class="my_button_text" id="my_heart_text">좋아요 기록</span>
+                  </button>
+                </a>
+                <a href="{% url 'scrap_posts' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_scrap">
+                      <img src="{% static 'img/my_scrap.svg' %}" alt="My Scrap" />
+                      <span class="my_button_text" id="my_scrap_text">스크랩 기록</span>
+                  </button>
+                </a>
+                <a href="{% url 'myPost' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_post">
+                      <img src="{% static 'img/my_post.svg' %}" alt="My Posts" />
+                      <span class="my_button_text" id="my_post_text">내가 쓴 글</span>
+                  </button>
+                </a>
               </div>
             </div>
             <!-- 메뉴 -->

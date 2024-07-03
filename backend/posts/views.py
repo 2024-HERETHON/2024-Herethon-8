@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Comment ,Like
+from .models import Post, Comment, Like
 from .forms import PostModelForm, CommentForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+# Create your views here.
+
 
 def post_form_view(request):
     if request.method == "GET":
@@ -15,14 +17,15 @@ def post_form_view(request):
         if form.is_valid():
             instance = form.save()  # 저장된 객체(instance) 반환
             return redirect('post-detail', pk=instance.pk)  # 게시물 상세 페이지로 리다이렉트
+
         else:
             context = {'form': form}
             return render(request, 'writeNew.html', context)
 
-@login_required
+@login_required 
 def post_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    
+
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():

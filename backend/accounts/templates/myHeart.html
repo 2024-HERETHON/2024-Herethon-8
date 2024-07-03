@@ -16,22 +16,30 @@
         <div class="side">
           <div class="side_title">활동내역</div>
           <div class="side_buttons">
-            <button class="side_button" id="my_comment">
-              <img src="{% static 'img/my_comment.svg' %}" />
-              <span>내가 쓴 댓글</span>
-            </button>
-            <button class="side_button" id="my_heart">
-              <img src="{% static 'img/my_heart_black.svg' %}" />
-              <span>좋아요 기록</span>
-            </button>
-            <button class="side_button" id="my_scrap">
-              <img src="{% static 'img/my_scrap.svg' %}" />
-              <span>스크랩 기록</span>
-            </button>
-            <button class="side_button" id="my_post">
-              <img src="{% static 'img/my_post.svg' %}" />
-              <span>내가 쓴 글</span>
-            </button>
+            <a href="{% url 'myComment' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_comment">
+                  <img src="{% static 'img/my_comment.svg' %}" alt="My Comments" />
+                  <span>내가 쓴 댓글</span>
+              </button>
+            </a>
+            <a href="{% url 'liked_posts' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_heart">
+                  <img src="{% static 'img/my_heart_black.svg' %}" alt="My Likes" />
+                  <span>좋아요 기록</span>
+              </button>
+            </a>
+            <a href="{% url 'scrap_posts' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_scrap">
+                  <img src="{% static 'img/my_scrap.svg' %}" alt="My Scrap" />
+                  <span>스크랩 기록</span>
+              </button>
+            </a>
+            <a href="{% url 'myPost' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_post">
+                  <img src="{% static 'img/my_post.svg' %}" alt="My Posts" />
+                  <span>내가 쓴 글</span>
+              </button>
+            </a>
           </div>
         </div>
         <div class="main">

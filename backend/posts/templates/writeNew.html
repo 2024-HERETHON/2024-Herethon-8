@@ -14,6 +14,7 @@
         <div class="write_wrap">
           <!-- 사이드 -->
           <div class="before_write">
+          <form action="{% url 'post-form' %}" method="post" enctype="multipart/form-data">
             <div class="topic_check">
               <p id="before_write_title">글쓰기 전에 먼저!</p>
               <div class="check_box">
@@ -42,7 +43,7 @@
 
           <!-- 글 작성 -->
           <div class="write">
-            <form action="{% url 'post-form' %}" method="post" enctype="multipart/form-data">
+            
               {% csrf_token %}
               <div class="write_box" before>
                 <p id="write_post_title" class="write_title">
@@ -54,13 +55,14 @@
                     type="text"
                     placeholder="제목"
                     name="title"
+                    value="{{ form.title.value|default:'' }}"
                   />
                   <div id="line"></div>
                   <textarea
                     id="post_content_input"
                     placeholder="본문을 작성해주세요"
                     name="content"
-                  ></textarea>
+                  >{{ form.content.value|default:'' }}</textarea>
                   <div id="write_post_bottom">
                     <button id="add_img_button" type="button">
                       <img id="add_img" src="{% static 'img/add_img_gray.svg' %}" />

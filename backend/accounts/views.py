@@ -29,15 +29,15 @@ def signup_view(request):
         if form.is_valid():
             try:
                 user = form.save()
-                user = authenticate(username=form.cleaned_data['username'],
-                                    password=form.cleaned_data['password1'])
+                raw_password = form.cleaned_data.get('password1')
+                user = authenticate(username=user.username, password=raw_password)
                 login(request, user)
                 return redirect('/accounts/login/')
             except IntegrityError:
                 form.add_error('nickname', 'This nickname is already taken.')
     else:
         form = RegisterForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'sign.html', {'form': form})
 
 def login_view(request):
     if request.method=='POST':
@@ -111,7 +111,10 @@ def author_list_view(request):
 
 def author_detail_view(request, pk):
     author = get_object_or_404(Author, pk=pk)
-    return render(request, 'author_detail.html', {'author': author})
+    author_posts = author.posts.all()
+    similar_authors = Author.objects.exclude(pk=pk)[:3]
+
+    return render(request, 'writerpage.html', {'author': author, 'author_posts': author_posts, 'similar_authors': similar_authors})
 
 @staff_member_required
 def author_create_view(request):
