@@ -4,8 +4,8 @@ from posts.models import Post, Comment , Like, Scrap
 
 # Create your models here.
 class User(AbstractUser) :
-    email = models.EmailField(max_length=64, unique=True)
-    nickname = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(max_length=64, unique=True, null=True)
+    nickname = models.CharField(max_length=20, unique=True, null=True)
     profile = models.ImageField(upload_to='profiles/', blank=True, null=True)
     point = models.IntegerField(default=0)
     posts = models.ManyToManyField(Post, related_name='user_posts', blank=True)  

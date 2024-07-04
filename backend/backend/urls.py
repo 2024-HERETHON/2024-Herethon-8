@@ -23,6 +23,9 @@ import accounts.views
 import posts.views
 
 urlpatterns = [
+    path('', accounts.views.beforeMain_view, name='before-main'),
+    path('recommend', accounts.views.recommendMain_view, name='recommend-main'),
+    path('popular', accounts.views.popularMain_view, name='popular-main'),
     path('admin/', admin.site.urls),
     path('accounts/signup/', accounts.views.signup_view, name="signup"),
     path('accounts/login/', accounts.views.login_view, name="login"),

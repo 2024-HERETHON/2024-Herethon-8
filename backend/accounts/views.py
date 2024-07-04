@@ -22,22 +22,62 @@ from django.db import IntegrityError
 from .models import Author
 from .forms import AuthorForm
 from django.core.exceptions import ObjectDoesNotExist
+from .forms import EmailAuthenticationForm
+
+
+def beforeMain_view(request):
+    latest_post = Post.objects.order_by('-created_at').first()
+    most_liked_post = Post.objects.order_by('-likes').first()
+    focus_author = Author.objects.all()[:2]
+    recommended_post = Post.objects.order_by('-likes')[:2]
+
+    context = {
+        'latest_post': latest_post,
+        'most_liked_post': most_liked_post,
+        'focus_author': focus_author,
+        'recommended_post': recommended_post,
+    }
+
+    if request.user.is_authenticated:
+        return render(request, 'afterMain.html', context)
+    else:
+        return render(request, 'beforeMain.html', context)
+    
+def recommendMain_view(request):
+    focus_author = Author.objects.all()[:4]
+    latest_post = Post.objects.order_by('-created_at')[:6]
+    recommended_post = Post.objects.all()[:6]
+    context = {
+        'focus_author': focus_author,
+        'latest_post' : latest_post,
+        'recommended_post': recommended_post,
+    }
+    return render(request, 'recommend.html', context)
+
+def popularMain_view(request):
+    most_liked_post = Post.objects.order_by('-likes')[:6]
+    context = {
+        'most_liked_post' : most_liked_post
+    }
+    return render(request, 'popular.html', context)
 
 def signup_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            try:
                 user = form.save()
-                raw_password = form.cleaned_data.get('password1')
-                user = authenticate(username=user.username, password=raw_password)
+                user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'])
                 login(request, user)
                 return redirect('/accounts/login/')
-            except IntegrityError:
-                form.add_error('nickname', 'This nickname is already taken.')
+            
     else:
         form = RegisterForm()
     return render(request, 'sign.html', {'form': form})
+
+    
+    
+    
 
 def login_view(request):
     if request.method=='POST':
@@ -52,6 +92,8 @@ def login_view(request):
     else:
         form=AuthenticationForm()
         return render(request, 'login.html', {'form':form})
+
+
     
 def logout_view(request):
     logout(request)
@@ -111,7 +153,7 @@ def author_list_view(request):
 
 def author_detail_view(request, pk):
     author = get_object_or_404(Author, pk=pk)
-    author_posts = author.posts.all()
+    author_posts = Post.objects.filter(writer=author.user)
     similar_authors = Author.objects.exclude(pk=pk)[:3]
 
     return render(request, 'writerpage.html', {'author': author, 'author_posts': author_posts, 'similar_authors': similar_authors})
