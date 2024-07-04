@@ -80,7 +80,11 @@
                   <div class="writer">By 영시네마</div>
                 </div>
                 <div class="box_img">
-                  <img src="./images/my_heart_img1.svg" />
+                  <img
+                    class="img_size"
+                    src="./images/my_heart_img1.svg"
+                    onerror="this.src = './images/bin_img.svg'"
+                  />
                 </div>
               </div>
             </div>
@@ -92,8 +96,8 @@
               좋아요 누른 댓글이 없습니다.
             </div>
             <!-- 좋아요한 댓글 기록이 있으면 -->
-            <div class="main_box" id="main_box_comment">
-              <div class="box_wrap" id="box_wrap_comment">
+            <div class="main_box_comment" id="main_box_comment">
+              <div class="box_wrap_comment" id="box_wrap_comment">
                 <div class="heart_post_title" id="heart_post_title">
                   원문 | 아메리카노
                 </div>

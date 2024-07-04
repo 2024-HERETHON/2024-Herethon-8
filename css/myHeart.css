@@ -148,7 +148,7 @@
   font-weight: 400;
   line-height: normal;
 }
-#main_box_post {
+.main_box {
   width: 736px;
   height: 158px;
   flex-shrink: 0;
@@ -156,7 +156,7 @@
   background: #fff;
   box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
 }
-#box_wrap_post {
+.box_wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -166,7 +166,7 @@
   padding-bottom: 23px;
   padding-right: 23px;
 }
-#box_text_post {
+.box_text {
   display: flex;
   flex-direction: column;
 }
@@ -198,8 +198,20 @@
   font-weight: 400;
   line-height: normal;
 }
-
-#main_box_comment {
+.box_img {
+  width: 183px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.img_size {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.main_box_comment {
   width: 736px;
   height: 158px;
   flex-shrink: 0;
@@ -207,7 +219,7 @@
   border: 1px solid #a9b388;
   background: #fff;
 }
-#box_wrap_comment {
+.box_wrap_comment {
   margin-top: 16px;
   margin-left: 16px;
   margin-right: 22.5px;
@@ -303,20 +315,20 @@ nav {
 /*나브바 추가*/
 
 /*박스 동적 추가 */
-#main_box_post {
+.main_box {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
   transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
 }
 /* 마우스를 올렸을 때 그림자 강화 */
-#main_box_post:hover {
+.main_box:hover {
   box-shadow: 0 8px 12px #5e6f52;
 }
 
-#main_box_comment {
+.main_box_comment {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
   transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
 }
-#main_box_comment:hover {
+.main_box_comment:hover {
   box-shadow: 0 8px 12px #5e6f52;
 }
 /*박스 동적 추가 */

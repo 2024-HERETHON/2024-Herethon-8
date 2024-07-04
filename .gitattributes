@@ -1,3 +1,9 @@
-# .gitattributes
-images/calendar_next.svg text eol=lf
-images/calendar_prev.svg text eol=lf
+# 기본 동작을 설정하여 줄 끝을 자동으로 정규화
+* text=auto
+
+# SVG 파일에 대해 LF 줄 끝을 강제 적용
+*.svg text eol=lf
+
+# 다른 파일 형식에 대해 CRLF 줄 끝을 강제 적용
+*.bat text eol=crlf
+*.sh text eol=lf
