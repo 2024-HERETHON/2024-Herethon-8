@@ -78,21 +78,25 @@
                             <button id="sortNewest">최신순</button>
                         </div>
                     </div>
-                    <div class="commentswrittingbox">
-                        <div class="commentwritingboxelements">
-                            <div class="commentcntelementsid">{{ user.nickname }}</div>
-                            <textarea
-                                type="text"
-                                placeholder="50자 이상으로 댓글을 남겨보세요"
-                                class="commentbox"
-                                cols="40"
-                                rows="5"
-                            ></textarea>
-                            <div class="commentbtnelements">
-                                <input type="submit" class="commentregister" value="등록"></input>
+                    <form method="post" action="{% url 'post-comment' post.id %}">
+                        {% csrf_token %}
+                        <div class="commentswrittingbox">
+                            <div class="commentwritingboxelements">
+                                <div class="commentcntelementsid">{{ user.nickname }}</div>
+                                <textarea
+                                    name = "content"
+                                    type="text"
+                                    placeholder="50자 이상으로 댓글을 남겨보세요"
+                                    class="commentbox"
+                                    cols="40"
+                                    rows="5"
+                                ></textarea>
+                                <div class="commentbtnelements">
+                                    <input type="submit" class="commentregister" value="등록"></input>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     {% if comments %}
                             {% for comment in comments %}
                     <div class="commentswritten" id="commentsContainer">

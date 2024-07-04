@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login</title>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    </head>
-    <body>
-        <div class="container">
-            <div class="LoginInputBox">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="LoginInputBox">
+            <form method="post">
+                {% csrf_token %}
                 <div class="LoginInputBoxName">로그인</div>
                 <div class="LoginInputBoxNormalElements">
                     <div class="LoginInputBoxNormal">
@@ -17,8 +19,9 @@
                             <div class="LoginInputBoxEmail">
                                 <input
                                     type="text"
-                                    placeholder="이메일"
+                                    placeholder="아이디"
                                     class="Inputbox"
+                                    name="username"
                                 />
                             </div>
                             <div class="LoginInputBoxPwd">
@@ -27,10 +30,11 @@
                                     placeholder="비밀번호"
                                     class="Inputbox password-input"
                                     id="password"
+                                    name="password"
                                 />
                                 <div class="eyes" onclick="togglePassword()">
                                     <img
-                                    src="{% static 'img/pwdshowbtn.png' %}"
+                                        src="{% static 'img/pwdshowbtn.png' %}"
                                         class="fas fa-eye"
                                         id="togglePassword"
                                     />
@@ -48,56 +52,54 @@
                         </div>
 
                         <div class="LoginInputBoxLogin">
-                            <button type="button" class="Inputbtn">
+                            <button type="submit" class="Inputbtn">
                                 로그인
                             </button>
                         </div>
                     </div>
                 </div>
+                
+            </form>
 
-                <div class="LoginInputBoxNormalElements">
-                    <div class="LoginInputBoxelse">또는</div>
-                </div>
+            <div class="LoginInputBoxNormalElements">
+                <div class="LoginInputBoxelse">또는</div>
+            </div>
 
-                <div class="LoginInputBoxLoginElseElements">
-                    <div class="LoginInputBoxLoginElse">
-                        <div class="LoginInputBoxKakao">
-                            <button type="button" class="InputbtnElse">
-                                카카오계정으로 로그인
-                            </button>
-                        </div>
-                        <div class="LoginInputBoxGoogle">
-                            <button type="button" class="InputbtnElse">
-                                구글로 로그인
-                            </button>
-                        </div>
+            <div class="LoginInputBoxLoginElseElements">
+                <div class="LoginInputBoxLoginElse">
+                    <div class="LoginInputBoxKakao">
+                        <button type="button" class="InputbtnElse">
+                            카카오계정으로 로그인
+                        </button>
+                    </div>
+                    <div class="LoginInputBoxGoogle">
+                        <button type="button" class="InputbtnElse">
+                            구글로 로그인
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="LoginMoreElseElements">
-                    <div class="LoginMore">
-                        <div class="LoginMoreOption">
+            <div class="LoginMoreElseElements">
+                <div class="LoginMore">
+                    <div class="LoginMoreOption">
+                        <div>
+                            <a href="{% url 'signup' %}" class="link">회원가입</a>
+                        </div>
+                        <div class="LoginMoreOptionelse">
                             <div>
-                                <a href="{% url 'signup' %}" class="link">회원가입</a>
+                                <a href="{% url 'signup' %}" class="link">계정찾기</a>
                             </div>
-                            <div class="LoginMoreOptionelse">
-                                <div>
-                                    <a href="{% url 'signup' %}" class="link"
-                                        >계정찾기</a
-                                    >
-                                </div>
-                                <div>|</div>
-                                <div>
-                                    <a href="{% url 'signup' %}" class="link"
-                                        >비밀번호 찾기</a
-                                    >
-                                </div>
+                            <div>|</div>
+                            <div>
+                                <a href="{% url 'signup' %}" class="link">비밀번호 찾기</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="{% static 'js/login.js' %}"></script>
-    </body>
+    </div>
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
 </html>

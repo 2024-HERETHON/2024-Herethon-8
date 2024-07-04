@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/popular.css' %}" />
+        <title>Document</title>
+    </head>
+    <nav>
+        <div class="Left">
+            <div class="Title">이름</div>
+            <div class="Selectbar">
+                <div class="popluar">
+                    <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+                </div>
+                <div class="recommend">
+                    <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+                </div>
+                <div class="writenew">
+                    <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="{% url 'mypage' %}" class="navlinklogin">마이페이지</a>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="bodyElements">
+            <div class="realtimehot">
+                <button class="scroll-button left" onclick="scrollToLeft()">
+                    &#9664;
+                </button>
+                <button class="scroll-button right" onclick="scrollToRight()">
+                    &#9654;
+                </button>
+                <div class="realtimehottitle">실시간 인기</div>
+                <div class="realtimehotwritings" id="carousel">
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='login.html'"
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                {{ most_liked_post.0.title }}
+                            </div>
+                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.0.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                {{ most_liked_post.0.content|truncatewords:20 }}
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                {{ most_liked_post.1.title }}
+                            </div>
+                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.1.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                {{ most_liked_post.1.content|truncatewords:20 }}
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                {{ most_liked_post.2.title }}
+                            </div>
+                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.2.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                {{ most_liked_post.2.content|truncatewords:20 }}
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                {{ most_liked_post.3.title }}
+                            </div>
+                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.3.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                {{ most_liked_post.3.content|truncatewords:20 }}
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                {{ most_liked_post.4.title }}
+                            </div>
+                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.4.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                {{ most_liked_post.4.content|truncatewords:20 }}
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                먹기도 전에 배부른 비만약?
+                            </div>
+                            <div class="realtimehotwritingsboxWho">SBS biz</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                비만치료제를 복용하면 음식물을 먹지 않고 보기만
+                                해도 포만감을 느끼게 되는 원리를 국내 연구진이
+                                규명했습니...
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                먹기도 전에 배부른 비만약?
+                            </div>
+                            <div class="realtimehotwritingsboxWho">SBS biz</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                비만치료제를 복용하면 음식물을 먹지 않고 보기만
+                                해도 포만감을 느끼게 되는 원리를 국내 연구진이
+                                규명했습니...
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                먹기도 전에 배부른 비만약?
+                            </div>
+                            <div class="realtimehotwritingsboxWho">SBS biz</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                비만치료제를 복용하면 음식물을 먹지 않고 보기만
+                                해도 포만감을 느끼게 되는 원리를 국내 연구진이
+                                규명했습니...
+                            </div>
+                        </button>
+                    </div>
+                    <div class="realtimehotwritingsbox">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="realtimehotwritingsboxBtn"
+                        >
+                            <div class="realtimehotwritingsboxImg">
+                                <img
+                                    src="{% static 'img/실시간인기1.png' %}"
+                                    class="realtimehotwritingsboxImgclass"
+                                />
+                            </div>
+                            <div class="realtimehotwritingsboxTitle">
+                                먹기도 전에 배부른 비만약?
+                            </div>
+                            <div class="realtimehotwritingsboxWho">SBS biz</div>
+                            <div class="realtimehotwritingsboxWritings">
+                                비만치료제를 복용하면 음식물을 먹지 않고 보기만
+                                해도 포만감을 느끼게 되는 원리를 국내 연구진이
+                                규명했습니...
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="categlory">
+                <div class="categloryTitle">분야별 인기 글</div>
+                <div class="categlorySelect">
+                    <div class="nav-bar">
+                        <div onclick="selectOption(this)" id="01">영화</div>
+                        <div onclick="selectOption(this)" id="02">도서</div>
+                        <div onclick="selectOption(this)" id="03">음악</div>
+                        <div onclick="selectOption(this)" id="04">경제</div>
+                        <div onclick="selectOption(this)" id="05">과학</div>
+                        <div onclick="selectOption(this)" id="06">사회</div>
+                        <div onclick="selectOption(this)" id="07">기타</div>
+                    </div>
+                </div>
+            </div>
+            <div class="writingsandwriter">
+                <div class="writings">
+                    <div class="writingscontents">
+                        <button
+                            type="button"
+                            onclick="location.href='/accounts/login/' "
+                            class="writingscontentsbox"
+                        >
+                            <div class="writingscontentselements">
+                                <div class="writingscontentsIntro">
+                                    기묘한 우물 속으로 나를 찾아 떠나는 여정
+                                </div>
+                                <div class="writingscontentsMain">
+                                    <div class="writingscontentstext">
+                                        <div class="writingscontentsTitle">
+                                            무라카미 하루키가 전하는 이데아
+                                        </div>
+                                        <div class="writingscontentsWho">
+                                            <div class="writingscontentsWhoby">
+                                                by
+                                            </div>
+                                            <div
+                                                class="writingscontentsWhoname"
+                                            >
+                                                최정이
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="writingscontentsImg">
+                                        <img
+                                            src="{% static 'img/실시간인기1.png' %}"
+                                            class="writingscontentsImgclass"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="writingscontentsMore">
+                                    <div class="writingscontentsHeart"></div>
+                                    <div class="writingscontentsComments"></div>
+                                    <div class="writingscontentsSaved"></div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="writer">
+                    <div class="writerTitle">
+                        <div class="writercategolry">도서</div>
+                        <div class="writertitleafter">분야의 추천 작가</div>
+                    </div>
+                    <div class="writerShow">
+                        <div class="writerShowelements">
+                            <div class="writerimg">
+                                <img
+                                    src="{% static 'img/작가인기프로필.png' %}"
+                                    class="writerimgclass"
+                                />
+                            </div>
+                            <div class="writername">
+                                <a href="recommend-main" class="writerlink">
+                                    영평가</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/popluar.js' %}"></script>
+    </body>
+</html>

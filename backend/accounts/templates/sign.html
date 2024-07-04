@@ -13,7 +13,7 @@
             <div class="img"></div>
             <div class="introtext">
                 <div class="introduce1">
-                    당신의 어휘력을 높이기위한 매일의 기록
+                    당신의 어휘력을 높이기 위한 매일의 기록
                 </div>
                 <div class="introduce2">
                     지금 바로 가입하고 함께 성장해봐요!
@@ -23,7 +23,7 @@
         <div class="Right">
             <div class="container">
                 <div class="LoginInputBox">
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="LoginInputBoxName">회원가입</div>
                         <div class="LoginInputBoxNormalElements">
@@ -32,10 +32,10 @@
                                     <div class="LoginInputBoxEmail">
                                         <input
                                             type="text"
-                                            placeholder="이메일"
+                                            placeholder="아이디"
                                             class="Inputbox"
-                                            name="email"
-                                            id="id_email"
+                                            name="username"
+                                            id="id_username"
                                             required
                                         />
                                     </div>
@@ -144,4 +144,5 @@
     <script src="{% static 'js/sign.js' %}"></script>
 </body>
 </html>
+
 

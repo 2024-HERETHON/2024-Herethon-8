@@ -115,19 +115,20 @@
                         
                         <div class="writingscontentselements">
                             <div class="writingscontentsIntro">
-                                기묘한 우물 속으로 나를 찾아 떠나는 여정
+                                {{ post.content|truncatewords:4 }}
                             </div>
                             <div class="writingscontentsMain">
                                 <div class="writingscontentstext">
                                     <div class="writingscontentsTitle">
                                         {{ post.title }}
                                     </div>
+                                    <br>
                                     <div class="writingscontentsWho">
                                         <div class="writingscontentsWhoby">
-                                            by
+                                            byㅤ
                                         </div>
                                         <div class="writingscontentsWhoname">
-                                            {{ post.author.user.nickname }}
+                                            {{ post.writer.nickname }}
                                         </div>
                                     </div>
                                 </div>

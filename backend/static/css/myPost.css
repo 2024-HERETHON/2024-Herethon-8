@@ -1,3 +1,4 @@
+
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 .wrap {
   display: flex;
@@ -30,7 +31,6 @@
 .side_title {
   margin-top: 20px;
   margin-left: 50px;
-
   color: #444;
   font-family: Pretendard;
   font-size: 20px;
@@ -48,10 +48,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   border: none;
   background: #fcfcfc;
-
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 16px;
@@ -81,14 +79,12 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
   margin-bottom: 24px;
 }
 .main_line {
   width: 736px;
   height: 1px;
   background: #eee;
-
   margin-bottom: 24px;
 }
 .main_boxs {
@@ -99,7 +95,6 @@
 }
 .content_none {
   margin-top: 36px;
-
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 16px;
@@ -119,7 +114,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-left: 16px;
   padding-top: 16px;
   padding-bottom: 23px;
@@ -131,7 +125,6 @@
 }
 .mypost_title {
   padding-bottom: 40px;
-
   color: #444;
   font-family: Pretendard;
   font-size: 16px;
@@ -139,7 +132,6 @@
   font-weight: 600;
   line-height: normal;
 }
-
 .reacts {
   display: flex;
   flex-direction: row;
@@ -160,7 +152,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 14px;
@@ -168,3 +159,73 @@
   font-weight: 400;
   line-height: normal;
 }
+.box_img {
+  width: 183px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.img_size {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*나브바 추가 */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.Selectbar div,
+.Right div {
+  margin-right: 10px;
+}
+.Selectbar,
+.Right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+  text-decoration-line: none;
+  font-size: 15px;
+}
+.navlink {
+  color: #444444;
+  font-weight: bold;
+}
+.navlinklogin,
+.navlinksign {
+  color: #5e6f52;
+  font-weight: bold;
+}
+/*나브바 추가*/
+/*박스 동적 추가 */
+#main_box_mypost {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+/* 마우스를 올렸을 때 그림자 강화 */
+#main_box_mypost:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+/*박스 동적 추가 */
