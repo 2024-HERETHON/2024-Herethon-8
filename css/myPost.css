@@ -168,6 +168,15 @@
   font-weight: 400;
   line-height: normal;
 }
+.box_img {
+}
+#img_size {
+  width: 183px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: lightgray -23.014px 0px / 113.115% 100% no-repeat;
+}
 
 /*나브바 추가 */
 nav {
