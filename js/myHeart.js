@@ -52,4 +52,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     commentBtn.classList.add("selected");
     commentLine.classList.add("selected");
   });
+
+  //글 내용 상세 페이지로 이동
+  const post = document.getElementById("main_box_post");
+
+  post.addEventListener("click", () => {
+    window.location.href = "contentdetail.html"; //내용 상세 페이지로 이동
+  });
 });

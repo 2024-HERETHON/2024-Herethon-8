@@ -17,4 +17,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   myPost.addEventListener("click", () => {
     window.location.href = "myPost.html"; // MyPost 페이지로 이동
   });
+
+  //글 내용 상세 페이지로 이동
+  const post = document.getElementById("main_box_post");
+
+  post.addEventListener("click", () => {
+    window.location.href = "contentdetail.html"; //내용 상세 페이지로 이동
+  });
 });
