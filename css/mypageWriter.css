@@ -1,0 +1,792 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@font-face {
+  font-family: "MangoDdobak-B";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GapyeongWave";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongWave.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "KCC-Ahnchangho";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/KCC-Ahnchangho.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 1440px;
+  height: 1024px;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* bar css 없앰 */
+.mypage_title {
+  width: 1440px;
+  height: 161px;
+  flex-shrink: 0;
+  margin-bottom: 24px; /* 추가 */
+  background: linear-gradient(0deg, #fff 0%, #fffff2 49.5%, #dde4c7 99.5%);
+}
+.hello_header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+  margin-left: 162px;
+  gap: 8px;
+}
+#header1 {
+  align-self: stretch;
+  color: #444;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#header2 {
+  align-self: stretch;
+  color: #444;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.content_wrap {
+  display: flex;
+  gap: 24px;
+}
+.section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 261px;
+  height: 677px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+#profile_name {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+#profile_line {
+  width: 240px;
+  height: 1px;
+  background: #eee;
+}
+/* 관심분야 */
+.interest {
+  margin-top: 24px;
+  margin-bottom: 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+#interest_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#interest_box {
+  display: flex;
+  gap: 8px;
+}
+.my_interest {
+  display: flex;
+  padding: 2px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: #a9b388;
+
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+/* 선택한 댓글 글자수 */
+.comment_length {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+#comment_length_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#length_box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.length_select {
+  border: none;
+  display: flex;
+  padding: 2px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: #eee;
+
+  color: #d9d9d9;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.length_select.selected {
+  border: none;
+  display: flex;
+  padding: 2px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: #5e6f52;
+
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+/* 현재 포인트 */
+.point {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+#point_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.profile_my_point {
+  color: #a9b388;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+/* 오늘 활동 */
+.today_active {
+  display: flex;
+  flex-direction: column;
+  width: 226px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+#today_active_content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.today_content {
+  display: flex;
+  justify-content: space-between;
+}
+#today_active_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+/* 개인정보 수정하기 */
+#edit_profile {
+  margin-top: 24px;
+
+  display: inline-flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  border: 1px solid #a9b388;
+  background: #fff;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* 활동내역 */
+.active_detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 831px;
+  height: 158px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
+}
+#active_detail_title {
+  margin-left: 20px;
+  color: #444;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.mydetail_buttons {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.my_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  border: none;
+  background: #fff;
+}
+.my_button_text {
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#my_line {
+  width: 1px;
+  height: 80px;
+  background: #eee;
+}
+/* 메뉴 */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 34px;
+  margin-bottom: 24px;
+}
+.menu_buttons {
+  display: flex;
+  gap: 48px;
+  text-align: center;
+  margin-left: 20px;
+}
+.menu_button {
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  background: #fff;
+  padding: 0px;
+}
+.menu_button.selected {
+  color: #a9b388;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  background: #fff;
+  padding: 0px;
+}
+
+.menu_lines {
+  display: flex;
+}
+
+.line_attendance.selected {
+  height: 1px;
+  width: 111px;
+  background: #a9b388;
+}
+.line_attendance {
+  height: 1px;
+  width: 111px;
+  background: #eee;
+}
+.line_between {
+  height: 1px;
+  width: 25px;
+  background: #eee;
+}
+.line_point.selected {
+  height: 1px;
+  width: 111px;
+  background: #a9b388;
+}
+.line_point {
+  height: 1px;
+  width: 111px;
+  background: #eee;
+}
+.line_right {
+  height: 1px;
+  width: 583px;
+  background: #eee;
+}
+
+/* 메뉴 디테일 */
+.menu_detail {
+  width: 831px;
+  height: 433px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
+}
+/* 출석체크 디테일 */
+#attendance_detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 118px;
+}
+/* 달력 구현 */
+#calendar {
+  background: white;
+  overflow: hidden;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #444;
+  height: 24px;
+  margin-bottom: 15px;
+}
+
+#header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+}
+
+#month-year {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+#calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#calendar-table th {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#calendar-table td {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 50%;
+}
+#calendar-table th,
+#calendar-table td {
+  width: 22px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+#calendar-table tbody td {
+  height: 22px;
+  vertical-align: top;
+}
+#calendar-table tbody.today {
+  border: 2px solid #a9b388;
+}
+#calendar-table tbody td.empty {
+  background-color: white;
+}
+
+#calendar-table tbody td.present {
+  background-color: #a9b388;
+}
+
+/*  */
+
+.how_point_title {
+  padding-bottom: 36px;
+  color: #e16e20;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.how_point_box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+#how_point_info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 포인트 스토어 디테일 */
+#point_store_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.usable_point {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 24px;
+  padding-left: 20px;
+}
+.usable_point_title {
+  display: flex;
+  gap: 30px;
+}
+#usable_point_text {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.usable_my_point {
+  color: #e16e20;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.usable_point_box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+#usable_point_info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.change {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+.change_font {
+  width: 390px;
+  height: 224px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fcfcfc;
+}
+.change_theme {
+  width: 390px;
+  height: 224px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fcfcfc;
+}
+.font_title {
+  padding-top: 24px;
+  padding-left: 29px;
+
+  color: #5e6f52;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.font_menu_box {
+  padding-top: 24px;
+  padding-left: 29px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.font_menu {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+}
+.menu_point {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.theme_point {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#menu1_text {
+  color: #444;
+  font-family: "MangoDdobak-B";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-right: 5px;
+}
+#menu2_text {
+  color: #444;
+  font-family: "GapyeongWave", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-right: 7px;
+}
+#menu3_text {
+  color: #444;
+  font-family: "KCC-Ahnchangho";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.menu_box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.menu_change {
+  display: inline-flex;
+  padding: 2px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: #a9b388;
+
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  border: none;
+}
+.theme_title {
+  padding-top: 24px;
+  padding-left: 29px;
+
+  color: #5e6f52;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.theme_menu_box {
+  padding-top: 24px;
+  padding-left: 37px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.theme_menu {
+  display: flex;
+  align-items: center;
+  gap: 124px;
+}
+.theme_color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.theme_color_img {
+  width: 44px;
+  height: 44px;
+}
+.theme_color_text {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.theme_box {
+  display: flex;
+
+  align-items: center;
+  padding-bottom: 10px;
+  gap: 16px;
+}
+.theme_change {
+  display: inline-flex;
+  padding: 2px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: #a9b388;
+
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  border: none;
+}
+
+/*nav 바 css */
+/*나브바 css*/
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  margin-top: 0px;
+  padding-left: 2%;
+  padding-right: 2%;
+  background: #fff;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.Selectbar div,
+.Right div {
+  margin-right: 10px;
+}
+.Selectbar,
+.Right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+  text-decoration-line: none;
+  font-size: 15px;
+}
+.navlink {
+  color: #444444;
+  font-weight: bold;
+}
+
+.navlinklogin,
+.navlinksign {
+  color: #5e6f52;
+  font-weight: bold;
+}
+/*nav 바 css */

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyScrap</title>
+    <link rel="stylesheet" href="./css/myScrap.css" />
+  </head>
+  <!-- 여기에 추가 됐던 나브바를 body 내의 bar 안으로 넣었습니다. -->
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><img src="./images/logo.svg" /></div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                  ><img src="./images/close.png"
+                /></a>
+              </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
+        <div class="side">
+          <div class="side_title">활동내역</div>
+          <div class="side_buttons">
+            <button class="side_button" id="my_comment">
+              <img src="./images/my_comment.svg" />
+              <span>내가 쓴 댓글</span>
+            </button>
+            <button class="side_button" id="my_heart">
+              <img src="./images/my_heart.svg" />
+              <span>좋아요 기록</span>
+            </button>
+            <button class="side_button" id="my_scrap">
+              <img src="./images/my_scrap_black.svg" />
+              <span>스크랩 기록</span>
+            </button>
+            <button class="side_button" id="my_post">
+              <img src="./images/my_post.svg" />
+              <span>내가 쓴 글</span>
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main_title" id="my_comment_title">스크랩 기록</div>
+          <div class="main_line"></div>
+          <!-- 기록 없으면 -->
+          <div class="content_none" id="none">현재 스크랩한 글이 없습니다.</div>
+          <!-- 기록 있으면-->
+          <div class="main_boxs" style="display: none">
+            <div class="main_box" id="main_box_post">
+              <div class="box_wrap" id="box_wrap_post">
+                <div class="box_text" id="box_text_post">
+                  <div class="post_title1" id="post_title1">
+                    설원과 잘 지내셨나요 그 메아리
+                  </div>
+                  <div class="post_title2" id="post_title2">
+                    지난 겨울의 입김이 녹인 것은 봄날의 추억
+                  </div>
+                  <div class="writer">By 영시네마</div>
+                </div>
+                <div class="box_img">
+                  <img src="./images/my_heart_img1.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/myScrap.js"></script>
+</html>

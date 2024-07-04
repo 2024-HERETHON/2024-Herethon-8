@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPost</title>
+    <link rel="stylesheet" href="./css/myPost.css" />
+  </head>
+  <!-- 여기에 추가 됐던 나브바를 body 내의 bar 안으로 넣었습니다. -->
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><img src="./images/logo.svg" /></div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                  ><img src="./images/close.png"
+                /></a>
+              </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
+        <div class="side">
+          <div class="side_title">활동내역</div>
+          <div class="side_buttons">
+            <button class="side_button" id="my_comment">
+              <img src="./images/my_comment.svg" />
+              <span>내가 쓴 댓글</span>
+            </button>
+            <button class="side_button" id="my_heart">
+              <img src="./images/my_heart.svg" />
+              <span>좋아요 기록</span>
+            </button>
+            <button class="side_button" id="my_scrap">
+              <img src="./images/my_scrap.svg" />
+              <span>스크랩 기록</span>
+            </button>
+            <button class="side_button" id="my_post">
+              <img src="./images/my_post_black.svg" />
+              <span>내가 쓴 글</span>
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main_title" id="my_comment_title">내가 쓴 글</div>
+          <div class="main_line"></div>
+          <!-- 기록 없으면 -->
+          <div class="content_none" id="none" style="display: none">
+            내가 쓴 글이 없습니다.
+          </div>
+          <!-- 기록 있으면 -->
+          <div class="main_boxs">
+            <div class="main_box" id="main_box_mypost">
+              <div class="box_wrap" id="box_wrap_mypost">
+                <div class="box_text" id="box_text_mypost">
+                  <div class="mypost_title" id="mypost_title">
+                    자유와 탈출의 집대성
+                  </div>
+                  <div class="reacts">
+                    <div class="react" id="react_heart">
+                      <img src="./images/my_post_heart.svg" />
+                      <span id="react_heart_count">8</span>
+                    </div>
+                    <div class="react" id="react_comment">
+                      <img src="./images/my_post_comment.svg" />
+                      <span id="react_comment_count">9</span>
+                    </div>
+                    <div class="react" id="react_scrap">
+                      <img src="./images/my_post_scrap.svg" />
+                      <span id="react_scrap_count">4</span>
+                    </div>
+                  </div>
+                  <div class="date_time">
+                    <span id="date">2024년 7월 4일</span>
+                    <span id="time">12:57</span>
+                  </div>
+                </div>
+                <div class="box_img">
+                  <img id="img_size" src="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/myPost.js"></script>
+</html>

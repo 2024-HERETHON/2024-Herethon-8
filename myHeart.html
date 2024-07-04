@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHeart</title>
+    <link rel="stylesheet" href="./css/myHeart.css" />
+  </head>
+  <!-- 여기에 추가 됐던 나브바를 body 내의 bar 안으로 넣었습니다. -->
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><img src="./images/logo.svg" /></div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                  ><img src="./images/close.png"
+                /></a>
+              </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
+        <!-- 사이드 버튼 -->
+        <div class="side">
+          <div class="side_title">활동내역</div>
+          <div class="side_buttons">
+            <button class="side_button" id="my_comment">
+              <img src="./images/my_comment.svg" />
+              <span>내가 쓴 댓글</span>
+            </button>
+            <button class="side_button" id="my_heart">
+              <img src="./images/my_heart_black.svg" />
+              <span>좋아요 기록</span>
+            </button>
+            <button class="side_button" id="my_scrap">
+              <img src="./images/my_scrap.svg" />
+              <span>스크랩 기록</span>
+            </button>
+            <button class="side_button" id="my_post">
+              <img src="./images/my_post.svg" />
+              <span>내가 쓴 글</span>
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main_title" id="my_comment_title">좋아요 기록</div>
+          <div class="main_menu">
+            <button class="main_menu_button" id="post">
+              <span id="post_button">글</span>
+              <span class="menu_line" id="post_button_line"></span>
+            </button>
+            <button class="main_menu_button" id="comment">
+              <span id="comment_button">댓글</span>
+              <span class="menu_line" id="comment_button_line"></span>
+            </button>
+          </div>
+          <!-- 좋아요한 글 기록-->
+          <div class="main_boxs" id="main_boxs_post">
+            <!-- 좋아요한 글 기록 없으면 -->
+            <div class="content_none" id="none_post" style="display: none">
+              좋아요 누른 글이 없습니다.
+            </div>
+            <!-- 좋아요한 글 기록 있으면 -->
+            <div class="main_box" id="main_box_post">
+              <div class="box_wrap" id="box_wrap_post">
+                <div class="box_text" id="box_text_post">
+                  <div class="post_title1" id="post_title1">
+                    설원과 잘 지내셨나요 그 메아리
+                  </div>
+                  <div class="post_title2" id="post_title2">
+                    지난 겨울의 입김이 녹인 것은 봄날의 추억
+                  </div>
+                  <div class="writer">By 영시네마</div>
+                </div>
+                <div class="box_img">
+                  <img src="./images/my_heart_img1.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 좋아요한 댓글 -->
+          <div class="main_boxs" id="main_boxs_comment">
+            <!-- 좋아요한 댓글 기록이 없으면 -->
+            <div class="content_none" id="none_comment" style="display: none">
+              좋아요 누른 댓글이 없습니다.
+            </div>
+            <!-- 좋아요한 댓글 기록이 있으면 -->
+            <div class="main_box" id="main_box_comment">
+              <div class="box_wrap" id="box_wrap_comment">
+                <div class="heart_post_title" id="heart_post_title">
+                  원문 | 아메리카노
+                </div>
+                <div class="heart_comment_content" id="heart_comment_content">
+                  "러브레터"에 대한 평론 잘 읽었습니다. 이와이 슌지 감독의
+                  섬세한 연출과 나카야마 미호의 감정 연기를 깊이 있게 분석하셔서
+                  감동적이었습니다. 특히, 눈을 중요한 서사 장치로 해석한 부분이
+                  인상적이네요. 이 영화가 사랑과 그리움의 본질을 탐구하는
+                  작품이라는 점에 깊이 공감합니다. 영화를 다시 보고 싶은 마음이
+                  생겼습니다. 좋은 평론 감사합니다.
+                </div>
+                <div class="bottom">
+                  <div class="id_date_time">
+                    <span id="id">아이디 있음</span>
+                    <span id="date">2024년 7월 4일</span>
+                    <span id="time">12:57</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/myHeart.js"></script>
+</html>

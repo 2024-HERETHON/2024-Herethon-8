@@ -1,0 +1,322 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 1440px;
+  height: 1024px;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.bar {
+  width: 1440px;
+  height: 60px;
+}
+.side {
+  width: 212px;
+  height: 260px;
+  flex-shrink: 0;
+  position: absolute;
+  top: 153px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.side_title {
+  margin-top: 20px;
+  margin-left: 50px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.side_buttons {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.side_button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: none;
+  background: #fcfcfc;
+
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#my_heart {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main {
+  width: 736px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 93px;
+}
+.main_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  margin-bottom: 24px;
+}
+.main_menu {
+  display: flex;
+}
+.main_menu_button {
+  border: none;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0px;
+
+  color: #d9d9d9;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main_menu_button.selected {
+  border: none;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0px;
+
+  color: #a9b388;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.menu_line {
+  width: 368px;
+  height: 1px;
+  background: #eee;
+}
+.menu_line.selected {
+  width: 368px;
+  height: 1px;
+  background: #a9b388;
+}
+.main_boxs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+.content_none {
+  margin-top: 36px;
+
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#main_box_post {
+  width: 736px;
+  height: 158px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
+}
+#box_wrap_post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-bottom: 23px;
+  padding-right: 23px;
+}
+#box_text_post {
+  display: flex;
+  flex-direction: column;
+}
+.post_title1 {
+  padding-bottom: 12px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.post_title2 {
+  padding-bottom: 54px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.writer {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#main_box_comment {
+  width: 736px;
+  height: 158px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid #a9b388;
+  background: #fff;
+}
+#box_wrap_comment {
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 22.5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.heart_post_title {
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.heart_comment_content {
+  width: 696px;
+  height: 68px;
+
+  color: #444;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.id_date_time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #9f9f9f;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/*나브바 추가 */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.Selectbar div,
+.Right div {
+  margin-right: 10px;
+}
+.Selectbar,
+.Right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+  text-decoration-line: none;
+  font-size: 15px;
+}
+.navlink {
+  color: #444444;
+  font-weight: bold;
+}
+
+.navlinklogin,
+.navlinksign {
+  color: #5e6f52;
+  font-weight: bold;
+}
+/*나브바 추가*/
+
+/*박스 동적 추가 */
+#main_box_post {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+/* 마우스를 올렸을 때 그림자 강화 */
+#main_box_post:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+
+#main_box_comment {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+#main_box_comment:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+/*박스 동적 추가 */
