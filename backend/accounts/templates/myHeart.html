@@ -64,7 +64,7 @@
                     {{ post.title }}
                   </div>
                   <div class="post_title2" id="post_title2">
-                    {{ post.content }}
+                    {{ post.content|truncatewords:15 }}
                   </div>
                   <div class="writer">By {{ post.writer }}</div>
                 </div>
