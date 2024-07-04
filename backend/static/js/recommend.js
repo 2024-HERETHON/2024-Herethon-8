@@ -1,14 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const recommendWriters = ["writer1", "writer2", "writer3", "writer4"];
   
-    recommendWriters.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.addEventListener("click", () => {
-          window.location.href = "writerpage.html";
-        });
-      }
-    });
+    
   
     // 네비게이션바 이동 함수
     function setupPagination(buttons, circles, totalPages, currentPage) {

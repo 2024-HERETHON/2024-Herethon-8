@@ -358,3 +358,55 @@ label {
   border-radius: 8px;
   background: #eee;
 }
+/*nav 바 css */
+/*나브바 css*/
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  margin-top: 0px;
+  padding-left: 2%;
+  padding-right: 2%;
+  background: #fff;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.Selectbar div,
+.Right div {
+  margin-right: 10px;
+}
+.Selectbar,
+.Right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+  text-decoration-line: none;
+  font-size: 15px;
+}
+.navlink {
+  color: #444444;
+  font-weight: bold;
+}
+
+.navlinklogin,
+.navlinksign {
+  color: #5e6f52;
+  font-weight: bold;
+}
+/*nav 바 css */

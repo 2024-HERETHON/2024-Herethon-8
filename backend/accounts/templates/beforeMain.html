@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="{% static 'css/beforeMain.css' %}">
         <title>로그인 전 메인화면</title>
     </head>
-    <nav>
+    <nav class="nav" style="font-family: Pretendard;">
         <div class="Left">
-            <div class="Title">이름</div>
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
             <div class="Selectbar">
                 <div class="popluar">
                     <a href="{% url 'popular-main' %}" class="navlink">인기</a>
@@ -47,155 +47,155 @@
             </div>
 
             <div class="newandpopluaradv">
-    <div class="newWriting">
-        <div class="newWritingTitle">
-            <div class="newWritingTitletext">최신 글</div>
-            <div class="newWritingTitlemove">
-                <a href="{% url 'post-form' %}" class="movelink">
-                    <div class="movingTitle">더보기</div>
-                    <div class="movingbar">
-                        <img src="{% static 'img/movepage.png' %}" />
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="newWritingShow">
-            <button type="button" onclick="location.href='login' " class="newWritingShowbtn">
-                <div class="newWritingElements">
-                    <div class="newWritingShowcategolory">{{ latest_post.category }}</div>
-                    <div class="newWritingShowWriting">
-                        <div class="newWritingShowWritingtext">
-                            <div class="newWritingShowWritingtextTitle">
-                                {{ latest_post.title }}
-                            </div>
-                            <div class="newWritingShowWritingtextWhen">
-                                <div class="newWritingShowWritingtextWhenTime">
-                                    {{ latest_post.created_at|timesince }} 전
+                <div class="newWriting">
+                    <div class="newWritingTitle">
+                        <div class="newWritingTitletext">최신 글</div>
+                        <div class="newWritingTitlemove">
+                            <a href="{% url 'post-form' %}" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="{% static 'img/movepage.png' %}" />
                                 </div>
-                                <div class="newWritingShowWritingtextWhendivided">
-                                    |
-                                </div>
-                                <div class="newWritingShowWritingtextWhenDate">
-                                    {{ latest_post.created_at|date:"Y.m.d" }}
-                                </div>
-                            </div>
-                            <div class="newWritingShowWritingtextstory">
-                                {{ latest_post.content|truncatewords:20 }}
-                            </div>
-                        </div>
-                        <div class="newWritingShowWritingImg">
-                            <img src="{% static 'img/메인페이지최신글.png' %}" class="newWritingShowWritingImgclass" id="newWritingShowWritingImgid" />
+                            </a>
                         </div>
                     </div>
-                    <div class="newWritingShowMore">
-                        <div class="newWritingShowMoreWho">
-                            <div class="newWritingShowMoreWhoby">
-                                By
-                            </div>
-                            <div class="newWritingShowMoreWhoName">
-                                {{ latest_post.writer.nickname  }}
-                            </div>
-                        </div>
-                        <div class="newWritingShowMoreSelect">
-                            <div class="newWritingShowMoreSelectHeart">
-                                <div class="heartImg">
-                                    <img src="{% static 'img/heart.png' %}" />
+                    <div class="newWritingShow">
+                        <button type="button" onclick="location.href='/posts/detail/{{ latest_post.pk }}/' " class="newWritingShowbtn">
+                            <div class="newWritingElements">
+                                <div class="newWritingShowcategolory">{{ latest_post.get_category_display }}</div>
+                                <div class="newWritingShowWriting">
+                                    <div class="newWritingShowWritingtext">
+                                        <div class="newWritingShowWritingtextTitle">
+                                            {{ latest_post.title }}
+                                        </div>
+                                        <div class="newWritingShowWritingtextWhen">
+                                            <div class="newWritingShowWritingtextWhenTime">
+                                                {{ latest_post.created_at|timesince }} 전
+                                            </div>
+                                            <div class="newWritingShowWritingtextWhendivided">
+                                                |
+                                            </div>
+                                            <div class="newWritingShowWritingtextWhenDate">
+                                                {{ latest_post.created_at|date:"Y.m.d" }}
+                                            </div>
+                                        </div>
+                                        <div class="newWritingShowWritingtextstory">
+                                            {{ latest_post.content|truncatewords:20 }}
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowWritingImg">
+                                        <img src="{{ latest_post.image.url }}" class="newWritingShowWritingImgclass" id="newWritingShowWritingImgid" />
+                                    </div>
                                 </div>
-                                <div class="heartCnt">{{ latest_post.like_count }}</div>
-                            </div>
-                            <div class="newWritingShowMoreSelectComments">
-                                <div class="commentImg">
-                                    <img src="{% static 'img/comments.png' %}" />
-                                </div>
-                                <div class="commentCnt">{{ latest_post.comment_count }}</div>
-                            </div>
-                            <div class="newWritingShowMoreSelectScrap">
-                                <div class="ScrapImg">
-                                    <img src="{% static 'img/bookmark.png' %}" />
-                                </div>
-                                <div class="ScrapCnt">{{ latest_post.scrap_count }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </button>
-        </div>
-    </div>
-    <div class="popluarWriting">
-        <div class="popluarWritingTitle">
-            <div class="popluarWritingTitletext">인기 글</div>
-            <div class="popluarWritingTitlemove">
-                <a href="{% url 'post-form' %}" class="movelink">
-                    <div class="movingTitle">더보기</div>
-                    <div class="movingbar">
-                        <img src="{% static 'img/movepage.png' %}" />
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="popluarWritingShow">
-            <button type="button" onclick="location.href='login.html' " class="popluarWritingShowbtn">
-                <div class="newWritingElements">
-                    <div class="popluarWritingShowcategolory">영화</div>
-                    <div class="popluarWritingShowWriting">
-                        <div class="popluarWritingShowWritingtext">
-                            <div class="popluarWritingShowWritingtextTitle">
-                                {{ most_liked_post.title }}
-                            </div>
-                            <div class="popluarWritingShowWritingtextWhen">
-                                <div class="popluarWritingShowWritingtextWhenTime">
-                                    {{ most_liked_post.created_at|timesince }} 전
-                                </div>
-                                <div class="popluarWritingShowWritingtextWhendivided">
-                                    |
-                                </div>
-                                <div class="popluarWritingShowWritingtextWhenDate">
-                                    {{ most_liked_post.created_at|date:"Y.m.d" }}
+                                <div class="newWritingShowMore">
+                                    <div class="newWritingShowMoreWho">
+                                        <div class="newWritingShowMoreWhoby">
+                                            By
+                                        </div>
+                                        <div class="newWritingShowMoreWhoName">
+                                            {{ latest_post.writer.nickname  }}
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowMoreSelect">
+                                        <div class="newWritingShowMoreSelectHeart">
+                                            <div class="heartImg">
+                                                <img src="{% static 'img/heart.png' %}" />
+                                            </div>
+                                            <div class="heartCnt">{{ latest_post.like_count }}</div>
+                                        </div>
+                                        <div class="newWritingShowMoreSelectComments">
+                                            <div class="commentImg">
+                                                <img src="{% static 'img/comments.png' %}" />
+                                            </div>
+                                            <div class="commentCnt">{{ latest_post.comment_count }}</div>
+                                        </div>
+                                        <div class="newWritingShowMoreSelectScrap">
+                                            <div class="ScrapImg">
+                                                <img src="{% static 'img/bookmark.png' %}" />
+                                            </div>
+                                            <div class="ScrapCnt">{{ latest_post.scrap_count }}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="popluarWritingShowWritingtextstory">
-                                {{ most_liked_post.content|truncatewords:20 }}
-                            </div>
-                        </div>
-                        <div class="popluarWritingShowWritingImg">
-                            <img src="{% static 'img/메인페이지인기글.png' %}" class="popluarWritingShowWritingImgclass" id="popluarWritingShowWritingImgid" />
-                        </div>
-                    </div>
-                    <div class="popluarWritingShowMore">
-                        <div class="popluarWritingShowMoreWho">
-                            <div class="popluarWritingShowMoreWhoby">
-                                By
-                            </div>
-                            <div class="popluarWritingShowMoreWhoName">
-                                {{ most_liked_post.writer.nickname  }}
-                            </div>
-                        </div>
-                        <div class="popluarWritingShowMoreSelect">
-                            <div class="popluarWritingShowMoreSelectHeart">
-                                <div class="heartImg">
-                                    <img src="{% static 'img/heart.png' %}" />
-                                </div>
-                                <div class="heartCnt">{{ most_liked_post.like_count }}</div>
-                            </div>
-                            <div class="popluarWritingShowMoreSelectComments">
-                                <div class="commentImg">
-                                    <img src="{% static 'img/comments.png' %}" />
-                                </div>
-                                <div class="commentCnt">{{ most_liked_post.comment_count }}</div>
-                            </div>
-                            <div class="popluarWritingShowMoreSelectScrap">
-                                <div class="ScrapImg">
-                                    <img src="{% static 'img/bookmark.png' %}" />
-                                </div>
-                                <div class="ScrapCnt">{{ most_liked_post.scrap_count }}</div>
-                            </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
-            </button>
-        </div>
-    </div>
-</div>
+                <div class="popluarWriting">
+                    <div class="popluarWritingTitle">
+                        <div class="popluarWritingTitletext">인기 글</div>
+                        <div class="popluarWritingTitlemove">
+                            <a href="{% url 'post-form' %}" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="{% static 'img/movepage.png' %}"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="popluarWritingShow">
+                        <button type="button" onclick="location.href='/posts/detail/{{ most_liked_post.pk }}/' " class="popluarWritingShowbtn">
+                            <div class="newWritingElements">
+                                <div class="popluarWritingShowcategolory">{{ most_liked_post.get_category_display }}</div>
+                                <div class="popluarWritingShowWriting">
+                                    <div class="popluarWritingShowWritingtext">
+                                        <div class="popluarWritingShowWritingtextTitle">
+                                            {{ most_liked_post.title }}
+                                        </div>
+                                        <div class="popluarWritingShowWritingtextWhen">
+                                            <div class="popluarWritingShowWritingtextWhenTime">
+                                                {{ most_liked_post.created_at|timesince }} 전
+                                            </div>
+                                            <div class="popluarWritingShowWritingtextWhendivided">
+                                                |
+                                            </div>
+                                            <div class="popluarWritingShowWritingtextWhenDate">
+                                                {{ most_liked_post.created_at|date:"Y.m.d" }}
+                                            </div>
+                                        </div>
+                                        <div class="popluarWritingShowWritingtextstory">
+                                            {{ most_liked_post.content|truncatewords:20 }}
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowWritingImg">
+                                        <img src="{% static 'img/메인페이지인기글.png' %}" class="popluarWritingShowWritingImgclass" id="popluarWritingShowWritingImgid" />
+                                    </div>
+                                </div>
+                                <div class="popluarWritingShowMore">
+                                    <div class="popluarWritingShowMoreWho">
+                                        <div class="popluarWritingShowMoreWhoby">
+                                            By
+                                        </div>
+                                        <div class="popluarWritingShowMoreWhoName">
+                                            {{ most_liked_post.writer.nickname  }}
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowMoreSelect">
+                                        <div class="popluarWritingShowMoreSelectHeart">
+                                            <div class="heartImg">
+                                                <img src="{% static 'img/heart.png' %}" />
+                                            </div>
+                                            <div class="heartCnt">{{ most_liked_post.like_count }}</div>
+                                        </div>
+                                        <div class="popluarWritingShowMoreSelectComments">
+                                            <div class="commentImg">
+                                                <img src="{% static 'img/comments.png' %}" />
+                                            </div>
+                                            <div class="commentCnt">{{ most_liked_post.comment_count }}</div>
+                                        </div>
+                                        <div class="popluarWritingShowMoreSelectScrap">
+                                            <div class="ScrapImg">
+                                                <img src="{% static 'img/bookmark.png' %}" />
+                                            </div>
+                                            <div class="ScrapCnt">{{ most_liked_post.scrap_count }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="OnlyTodayShow">
                 <div class="OnlyTodayShowTitle">
                     <div class="OnlyTodayShowTitleL">딱</div>
@@ -340,7 +340,7 @@
                             >
                                 <div class="FocuseWritingShowImg">
                                     <img
-                                    src="{% static 'img/메인페이지추천글1.png' %}"
+                                    src="{{ recommended_post.0.image.url }}"
                                         id="imgFirstR"
                                     />
                                 </div>
@@ -361,7 +361,7 @@
                                         class="FocuseWritingShowWhoName"
                                         id="authorFirstR"
                                     >
-                                    {{ recommended_post.0.writer.nickname }}
+                                    {{ recommended_post.0.writer.nickname  }}
                                     </div>
                                 </div>
                                 <div
@@ -380,7 +380,7 @@
                             >
                                 <div class="FocuseWritingShowImg">
                                     <img
-                                    src="{% static 'img/메인페이지추천글2.png' %}"
+                                    src="{{ recommended_post.0.image.url }}"
                                         id="imgSecondR"
                                     />
                                 </div>

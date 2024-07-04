@@ -122,6 +122,19 @@
   line-height: normal;
 }
 
+.box_img {
+  width: 183px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.box_image {
+  width: 183px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
 .menu_line {
   width: 368px;
   height: 1px;
@@ -242,3 +255,62 @@
   font-weight: 400;
   line-height: normal;
 }
+/*나브바 추가 */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.Title,
+.Selectbar,
+.Left,
+.Right {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.Selectbar div,
+.Right div {
+  margin-right: 10px;
+}
+.Selectbar,
+.Right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navlinklogin,
+.navlinksign,
+.navlink {
+  text-decoration-line: none;
+  font-size: 15px;
+}
+.navlink {
+  color: #444444;
+  font-weight: bold;
+}
+
+.navlinklogin,
+.navlinksign {
+  color: #5e6f52;
+  font-weight: bold;
+}
+/*나브바 추가*/
+
+/*박스 동적 추가 */
+.main_box {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
+  transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
+}
+/* 마우스를 올렸을 때 그림자 강화 */
+.main_box:hover {
+  box-shadow: 0 8px 12px #5e6f52;
+}
+/*박스 동적 추가 */

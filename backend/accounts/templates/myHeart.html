@@ -11,7 +11,23 @@
   <body>
     <div class="wrap">
       <div class="container">
-        <div class="bar"></div>
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                  ><img src="{% static 'img/close.png' %}"
+                  /></a>
+              </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
         <!-- 사이드 버튼 -->
         <div class="side">
           <div class="side_title">활동내역</div>
@@ -57,6 +73,7 @@
           <!-- 좋아요한 글 기록-->
           <div class="main_boxs" id="main_boxs_post">
             {% for post in liked_posts %}
+            <a href="{% url 'post-detail' pk=post.id %}" style="text-decoration: none;">
             <div class="main_box" id="main_box_post">
               <div class="box_wrap" id="box_wrap_post">
                 <div class="box_text" id="box_text_post">
@@ -66,10 +83,12 @@
                   <div class="post_title2" id="post_title2">
                     {{ post.content|truncatewords:15 }}
                   </div>
-                  <div class="writer">By {{ post.writer }}</div>
+                  <div class="writer">By {{ post.writer.nickname }}</div>
                 </div>
                 <div class="box_img">
-                  <img src="{% static 'img/my_heart_img1.svg' %}" />
+                  {% if post.image %}
+                  <img class="box_image" src="{{ post.image.url }}" />
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -77,19 +96,21 @@
           </div>
           <!-- 좋아요한 댓글 -->
           <div class="main_boxs" id="main_boxs_comment" style="display: none">
-            {% for comment in liked_comments %}
+            {% for comment in liked_posts %}
             <div class="main_box" id="main_box_comment">
               <div class="box_wrap" id="box_wrap_comment">
                 <div class="heart_post_title" id="heart_post_title">
-                  원문 | {{ comment.post }}
+                  원문 | {{ comment.title }}
                 </div>
                 <div class="heart_comment_content" id="heart_comment_content">
-                  {{ comment.content }}
+                  {{ comment.content|truncatewords:15 }}
                 </div>
                 <div class="bottom">
                   <div class="id_date_time">
-                    <span id="id">{{ comment.writer }}</span>
-                    <span id="date">{{ comment.created_at }}</span>
+                    <span id="id">{{ comment.writer.nickname }}</span>
+                    <div class="date">{{ comment.created_at|date:"Y년 n월 j일" }}</div>
+                            <span> </span>
+                            <div class="time">{{ comment.created_at|time:"H:i" }}</div>
                     <!-- 시간 추가 -->
                   </div>
                 </div>
@@ -97,6 +118,7 @@
             </div>
             {% endfor %}
           </div>
+        
         </div>
       </div>
     </div>

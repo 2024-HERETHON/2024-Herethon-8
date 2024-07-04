@@ -12,9 +12,9 @@
       <div class="container">
         <div class="bar">
           <!--나브바 추가 시작-->
-          <nav class="nav">
+          <nav class="nav" style="font-family: Pretendard;">
             <div class="Left">
-              <div class="Title">이름</div>
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
               <div class="Selectbar">
                 <div class="popluar">
                   <a href="{% url 'popular-main' %}" class="navlink">인기</a>
@@ -36,38 +36,42 @@
           </nav>
           <!--나브바 추가 끝-->
         </div>
-        <!-- 금주의 작가소개 -->
+        <!-- 금주의 작가소개"{{ focus_author.0.user.profile.url }}" -->
         <div class="writer_recommend">
           <p class="recommend_title" id="writer_title">금주의 작가 소개</p>
           <div class="writer_box">
-            <div id="writer1" class="writer">
-              <img class="writer_img" src="{% static 'img/writer_recommend1.svg' %}" />
+            {% for focus_author in focus_author %}
+            <button id="writer1" class="writer" onclick="location.href='/accounts/authors/{{ focus_author.pk }}/'">
+              <img class="writer_img" src="{{ focus_author.user.profile.url }}" />
               <div class="writer_text">
-                <p class="writer_name">{{ focus_author.0.user.nickname }}</p>
+                <p class="writer_name">{{ focus_author.user.nickname }}</p>
                 <p class="writer_tag">#영화 #도서</p>
               </div>
-            </div>
-            <div id="writer2" class="writer">
-              <img class="writer_img" src="{% static 'img/writer_recommend2.svg' %}" />
+            </button>
+            {% endfor %}
+            <!---
+            <button id="writer2" class="writer">
+              <img class="writer_img" src="{{ focus_author.1.user.profile.url }}"/>
               <div class="writer_text">
                 <p class="writer_name">{{ focus_author.1.user.nickname }}</p>
                 <p class="writer_tag">#과학 #영화</p>
               </div>
-            </div>
-            <div id="writer3" class="writer">
-              <img class="writer_img" src="{% static 'img/writer_recommend3.svg' %}" />
+            </button>
+            <button id="writer3" class="writer">
+              <img class="writer_img" src="{{ focus_author.2.user.profile.url }}" />
               <div class="writer_text">
                 <p class="writer_name">{{ focus_author.2.user.nickname }}</p>
                 <p class="writer_tag">#경제 #도서</p>
               </div>
-            </div>
-            <div id="writer4" class="writer">
-              <img class="writer_img" src="{% static 'img/writer_recommend4.svg' %}" />
+            </button>
+            <button id="writer4" class="writer">
+              <img class="writer_img" src="{{ focus_author.3.user.profile.url }}" />
               <div class="writer_text">
                 <p class="writer_name">{{ focus_author.3.user.nickname }}</p>
                 <p class="writer_tag">#음악 #사회</p>
               </div>
-            </div>
+            </button>
+          -->
           </div>
         </div>
         <!-- 최신 글 추천 -->
@@ -75,155 +79,32 @@
           <p class="recommend_title" id="recent_title">최신 글 추천</p>
           <!-- 페이지 1 -->
           <div class="post_frame">
-            <div class="post" id="recent_post_index1">
+            {% for latest_post in latest_post %}
+            <button class="post" id="recent_post_index1" onclick="location.href='/posts/detail/{{ latest_post.pk }}/'">
               <div class="post_text">
                 <div class="text_content">
-                  <p class="subhead">{{ latest_post.0.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.0.title }}</p>
-                  <p class="post_writer">By {{ latest_post.0.writer.nickname  }}</p>
+                  <p class="subhead">{{ latest_post.content|truncatewords:2 }}</p>
+                  <p class="head">{{ latest_post.title }}</p>
+                  <p class="post_writer">By {{ latest_post.writer.nickname  }}</p>
                 </div>
                 <div class="post_buttons">
-                  <button id="recent_index1_heart" class="post_heart">
+                  <div id="recent_index1_heart" class="post_heart">
                     <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index1_heart_num">{{ latest_post.0.like_count }}</p>
-                  </button>
-                  <button id="recent_index1_comment" class="post_comment">
+                    <p id="post_index1_heart_num">{{ latest_post.like_count }}</p>
+                  </div>
+                  <div id="recent_index1_comment" class="post_comment">
                     <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index1_comment_num">{{ latest_post.0.comment_count }}</p>
-                  </button>
-                  <button id="recent_index1_bookmark" class="post_bookmark">
+                    <p id="post_index1_comment_num">{{ latest_post.comment_count }}</p>
+                  </div>
+                  <div id="recent_index1_bookmark" class="post_bookmark">
                     <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index1_bookmark_num">{{ latest_post.0.scrap_count }}</p>
-                  </button>
+                    <p id="post_index1_bookmark_num">{{ latest_post.scrap_count }}</p>
+                  </div>
                 </div>
               </div>
-              <img class="post_img" src="{% static 'img/recent_post_img1.svg' %}" />
-            </div>
-            <div class="post" id="recent_post_index2">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ latest_post.1.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.1.title }}</p>
-                  <p class="post_writer">By {{ latest_post.1.writer.nickname  }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="recent_index2_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index2_heart_num">{{ latest_post.1.like_count }}</p>
-                  </button>
-                  <button id="recent_index2_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index2_comment_num">{{ latest_post.1.comment_count }}</p>
-                  </button>
-                  <button id="recent_index2_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index2_bookmark_num">{{ latest_post.1.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/recent_post_img2.svg' %}" />
-            </div>
-          </div>
-          <!-- dive line 뺐습니다 -->
-          <div class="post_frame">
-            <div class="post" id="recent_post_index3">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ latest_post.2.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.2.title }}</p>
-                  <p class="post_writer">By {{ latest_post.2.writer.nickname  }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="recent_index3_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index3_heart">{{ latest_post.2.like_count }}</p>
-                  </button>
-                  <button id="recent_index3_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index3_comment_num">{{ latest_post.2.comment_count }}</p>
-                  </button>
-                  <button id="recent_index3_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index3_bookmark_num">{{ latest_post.2.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/recent_post_img3.svg' %}" />
-            </div>
-            <div class="post" id="recent_post_index4">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ latest_post.3.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.3.title }}</p>
-                  <p class="post_writer">By {{ latest_post.3.writer.nickname  }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="recent_index4_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index4_heart_num">{{ latest_post.3.like_count }}</p>
-                  </button>
-                  <button id="recent_index4_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index4_comment_num">{{ latest_post.3.comment_count }}</p>
-                  </button>
-                  <button id="recent_index4_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index4_bookmark_num">{{ latest_post.3.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/recent_post_img4.svg' %}"/>
-            </div>
-          </div>
-          <div class="post_frame">
-            <div class="post" id="recent_post_index5">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ latest_post.4.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.4.title }}</p>
-                  <p class="post_writer">By {{ latest_post.4.writer.nickname  }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="recent_index5_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index5_heart">{{ latest_post.4.like_count }}</p>
-                  </button>
-                  <button id="recent_index5_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index5_comment_num">{{ latest_post.4.comment_count }}</p>
-                  </button>
-                  <button id="recent_index5_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index5_bookmark_num">{{ latest_post.4.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/recent_post_img5.svg' %}"/>
-            </div>
-            <div class="post" id="recent_post_index6">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ latest_post.5.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.5.title }}</p>
-                  <p class="post_writer">By {{ latest_post.5.writer.nickname  }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="recent_index6_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="post_index6_heart_num">{{ latest_post.5.like_count }}</p>
-                  </button>
-                  <button id="recent_index6_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="post_index6_comment_num">{{ latest_post.5.comment_count }}</p>
-                  </button>
-                  <button id="recent_index6_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="post_index6_bookmark_num">{{ latest_post.5.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/recent_post_img6.svg' %}" />
-            </div>
+              <img class="post_img" src="{{ latest_post.image.url }}" />
+            </button>
+            {% endfor %}
           </div>
           <!-- 페이지 이동 -->
           <div class="page_move_bar">
@@ -291,157 +172,32 @@
           <p class="recommend_title" id="algorithm_title">알고리즘 추천 전체</p>
           <!-- 페이지 1 -->
           <div class="post_frame">
-            <div class="post" id="algorithm_post_index1">
+            {% for recommended_post in recommended_post %}
+            <button class="post" id="algorithm_post_index1" onclick="location.href='/posts/detail/{{ recommended_post.pk }}/'">
               <div class="post_text">
                 <div class="text_content">
-                  <p class="subhead">{{ recommended_post.0.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.0.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.0.writer.nickname }}</p>
+                  <p class="subhead">{{ recommended_post.content|truncatewords:2 }}</p>
+                  <p class="head">{{ recommended_post.title }}</p>
+                  <p class="post_writer">By {{ recommended_post.writer.nickname }}</p>
                 </div>
                 <div class="post_buttons">
-                  <button id="algorithm_index1_heart" class="post_heart">
+                  <div id="algorithm_index1_heart" class="post_heart">
                     <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithm_index1_heart_num">{{ recommended_post.0.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index1_comment" class="post_comment">
+                    <p id="algorithm_index1_heart_num">{{ recommended_post.like_count }}</p>
+                  </div>
+                  <div id="algorithm_index1_comment" class="post_comment">
                     <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index1_comment_num">{{ recommended_post.0.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index1_bookmark" class="post_bookmark">
+                    <p id="algorithm_index1_comment_num">{{ recommended_post.comment_count }}</p>
+                  </div>
+                  <div id="algorithm_index1_bookmark" class="post_bookmark">
                     <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="algorithm_index1_bookmark_num">{{ recommended_post.0.scrap_count }}</p>
-                  </button>
+                    <p id="algorithm_index1_bookmark_num">{{ recommended_post.scrap_count }}</p>
+                  </div>
                 </div>
               </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img1.svg' %}" />
-            </div>
-            <div class="post" id="algorithm_post_index2">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ recommended_post.1.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.1.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.1.writer.nickname }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="algorithm_index2_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithm_index2_heart_num">{{ recommended_post.1.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index2_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index2_comment_num">{{ recommended_post.1.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index2_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}"/>
-                    <p id="algorithm_index2_bookmark_num">{{ recommended_post.1.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img2.svg' %}"/>
-            </div>
-          </div>
-
-          <!-- <div class="line"></div>  뺐습니다-->
-
-          <div class="post_frame">
-            <div class="post" id="algorithm_post_index3">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ recommended_post.2.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.2.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.2.writer.nickname }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="algorithm_index3_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithm_index3_heart">{{ recommended_post.2.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index3_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index3_comment_num">{{ recommended_post.2.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index3_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="algorithm_index3_bookmark_num">{{ recommended_post.2.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img3.svg' %}" />
-            </div>
-            <div class="post" id="algorithm_post_index4">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ recommended_post.3.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.3.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.3.writer.nickname }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="algorithm_index4_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithm_index4_heart_num">{{ recommended_post.3.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index4_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index4_comment_num">{{ recommended_post.3.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index4_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="algorithm_index4_bookmark_num">{{ recommended_post.3.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img4.svg' %}" />
-            </div>
-          </div>
-          <div class="post_frame">
-            <div class="post" id="algorithm_post_index5">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ recommended_post.4.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.4.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.4.writer.nickname }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="algorithm_index5_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithm_index5_heart">{{ recommended_post.4.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index5_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index5_comment_num">{{ recommended_post.4.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index5_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="algorithm_index5_bookmark_num">{{ recommended_post.4.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img5.svg' %}" />
-            </div>
-            <div class="post" id="algorithm_post_index6">
-              <div class="post_text">
-                <div class="text_content">
-                  <p class="subhead">{{ recommended_post.5.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.5.title }}</p>
-                  <p class="post_writer">By {{ recommended_post.5.writer.nickname }}</p>
-                </div>
-                <div class="post_buttons">
-                  <button id="algorithm_index6_heart" class="post_heart">
-                    <img src="{% static 'img/post_heart.svg' %}" />
-                    <p id="algorithmt_index6_heart_num">{{ recommended_post.5.like_count }}</p>
-                  </button>
-                  <button id="algorithm_index6_comment" class="post_comment">
-                    <img src="{% static 'img/post_comment.svg' %}" />
-                    <p id="algorithm_index6_comment_num">{{ recommended_post.5.comment_count }}</p>
-                  </button>
-                  <button id="algorithm_index6_bookmark" class="post_bookmark">
-                    <img src="{% static 'img/post_bookmark.svg' %}" />
-                    <p id="algorithmt_index6_bookmark_num">{{ recommended_post.5.scrap_count }}</p>
-                  </button>
-                </div>
-              </div>
-              <img class="post_img" src="{% static 'img/algorithm_post_img6.svg' %}" />
-            </div>
+              <img class="post_img" src="{{ recommended_post.image.url }}"  />
+            </button>
+            {% endfor %}
           </div>
           <!-- 페이지 이동 -->
           <div class="page_move_bar">

@@ -65,6 +65,8 @@ def signup_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+                user=form.save(commit=False)
+                user.email = None
                 user = form.save()
                 user = authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'])
@@ -120,11 +122,13 @@ def user_comments_view(request):
     return render(request, 'myComment.html', context)
 
 @login_required
-def user_liked_posts_view(request):
+def user_liked_view(request):
     user_id = request.user.id
     liked_posts = Post.objects.filter(likes__user_id=user_id)
+    liked_comments = Comment.objects.filter(likes__user_id=user_id)
     context = {
-        'liked_posts': liked_posts
+        'liked_posts': liked_posts,
+        'liked_comments': liked_comments
     }
     return render(request, 'myHeart.html', context)
 

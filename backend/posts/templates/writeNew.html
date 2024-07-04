@@ -11,7 +11,32 @@
   <body>
     <div class="wrap">
       <div class="container">
-        <div class="bar"></div>
+        <div class="bar">
+           <!--나브바 추가 시작-->
+           <nav class="nav" style="font-family: Pretendard;">
+            <div class="Left">
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+              <div class="Selectbar">
+                <div class="popluar">
+                  <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+                </div>
+                <div class="recommend">
+                  <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+                </div>
+                <div class="writenew">
+                  <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+                </div>
+              </div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="{% url 'mypage' %}"" class="navlinklogin">마이페이지</a>
+              </div>
+            </div>
+          </nav>
+          <!--나브바 추가 끝-->
+        </div>
         <div class="write_wrap">
           <!-- 사이드 -->
           <div class="before_write">

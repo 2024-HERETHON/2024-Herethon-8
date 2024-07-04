@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
     // 글 메뉴가 눌렸을 때
     postBtn.addEventListener("click", () => {
-      window.location.href = "/accounts/mypage/hearts";
       postBoxs.style.display = "flex"; // 좋아요한 글 보임
       postBtn.classList.add("selected");
       postLine.classList.add("selected");
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
     // 댓글 메뉴가 눌렸을 때
     commentBtn.addEventListener("click", () => {
-        window.location.href = "/accounts/mypage/hearts/comments";
+        
         postBoxs.style.display = "none"; // 좋아요한 글 안 보임
         postBtn.classList.remove("selected");
         postLine.classList.remove("selected");

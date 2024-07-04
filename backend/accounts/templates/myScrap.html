@@ -10,7 +10,21 @@
 <body>
   <div class="wrap">
     <div class="container">
-      <div class="bar"></div>
+      <div class="bar">
+        <nav>
+          <div class="Left">
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+          </div>
+          <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+              <a href="javascript:history.back()" class="navlinklogin"
+                ><img src="{% static 'img/close.png' %}"
+                /></a>
+            </div>
+          </div>
+        </nav>
+      </div>
       <div class="side">
         <div class="side_title">활동내역</div>
         <div class="side_buttons">
@@ -46,16 +60,17 @@
         {% if scrap_posts %}
         <div class="main_boxs">
           {% for post in scrap_posts %}
+          <a href="{% url 'post-detail' pk=post.id %}" style="text-decoration: none;">
           <div class="main_box">
             <div class="box_wrap">
               <div class="box_text">
                 <div class="post_title1">{{ post.title }}</div>
-                <div class="post_title2">{{ post.content }}</div>
+                <div class="post_title2">{{ post.content|truncatewords:20}}</div>
                 <div class="writer">By {{ post.writer.nickname }}</div>
               </div>
               <div class="box_img">
                 {% if post.image %}
-                <img src="{{ post.image.url }}" />
+                <img class="box_image" src="{{ post.image.url }}" />
                 {% endif %}
               </div>
             </div>

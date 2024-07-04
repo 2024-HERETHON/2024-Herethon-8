@@ -9,7 +9,7 @@
     </head>
     <nav>
         <div class="Left">
-            <div class="Title">이름</div>
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
         </div>
         <div class="Right">
             <div class="search"></div>
@@ -24,7 +24,7 @@
         <div class="writerintro">
             <div class="writerintroimg">
                 <img
-                src="{% static 'img/작가인기프로필.png' %}"
+                src="{{ author.user.profile.url }}"
                     class="writerintroimgclass"
                 />
             </div>
@@ -93,8 +93,9 @@
                             {% for similar_author in similar_authors %}
                         <div class="otherwriterelements">
                             <div class="otherwriterimg">
-                                <img src="{% static 'img/작가인기프로필.png' %}" class="otherwriterimgclass">
+                                <img src="{{ similar_author.user.profile.url }}" class="otherwriterimgclass">
                             </div>
+                            <br>
                             <div class="otherwritername">{{ similar_author.user.nickname }}</div>
                         </div>
                         {% endfor %}
@@ -109,7 +110,7 @@
                     <div class="writingscontents">
                         <button
                             type="button"
-                            onclick="location.href='login.html'"
+                            onclick="location.href='/posts/detail/{{ post.pk }}/'" 
                             class="writingscontentsbox"
                         >
                         
@@ -133,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="writingscontentsImg">
-                                    <img src="{% static 'img/실시간인기도서1.png' %}" class="writingscontentsImgclass" />
+                                    <img src="{{ post.image.url }}" class="writingscontentsImgclass" />
                                 </div>
                             </div>
                             <div class="writingscontentsMore">

@@ -7,29 +7,55 @@
         <link rel="stylesheet" href="{% static 'css/contentdetail.css' %}" />
         <title>Document</title>
     </head>
-    <nav></nav>
+    <div class="bar">
+        <!--나브바 추가 시작-->
+        <nav class="nav" style="font-family: Pretendard;">
+         <div class="Left">
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+           <div class="Selectbar">
+             <div class="popluar">
+               <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+             </div>
+             <div class="recommend">
+               <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+             </div>
+             <div class="writenew">
+               <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+             </div>
+           </div>
+         </div>
+         <div class="Right">
+           <div class="search"></div>
+           <div class="login">
+             <a href="{% url 'mypage' %}"" class="navlinklogin">마이페이지</a>
+           </div>
+         </div>
+       </nav>
+       <!--나브바 추가 끝-->
+     </div>
     <body>
         <div class="bodyelements">
             <div class="bodybackground">
+                <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'img/bin_img.svg' %}{% endif %}"  style="background-size: cover; background-position: center;background-repeat: no-repeat; width: 100%;"/>
                 <div class="bodybackgroundelements">
                     <div class="backgroundmore">
                         <div class="backgroundHeart">
                             <div class="heartImg">
                                 <img src="{% static 'img/heartw.png' %}" />
                             </div>
-                            <div class="heartCnt" id="backgroundHeartCount">1</div>
+                            <div class="heartCnt" id="backgroundHeartCount">{{ post.like_count }}</div>
                         </div>
                         <div class="backgroundComments">
                             <div class="commentImg">
                                 <img src="{% static 'img/commentsw.png' %}" />
                             </div>
-                            <div class="commentCnt">0</div>
+                            <div class="commentCnt">{{ post.comment_count }}</div>
                         </div>
                         <div class="backgroundScrap">
                             <div class="ScrapImg">
                                 <img src="{% static 'img/bookmarkw.png' %}"  />
                             </div>
-                            <div class="ScrapCnt"  id="backgroundScrapCount">1</div>
+                            <div class="ScrapCnt"  id="backgroundScrapCount">{{ post.scrap_count }}</div>
                         </div>
                     </div>
                     <div class="backgroundtitle">
@@ -42,7 +68,9 @@
                         </div>
                         <div class="bodybackgrounddate">{{ post.created_at|date:"Y년 n월 j일" }}</div>
                         <div class="bodybackgroundtime">{{ post.created_at|time:"H:i" }}</div>
-                    </div> 
+                        
+                    </div>
+                    
                 </div>
             </div>
             <div class="writingselements">
@@ -51,19 +79,26 @@
                 </div>
                 <hr style="width: 50%; margin-top: 3%; color: #EEEEEE;">
                 <div class="likescrap">
-                    <div class="backgroundHeart">
+                    <form method="post" action="{% url 'post-like' post.id %}">
+                        {% csrf_token %}
+                    <button class="backgroundHeart" style="background: none; border: none;">
                         <div class="heartImg">
                             <img src="{% static 'img/heart.png' %}" id="heartImage" />
                         </div>
                         <div class="heartCnt" id="heartCount">{{ post.like_count }}</div>
-                    </div>
-                    <div class="backgroundScrap">
+                    </button>
+                    </form>
+                    <form method="post" action="{% url 'post-scrap' post.id %}">
+                        {% csrf_token %}
+                    <button class="backgroundScrap" style="background: none; border: none;">
                         <div class="ScrapImg">
                             <img src="{% static 'img/bookmark.png' %}" id="scrapImage"/>
                         </div>
                         <div class="ScrapCnt"id="scrapCount">{{ post.scrap_count }}</div>
-                    </div>
+                    </button>
+                    </form>
                 </div>
+                
                 <div class="comments">
                     <div class="commentsetting">
                         <div class="commentcnt">
@@ -74,8 +109,12 @@
                             </div>
                         </div>
                         <div class="commentssetting">
-                            <button id="sortOldest">등록순</button>
-                            <button id="sortNewest">최신순</button>
+                            <a id="sortOldest" href="{% url 'sort-comments-oldest' post.id %}" 
+                            style="color: #888; text-decoration: none; cursor: pointer;"
+                            onclick="this.style.color = '#000';">등록순</a>
+                            <a id="sortNewest" href="{% url 'sort-comments-newest' post.id %}" 
+                            style="color: #888; text-decoration: none; cursor: pointer;"
+                            onclick="this.style.color = '#000';">최신순</a>
                         </div>
                     </div>
                     <form method="post" action="{% url 'post-comment' post.id %}">
@@ -101,7 +140,7 @@
                             {% for comment in comments %}
                     <div class="commentswritten" id="commentsContainer">
                         <div class="commentswrittenelements">
-                            <div class="commentswrittenid">{{ comment.writer.username }}</div>
+                            <div class="commentswrittenid">{{ comment.writer.nickname }}</div>
                             <div class="commentswrittencontents">{{ comment.content }}</div>
                             <div class="commentswrittenmore">
                                 <div class="commentswritteninfo">
@@ -109,12 +148,15 @@
                                     <span>ㅤ</span>
                                     <div class="commentswrittentime">{{ comment.created_at|time:"H:i" }}</div>
                                 </div>
-                                <div class="heart">
-                                    <div class="heartImg">
-                                        <img src="{% static 'img/heart.png' %}" id="heartImage" />
-                                    </div>
-                                    <div class="heartCnt" id="heartCount">{{ comment.like_count }}</div>
-                                </div>
+                                <form method="post" action="{% url 'post-comment-like' comment.pk %}">
+                                    {% csrf_token %}
+                                    <button class="heart" style="background: none; border: none; display: flex;">
+                                        <div class="heartImg">
+                                            <img src="{% static 'img/heart.png' %}" id="heartImage" />
+                                        </div>
+                                        <div class="heartCnt" id="heartCount">{{ comment.like_count }}</div>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

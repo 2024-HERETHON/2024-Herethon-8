@@ -10,7 +10,23 @@
   <body>
     <div class="wrap">
       <div class="container">
-        <div class="bar"></div>
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+            </div>
+            <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                ><img src="{% static 'img/close.png' %}"
+                /></a>
+            </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
         <div class="side">
           <div class="side_title">활동내역</div>
           <div class="side_buttons">
@@ -45,6 +61,7 @@
           <div class="main_line"></div>
           <div class="main_boxs">
             {% for comment in user_comments %}
+            <a href="{% url 'post-detail' pk=comment.post.id %}" style="text-decoration: none;">
             <div class="main_box">
               <div class="box_wrap">
                 <div class="post_title" id="post_title">원문 | {{ comment.post.title }}</div>

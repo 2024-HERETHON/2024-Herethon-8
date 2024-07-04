@@ -33,8 +33,7 @@ urlpatterns = [
     path('accounts/mypage/', accounts.views.mypage_view, name="mypage"),
     path('accounts/mypage/posts', accounts.views.user_posts_view, name='myPost'),
     path('accounts/mypage/comments', accounts.views.user_comments_view, name='myComment'),
-    path('accounts/mypage/hearts', accounts.views.user_liked_posts_view, name='liked_posts'),
-    path('accounts/mypage/hearts/comments', accounts.views.user_liked_comments_view, name='liked_comments'),
+    path('accounts/mypage/hearts', accounts.views.user_liked_view, name='liked_posts'),
     path('accounts/mypage/scraps', accounts.views.user_scrap_posts_view, name='scrap_posts'),
     path('accounts/authors/', accounts.views.author_list_view, name='author-list'),
     path('accounts/authors/<int:pk>/', accounts.views.author_detail_view, name='author-detail'),
@@ -42,6 +41,13 @@ urlpatterns = [
     path('accounts/authors/mypage/', accounts.views.author_mypage_view, name='author-mypage'), 
     path('posts/', posts.views.post_form_view, name='post-form'),
     path('posts/detail/<int:pk>/', posts.views.post_detail_view, name='post-detail'),
-    path('posts/detail/<int:pk>/comment/', posts.views.post_detail_view, name='post-comment'),  
+    path('posts/detail/<int:pk>/comment/', posts.views.post_detail_view, name='post-comment'),
+    path('posts/detail/<int:pk>/comment/likes', posts.views.post_detail_comment_like_view, name='post-comment-like'),
+    # 등록순 댓글 정렬 패턴
+    path('posts/detail/<int:pk>/comments/oldest', posts.views.sort_comments_oldest, name='sort-comments-oldest'),
+    # 최신순 댓글 정렬 패턴
+    path('posts/detail/<int:pk>/comments/newest', posts.views.sort_comments_newest, name='sort-comments-newest'), 
+    path('posts/detail/<int:pk>/like/', posts.views.post_detail_view, name='post-like'),  
+    path('posts/detail/<int:pk>/scrap/', posts.views.post_detail_view, name='post-scrap'), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

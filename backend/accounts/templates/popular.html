@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="{% static 'css/popular.css' %}" />
         <title>Document</title>
     </head>
-    <nav>
+    <nav class="nav" style="font-family: Pretendard;">
         <div class="Left">
-            <div class="Title">이름</div>
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
             <div class="Selectbar">
                 <div class="popluar">
                     <a href="{% url 'popular-main' %}" class="navlink">인기</a>
@@ -41,27 +41,30 @@
                 </button>
                 <div class="realtimehottitle">실시간 인기</div>
                 <div class="realtimehotwritings" id="carousel">
+                    {% for post in most_liked_post %}
                     <div class="realtimehotwritingsbox">
                         <button
                             type="button"
-                            onclick="location.href='login.html'"
+                            onclick="location.href='/posts/detail/{{ post.pk }}/'"
                             class="realtimehotwritingsboxBtn"
                         >
                             <div class="realtimehotwritingsboxImg">
                                 <img
-                                    src="{% static 'img/실시간인기1.png' %}"
+                                src="{{ post.image.url }}"
                                     class="realtimehotwritingsboxImgclass"
                                 />
                             </div>
                             <div class="realtimehotwritingsboxTitle">
-                                {{ most_liked_post.0.title }}
+                                {{ post.title }}
                             </div>
-                            <div class="realtimehotwritingsboxWho">{{ most_liked_post.0.writer.nickname }}</div>
+                            <div class="realtimehotwritingsboxWho">{{ post.writer.nickname }}</div>
                             <div class="realtimehotwritingsboxWritings">
-                                {{ most_liked_post.0.content|truncatewords:20 }}
+                                {{ post.content|truncatewords:20 }}
                             </div>
                         </button>
                     </div>
+                    {% endfor %}
+                    <!--
                     <div class="realtimehotwritingsbox">
                         <button
                             type="button"
@@ -70,7 +73,7 @@
                         >
                             <div class="realtimehotwritingsboxImg">
                                 <img
-                                    src="{% static 'img/실시간인기1.png' %}"
+                                src="{{ most_liked_post.1.image.url }}"
                                     class="realtimehotwritingsboxImgclass"
                                 />
                             </div>
@@ -91,7 +94,7 @@
                         >
                             <div class="realtimehotwritingsboxImg">
                                 <img
-                                    src="{% static 'img/실시간인기1.png' %}"
+                                src="{{ most_liked_post.2.image.url }}"
                                     class="realtimehotwritingsboxImgclass"
                                 />
                             </div>
@@ -112,7 +115,7 @@
                         >
                             <div class="realtimehotwritingsboxImg">
                                 <img
-                                    src="{% static 'img/실시간인기1.png' %}"
+                                src="{{ most_liked_post.3.image.url }}"
                                     class="realtimehotwritingsboxImgclass"
                                 />
                             </div>
@@ -133,7 +136,7 @@
                         >
                             <div class="realtimehotwritingsboxImg">
                                 <img
-                                    src="{% static 'img/실시간인기1.png' %}"
+                                src="{{ most_liked_post.4.image.url }}"
                                     class="realtimehotwritingsboxImgclass"
                                 />
                             </div>
@@ -238,6 +241,7 @@
                             </div>
                         </button>
                     </div>
+                    -->
                 </div>
             </div>
             <div class="categlory">
