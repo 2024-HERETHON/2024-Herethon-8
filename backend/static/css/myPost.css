@@ -1,4 +1,3 @@
-
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 .wrap {
   display: flex;
@@ -31,6 +30,7 @@
 .side_title {
   margin-top: 20px;
   margin-left: 50px;
+
   color: #444;
   font-family: Pretendard;
   font-size: 20px;
@@ -48,8 +48,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
+
   border: none;
   background: #fcfcfc;
+
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 16px;
@@ -79,12 +81,14 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
   margin-bottom: 24px;
 }
 .main_line {
   width: 736px;
   height: 1px;
   background: #eee;
+
   margin-bottom: 24px;
 }
 .main_boxs {
@@ -95,6 +99,7 @@
 }
 .content_none {
   margin-top: 36px;
+
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 16px;
@@ -102,7 +107,7 @@
   font-weight: 400;
   line-height: normal;
 }
-#main_box_mypost {
+.main_box {
   width: 736px;
   height: 158px;
   flex-shrink: 0;
@@ -110,21 +115,23 @@
   background: #fff;
   box-shadow: 2px 2px 4px 0px rgba(159, 159, 159, 0.25);
 }
-#box_wrap_mypost {
+.box_wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding-left: 16px;
   padding-top: 16px;
   padding-bottom: 23px;
   padding-right: 23px;
 }
-#box_text_mypost {
+.box_text {
   display: flex;
   flex-direction: column;
 }
 .mypost_title {
   padding-bottom: 40px;
+
   color: #444;
   font-family: Pretendard;
   font-size: 16px;
@@ -132,6 +139,7 @@
   font-weight: 600;
   line-height: normal;
 }
+
 .reacts {
   display: flex;
   flex-direction: row;
@@ -152,6 +160,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+
   color: #9f9f9f;
   font-family: Pretendard;
   font-size: 14px;
@@ -164,14 +173,15 @@
   height: 124px;
   flex-shrink: 0;
   border-radius: 8px;
-  overflow: hidden;
 }
 .img_size {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
+
 /*나브바 추가 */
 nav {
   display: flex;
@@ -213,19 +223,21 @@ nav {
   color: #444444;
   font-weight: bold;
 }
+
 .navlinklogin,
 .navlinksign {
   color: #5e6f52;
   font-weight: bold;
 }
 /*나브바 추가*/
+
 /*박스 동적 추가 */
-#main_box_mypost {
+.main_box {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자를 추가합니다 */
   transition: box-shadow 0.3s ease-in-out; /* 그림자 애니메이션 추가 */
 }
 /* 마우스를 올렸을 때 그림자 강화 */
-#main_box_mypost:hover {
+.main_box:hover {
   box-shadow: 0 8px 12px #5e6f52;
 }
 /*박스 동적 추가 */

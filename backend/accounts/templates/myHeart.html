@@ -11,7 +11,23 @@
   <body>
     <div class="wrap">
       <div class="container">
-        <div class="bar"></div>
+        <div class="bar">
+        <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><img src="{% static 'img/logo.svg' %}" /></div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                  ><img src="{% static 'img/close.png' %}"
+                  /></a>
+              </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
         <!-- 사이드 버튼 -->
         <div class="side">
           <div class="side_title">활동내역</div>
@@ -57,6 +73,7 @@
           <!-- 좋아요한 글 기록-->
           <div class="main_boxs" id="main_boxs_post">
             {% for post in liked_posts %}
+            <a href="{% url 'post-detail' pk=post.id %}" style="text-decoration: none;">
             <div class="main_box" id="main_box_post">
               <div class="box_wrap" id="box_wrap_post">
                 <div class="box_text" id="box_text_post">

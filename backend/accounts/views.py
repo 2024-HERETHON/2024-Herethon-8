@@ -65,7 +65,10 @@ def signup_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+                user=form.save(commit=False)
+                user.email = None
                 user = form.save()
+
                 user = authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'])
                 login(request, user)

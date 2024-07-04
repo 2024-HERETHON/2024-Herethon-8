@@ -14,7 +14,7 @@
           <!--나브바 추가 시작-->
           <nav class="nav">
             <div class="Left">
-              <div class="Title">이름</div>
+              <div class="Title"><img src="{% static 'img/logo.svg' %}" /></div>
               <div class="Selectbar">
                 <div class="popluar">
                   <a href="{% url 'popular-main' %}" class="navlink">인기</a>
@@ -30,11 +30,11 @@
             <div class="Right">
               <div class="search"></div>
               <div class="login">
-                <a href="{% url 'mypage' %}"" class="navlinklogin">마이페이지</a>
+                <a href="{% url 'mypage' %}" class="navlinklogin">마이페이지</a>
               </div>
             </div>
           </nav>
-          <!--나브바 추가 끝-->
+          <!--나브바 추가 끝-->          
         </div>
         <!-- 금주의 작가소개 -->
         <div class="writer_recommend">
