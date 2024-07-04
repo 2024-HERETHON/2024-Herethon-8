@@ -46,6 +46,12 @@
   align-items: center;
   gap: 24px;
 }
+.writer_img {
+  height: 182px;
+  align-self: stretch;
+  border-radius: 182px;
+  object-fit: cover;
+}
 .writer_text {
   display: flex;
   width: 79px;
