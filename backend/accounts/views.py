@@ -45,7 +45,7 @@ def beforeMain_view(request):
         return render(request, 'beforeMain.html', context)
     
 def recommendMain_view(request):
-    focus_author = Author.objects.all()[:3]
+    focus_author = Author.objects.all()[:4]
     latest_post = Post.objects.order_by('-created_at')[:6]
     recommended_post = Post.objects.all()[:6]
     context = {

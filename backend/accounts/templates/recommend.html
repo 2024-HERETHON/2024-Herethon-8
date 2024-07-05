@@ -84,7 +84,7 @@
               <div class="post_text">
                 <div class="text_content">
                   <p class="subhead">{{ latest_post.content|truncatewords:2 }}</p>
-                  <p class="head">{{ latest_post.title }}</p>
+                  <p class="head">{{ latest_post.title|truncatewords:4 }}</p>
                   <p class="post_writer">By {{ latest_post.writer.nickname  }}</p>
                 </div>
                 <div class="post_buttons">
@@ -177,7 +177,7 @@
               <div class="post_text">
                 <div class="text_content">
                   <p class="subhead">{{ recommended_post.content|truncatewords:2 }}</p>
-                  <p class="head">{{ recommended_post.title }}</p>
+                  <p class="head">{{ recommended_post.title|truncatewords:4 }}</p>
                   <p class="post_writer">By {{ recommended_post.writer.nickname }}</p>
                 </div>
                 <div class="post_buttons">

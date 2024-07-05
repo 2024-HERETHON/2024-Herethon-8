@@ -64,7 +64,7 @@
                     <div class="backgroundwhen" style="color: white;">
                         <div class="backgroundwho">
                             <div class="backgroundwhoby">by</div>
-                            <div class="backgroundwhoname">{{ user.nickname }}</div>
+                            <div class="backgroundwhoname">{{ post.writer.nickname }}</div>
                         </div>
                         <div class="bodybackgrounddate">{{ post.created_at|date:"Y년 n월 j일" }}</div>
                         <div class="bodybackgroundtime">{{ post.created_at|time:"H:i" }}</div>
