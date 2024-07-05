@@ -141,7 +141,7 @@ function updateWriterContent(categoryId) {
 // 인기 게시물 스크롤
 function scrollToLeft() {
     const container = document.querySelector(".realtimehotwritings");
-    const childWidth = container.firstElementChild.clientWidth;
+    const childWidth = container.firstElementChild.offsetWidth;
 
     container.scrollBy({
         left: -childWidth,
@@ -151,7 +151,7 @@ function scrollToLeft() {
 
 function scrollToRight() {
     const container = document.querySelector(".realtimehotwritings");
-    const childWidth = container.firstElementChild.clientWidth;
+    const childWidth = container.firstElementChild.offsetWidth;
 
     container.scrollBy({
         left: childWidth,

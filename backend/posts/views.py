@@ -67,8 +67,8 @@ def post_detail_comment_like_view(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
 
     if request.method == "POST":
-        if comment.likes.filter(user=request.user).exists():
-            comment.likes.filter(user=request.user).delete()
+        if comment.comment.filter(user=request.user).exists():
+            comment.comment.filter(user=request.user).delete()
         else:
             Like.objects.create(user=request.user, comment=comment)
 

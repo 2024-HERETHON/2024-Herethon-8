@@ -96,11 +96,11 @@
           </div>
           <!-- 좋아요한 댓글 -->
           <div class="main_boxs" id="main_boxs_comment" style="display: none">
-            {% for comment in liked_posts %}
+            {% for comment in liked_comments %}
             <div class="main_box" id="main_box_comment">
               <div class="box_wrap" id="box_wrap_comment">
                 <div class="heart_post_title" id="heart_post_title">
-                  원문 | {{ comment.title }}
+                  원문 | {{ comment.post.title }}
                 </div>
                 <div class="heart_comment_content" id="heart_comment_content">
                   {{ comment.content|truncatewords:15 }}

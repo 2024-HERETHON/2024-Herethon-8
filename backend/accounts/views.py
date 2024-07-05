@@ -8,7 +8,7 @@ from django.contrib.auth import login, logout
 from django.views import View
 from .forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
-from .models import User,Post,Comment
+from .models import User,Post,Comment,Like
 from django.views import View
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -45,7 +45,7 @@ def beforeMain_view(request):
         return render(request, 'beforeMain.html', context)
     
 def recommendMain_view(request):
-    focus_author = Author.objects.all()[:4]
+    focus_author = Author.objects.all()[:3]
     latest_post = Post.objects.order_by('-created_at')[:6]
     recommended_post = Post.objects.all()[:6]
     context = {
@@ -126,7 +126,7 @@ def user_comments_view(request):
 def user_liked_view(request):
     user_id = request.user.id
     liked_posts = Post.objects.filter(likes__user_id=user_id)
-    liked_comments = Comment.objects.filter(likes__user_id=user_id)
+    liked_comments = Comment.objects.filter(comment__user_id=user_id)
     context = {
         'liked_posts': liked_posts,
         'liked_comments': liked_comments
@@ -146,7 +146,7 @@ def user_liked_comments_view(request):
 @login_required
 def user_scrap_posts_view(request):
     user_id = request.user.id
-    scrap_posts = Post.objects.filter(likes__user_id=user_id)
+    scrap_posts = Post.objects.filter(scraps__user_id=user_id)
     context = {
         'scrap_posts': scrap_posts
     }
@@ -159,7 +159,7 @@ def author_list_view(request):
 def author_detail_view(request, pk):
     author = get_object_or_404(Author, pk=pk)
     author_posts = Post.objects.filter(writer=author.user)
-    similar_authors = Author.objects.exclude(pk=pk)[:3]
+    similar_authors = Author.objects.exclude(pk=pk)[:2]
 
     return render(request, 'writerpage.html', {'author': author, 'author_posts': author_posts, 'similar_authors': similar_authors})
 

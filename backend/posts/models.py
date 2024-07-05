@@ -51,8 +51,8 @@ class Comment(models.Model):
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='작성자', null=True)
 
     def like_count(self):
-        if self.likes.exists():  # comments가 존재하는지 확인
-            return self.likes.count()
+        if self.comment.exists():  # comments가 존재하는지 확인
+            return self.comment.count()
         return 0 
     
     
@@ -60,7 +60,7 @@ class Comment(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes', null=True, blank=True)
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='likes', null=True, blank=True)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='comment', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
