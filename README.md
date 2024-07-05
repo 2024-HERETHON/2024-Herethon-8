@@ -68,6 +68,6 @@
   <td  align="center"><p>백엔드 전반</p></td>
   <td  align="center"><p>백엔드 전반</p></td>
     <td  align="center"><p>프론트 전반</p><p>ppt 발표</p></td>
-   <td  align="center"><p>프론트 전반</p></td>
+   <td  align="center">https://avatars.githubusercontent.com/u/128278237?v=4<p>프론트 전반</p></td>
   </tr>
   </table>
