@@ -276,7 +276,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 4%;
 }
 
 .writerimgclass {
@@ -296,4 +295,45 @@ nav {
 .writerlink {
     text-decoration-line: none;
     color: #444444;
+}
+
+/*css 추가*/
+.popluarWritingShowMoreSelect,
+.newWritingShowMoreSelect {
+    display: flex;
+    flex-direction: row;
+}
+.popluarWritingShowMoreSelect div,
+.newWritingShowMoreSelect div {
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+}
+.heartCnt,
+.commentCnt,
+.ScrapCnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heartImg,
+.commentImg,
+.ScrapImg {
+    margin-left: 2%;
+}
+.writingscontentsMore {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.writingscontentsMore div {
+    display: flex;
+    flex-direction: row;
+    margin-right: 3px;
+}
+.commentCnt {
+    margin-left: 7px;
+}
+.writername {
+    width: 60%;
 }

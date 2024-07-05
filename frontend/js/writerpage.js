@@ -27,25 +27,44 @@ function showContent(pageId, btn) {
 function loadContent() {
     const contents = [
         {
-            intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
-            title: "무라카미 하루키가 전하는 이데아",
-            author: "책쟁이",
-            imgSrc: "./img/실시간인기도서1.png",
+            intro: "영화 속 감정의 미학",
+            title: "화면 너머의 진심",
+            author: "이영영",
+            imgSrc: "./img/이영영 (4).png",
             link: "movie.html",
+            heart: "30",
+            comment: "58",
+            bookmark: "11",
         },
         {
-            intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
-            title: "무라카미 하루키가 전하는 이데아",
-            author: "책쟁이",
-            imgSrc: "./img/실시간인기도서1.png",
+            intro: "영화로 풀어내는 인간의 이야기",
+            title: "빛과 그림자",
+            author: "이영영",
+            imgSrc: "./img/이영영 (3).png",
             link: "movie.html",
+            heart: "21",
+            comment: "31",
+            bookmark: "7",
         },
         {
-            intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+            intro: "영화를 통해 본 감동의 색채",
+            title: "감동의 프레임",
+            author: "이영영",
+            imgSrc: "./img/이영영 (2).png",
+            link: "movie.html",
+            heart: "33",
+            comment: "45",
+            bookmark: "12",
+        },
+        {
+            intro: "영화에서 인생을 배우다",
             title: "무라카미 하루키가 전하는 이데아",
             author: "책쟁이",
-            imgSrc: "./img/실시간인기도서1.png",
+            imgSrc: "./img/이영영 (1).png",
             link: "movie.html",
+            heart: "1,130",
+            comment: "1,831",
+            bookmark: "987",
         },
     ];
 
@@ -71,9 +90,31 @@ function loadContent() {
                         </div>
                     </div>
                     <div class="writingscontentsMore">
-                        <div class="writingscontentsHeart"></div>
-                        <div class="writingscontentsComments"></div>
-                        <div class="writingscontentsSaved"></div>
+                          <div
+                                        class="popluarWritingShowMoreSelectHeart"
+                                    >
+                                        <div class="heartImg">
+                                        
+                                            <img src="./img/heart.png" />
+                                        </div>
+                                        <div class="heartCnt">${content.heart}</div>
+                                    </div>
+                                    <div
+                                        class="popluarWritingShowMoreSelectComments"
+                                    >
+                                        <div class="commentImg">
+                                            <img src="./img/comments.png" />
+                                        </div>
+                                        <div class="commentCnt">${content.comment}</div>
+                                    </div>
+                                    <div
+                                        class="popluarWritingShowMoreSelectScrap"
+                                    >
+                                        <div class="ScrapImg">
+                                            <img src="./img/bookmark.png" />
+                                        </div>
+                                        <div class="ScrapCnt">${content.bookmark}</div>
+                                    </div>
                     </div>
                 </div>
             </button>`;
