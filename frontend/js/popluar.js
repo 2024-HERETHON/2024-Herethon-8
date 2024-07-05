@@ -58,6 +58,57 @@ function updateWritingsContent(categoryId) {
             },
             // Add more objects for additional items
         ],
+        "03": [
+            {
+                intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+                title: "무라카미 하루키가 전하는 이데아",
+                author: "책쟁이",
+                imgSrc: "./img/실시간인기도서1.png",
+                link: "movie.html",
+            },
+            // Add more objects for additional items
+        ],
+        "04": [
+            {
+                intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+                title: "무라카미 하루키가 전하는 이데아",
+                author: "책쟁이",
+                imgSrc: "./img/실시간인기도서1.png",
+                link: "movie.html",
+            },
+            // Add more objects for additional items
+        ],
+        "05": [
+            {
+                intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+                title: "무라카미 하루키가 전하는 이데아",
+                author: "책쟁이",
+                imgSrc: "./img/실시간인기도서1.png",
+                link: "movie.html",
+            },
+            // Add more objects for additional items
+        ],
+        "06": [
+            {
+                intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+                title: "무라카미 하루키가 전하는 이데아",
+                author: "책쟁이",
+                imgSrc: "./img/실시간인기도서1.png",
+                link: "movie.html",
+            },
+            // Add more objects for additional items
+        ],
+        "07": [
+            {
+                intro: "기묘한 우물 속으로 나를 찾아 떠나는 여정",
+                title: "무라카미 하루키가 전하는 이데아",
+                author: "책쟁이",
+                imgSrc: "./img/실시간인기도서1.png",
+                link: "movie.html",
+            },
+            // Add more objects for additional items
+        ],
+
         // Add similar arrays for other categories
     };
 
@@ -118,7 +169,66 @@ function updateWriterContent(categoryId) {
                 link: "movie.html",
             },
         ],
-        // Add similar arrays for other categories
+        "03": [
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+        ],
+        "04": [
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+        ],
+        "05": [
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+        ],
+        "06": [
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+        ],
+        "07": [
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+            {
+                img: "./img/작가인기프로필.png",
+                author: "책쟁이2",
+                link: "movie.html",
+            },
+        ],
     };
 
     // Update the writerShow div
