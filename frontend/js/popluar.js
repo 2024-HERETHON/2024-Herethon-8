@@ -97,7 +97,7 @@ function updateWritingsContent(categoryId) {
                 intro: "여름 밤, 테라스에서 듣기 좋은 음악 추천",
                 title: "한여름 밤의 꿈을 노래로",
                 author: "음악감상실",
-                imgSrc: "./img/실시간인기도서_음악1.jng",
+                imgSrc: "./img/실시간인기도서_음악1.jpg",
                 link: "music.html",
                 heart: "2,345",
                 comment: "987",
@@ -284,9 +284,31 @@ function updateWritingsContent(categoryId) {
                         </div>
                     </div>
                     <div class="writingscontentsMore">
-                        <div class="writingscontentsHeart"></div>
-                        <div class="writingscontentsComments"></div>
-                        <div class="writingscontentsSaved"></div>
+                      <div
+                                        class="popluarWritingShowMoreSelectHeart"
+                                    >
+                                        <div class="heartImg">
+                                        
+                                            <img src="./img/heart.png" />
+                                        </div>
+                                        <div class="heartCnt">${content.heart}</div>
+                                    </div>
+                                    <div
+                                        class="popluarWritingShowMoreSelectComments"
+                                    >
+                                        <div class="commentImg">
+                                            <img src="./img/comments.png" />
+                                        </div>
+                                        <div class="commentCnt">${content.comment}</div>
+                                    </div>
+                                    <div
+                                        class="popluarWritingShowMoreSelectScrap"
+                                    >
+                                        <div class="ScrapImg">
+                                            <img src="./img/bookmark.png" />
+                                        </div>
+                                        <div class="ScrapCnt">${content.bookmark}</div>
+                                    </div>
                     </div>
                 </div>
             </button>`;
@@ -368,39 +390,39 @@ function updateWriterContent(categoryId) {
                 link: "music.html",
             },
             {
-                img: "./img/작가인기프로필_음악4.png",
+                img: "./img/작가인기프로필_음악4.jpg",
                 author: "재즈리",
                 link: "music.html",
             },
             {
-                img: "./img/작가인기프로필_음악5.png",
+                img: "./img/작가인기프로필_음악5.jpg",
                 author: "클래식조",
                 link: "music.html",
             },
         ],
         "04": [
             {
-                img: "./img/작가인기프로필_경제1.png",
+                img: "./img/작가인기프로필_경제1.jpg",
                 author: "경제분석가",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제2.png",
+                img: "./img/작가인기프로필_경제2.jpg",
                 author: "김경제",
                 link: "writerpage.html",
             },
             {
-                img: "./img/작가인기프로필_경제3.png",
+                img: "./img/작가인기프로필_경제3.jpg",
                 author: "박투자",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제4.png",
+                img: "./img/작가인기프로필_경제4.avif",
                 author: "부동산전문가",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제5.png",
+                img: "./img/작가인기프로필_경제5.jpg",
                 author: "주식평론가",
                 link: "economy.html",
             },
