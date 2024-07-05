@@ -378,27 +378,27 @@ function updateWriterContent(categoryId) {
         ],
         "04": [
             {
-                img: "./img/작가인기프로필_경제1.png",
+                img: "./img/작가인기프로필_경제1.jpg",
                 author: "경제분석가",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제2.png",
+                img: "./img/작가인기프로필_경제2.jpg",
                 author: "김경제",
                 link: "writerpage.html",
             },
             {
-                img: "./img/작가인기프로필_경제3.png",
+                img: "./img/작가인기프로필_경제3.jpg",
                 author: "박투자",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제4.png",
+                img: "./img/작가인기프로필_경제4.avif",
                 author: "부동산전문가",
                 link: "economy.html",
             },
             {
-                img: "./img/작가인기프로필_경제5.png",
+                img: "./img/작가인기프로필_경제5.jpg",
                 author: "주식평론가",
                 link: "economy.html",
             },
