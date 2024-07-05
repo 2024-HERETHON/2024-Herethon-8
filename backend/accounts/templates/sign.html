@@ -10,7 +10,11 @@
 <body>
     <div class="Total">
         <div class="Left">
-            <div class="img"></div>
+            <div class="img">
+                <!-- 로고 이미지 추가-->
+                <img src="{% static 'img/로고.png' %}" class="logoimg" / style="width: 361px; height: 295px;">
+                <!-- 로고 이미지 추가-->
+            </div>
             <div class="introtext">
                 <div class="introduce1">
                     당신의 어휘력을 높이기 위한 매일의 기록
@@ -25,7 +29,7 @@
                 <div class="LoginInputBox">
                     <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="LoginInputBoxName">회원가입</div>
+                        <div class="LoginInputBoxName" style="display: flex; justify-content: center;">회원가입</div>
                         <div class="LoginInputBoxNormalElements">
                             <div class="LoginInputBoxNormal">
                                 <div class="LoginInputBoxInput">
@@ -113,12 +117,28 @@
                     <div class="LoginInputBoxLoginElseElements">
                         <div class="LoginInputBoxLoginElse">
                             <div class="LoginInputBoxKakao">
-                                <button type="button" class="InputbtnElse">
+                                <!--카카오톡 이미지 추가-->
+                                <button type="button" class="InputbtnElseK">
+                                    <div class="kakakoImg">
+                                        <img
+                                            src="{% static 'img/카카오톡.png' %}"
+                                            class="btnimg"
+                                        />
+                                    </div>
+                                    <!--카카오톡 이미지 추가-->
                                     카카오계정으로 회원가입
                                 </button>
                             </div>
                             <div class="LoginInputBoxGoogle">
-                                <button type="button" class="InputbtnElse">
+                                 <!--이메일 이미지 추가-->
+                                 <button type="button" class="InputbtnElseG">
+                                    <div class="kakakoImg">
+                                        <img
+                                            src="{% static 'img/이메일.png' %}"
+                                            class="btnimg"
+                                        />
+                                    </div>
+                                    <!--이메일 이미지 추가-->
                                     구글로 회원가입
                                 </button>
                             </div>

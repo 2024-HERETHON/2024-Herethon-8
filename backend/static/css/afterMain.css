@@ -12,7 +12,7 @@ nav {
 .Title,
 .Selectbar,
 .Left,
-.Right {
+.Right{
     display: flex;
     flex-direction: row;
     margin: 10px;
@@ -468,3 +468,4 @@ nav {
     object-fit: cover;
     border-radius: 12px;
 }
+

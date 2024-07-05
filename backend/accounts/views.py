@@ -23,13 +23,14 @@ from .models import Author
 from .forms import AuthorForm
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import EmailAuthenticationForm
+from django.db.models import Count
 
 
 def beforeMain_view(request):
     latest_post = Post.objects.order_by('-created_at').first()
-    most_liked_post = Post.objects.order_by('-likes').first()
+    most_liked_post = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count').first()
     focus_author = Author.objects.all()[:2]
-    recommended_post = Post.objects.order_by('-likes')[:2]
+    recommended_post = Post.objects.order_by('-comments')[:2]
 
     context = {
         'latest_post': latest_post,
@@ -55,7 +56,7 @@ def recommendMain_view(request):
     return render(request, 'recommend.html', context)
 
 def popularMain_view(request):
-    most_liked_post = Post.objects.order_by('-likes')[:6]
+    most_liked_post = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count')
     context = {
         'most_liked_post' : most_liked_post
     }

@@ -23,7 +23,7 @@ class Post(models.Model):
 
     title = models.CharField('제목', max_length=200)
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='작성자', null=True, blank=True)
-    image = models.ImageField(blank=True, upload_to="post_photo", default='img/bin_img.svg')
+    image = models.ImageField(blank=True, upload_to="post_photo", default='post_photo/bin_img.svg')
     content = models.TextField('내용')
     category = models.CharField('글 분야', max_length=2, choices=CATEGORY_CHOICES, default='자유')
     created_at = models.DateTimeField(auto_now_add=True)

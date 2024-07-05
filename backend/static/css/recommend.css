@@ -113,7 +113,7 @@
   height: 124px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  background: url(<path-to-image>) white 100% / cover no-repeat;
 }
 .post_text {
   padding-top: 23px;

@@ -3,6 +3,7 @@ from .models import Post, Comment, Like ,Scrap
 from .forms import PostModelForm, CommentForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -123,3 +124,4 @@ def user_scrap_posts_view(request):
         'scrap_posts': scrap_posts
     }
     return render(request, 'myScrap.html', context)
+

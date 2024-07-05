@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         post_content_input.style.background = "#fff";
         add_img_button.style.background = "#fff";
         add_img_text.style.color = "#444";
-        add_img.src = "./images/add_img_black.svg";
+        add_img.src = "../../static/img/add_img_black.svg";
       } else {
         post_title.setAttribute("disabled", "disabled");
         post_content_input.setAttribute("disabled", "disabled");

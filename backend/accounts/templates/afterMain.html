@@ -26,6 +26,8 @@
             <div class="search"></div>
             <div class="login">
                 <a href="{% url 'mypage' %}" class="navlinklogin">마이페이지</a>
+                <span>ㅤ</span>
+                <a href="{% url 'logout' %}" class="navlinklogin" ">로그아웃</a>
             </div>
         </div>
     </nav>
@@ -48,7 +50,7 @@
                     <div class="newWritingTitle">
                         <div class="newWritingTitletext">최신 글</div>
                         <div class="newWritingTitlemove">
-                            <a href="{% url 'post-form' %}" class="movelink">
+                            <a href="{% url 'recommend-main' %}" class="movelink">
                                 <div class="movingTitle">더보기</div>
                                 <div class="movingbar">
                                     <img src="{% static 'img/movepage.png' %}" />
@@ -122,7 +124,7 @@
                     <div class="popluarWritingTitle">
                         <div class="popluarWritingTitletext">인기 글</div>
                         <div class="popluarWritingTitlemove">
-                            <a href="{% url 'post-form' %}" class="movelink">
+                            <a href="{% url 'popular-main' %}" class="movelink">
                                 <div class="movingTitle">더보기</div>
                                 <div class="movingbar">
                                     <img src="{% static 'img/movepage.png' %}"/>
@@ -155,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="popluarWritingShowWritingImg">
-                                        <img src="{% static 'img/메인페이지인기글.png' %}" class="popluarWritingShowWritingImgclass" id="popluarWritingShowWritingImgid" />
+                                        <img src="{{ most_liked_post.image.url }}" class="popluarWritingShowWritingImgclass" id="popluarWritingShowWritingImgid" style="width: 207px; height: 124px;"/>
                                     </div>
                                 </div>
                                 <div class="popluarWritingShowMore">
@@ -232,7 +234,7 @@
                         <div class="Only OnlyTodayShowWritingText">
                             <button
                                 type="button"
-                                onclick="location.href='login.html' "
+                                onclick="location.href='/posts/detail/12' "
                                 class="OnlyTodayShowLeftmorebtn"
                             >
                                 읽어보기
@@ -276,7 +278,7 @@
                                     class="FocuseWriterShowIntro"
                                     id="introFirstW"
                                 >
-                                {{ focus_author.1.introduction|truncatewords:30}}...
+                                {{ focus_author.1.introduction|truncatewords:15}}...
                                 </div>
                             </button>
                         </div>
@@ -311,7 +313,7 @@
                                     class="FocuseWriterShowIntro"
                                     id="introSecondW"
                                 >
-                                {{ focus_author.1.introduction|truncatewords:30}}...
+                                {{ focus_author.1.introduction|truncatewords:15}}...
                                 </div>
                             </button>
                         </div>
@@ -365,7 +367,7 @@
                                     class="FocuseWritingShowIntro"
                                     id="introFirstR"
                                 >
-                                {{ recommended_post.0.content|truncatewords:30 }}
+                                {{ recommended_post.0.content|truncatewords:7 }}
                                 </div>
                             </button>
                         </div>
@@ -405,7 +407,7 @@
                                     class="FocuseWritingShowIntro"
                                     id="introSecondR"
                                 >
-                                {{ recommended_post.0.content|truncatewords:30 }}
+                                {{ recommended_post.0.content|truncatewords:7 }}
                                 </div>
                             </button>
                         </div>
