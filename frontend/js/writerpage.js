@@ -58,13 +58,13 @@ function loadContent() {
         },
         {
             intro: "영화에서 인생을 배우다",
-            title: "무라카미 하루키가 전하는 이데아",
-            author: "책쟁이",
+            title: "영화를 봐야만 하는 이유",
+            author: "이영영",
             imgSrc: "./img/이영영 (1).png",
             link: "movie.html",
-            heart: "1,130",
-            comment: "1,831",
-            bookmark: "987",
+            heart: "45",
+            comment: "67",
+            bookmark: "18",
         },
     ];
 
