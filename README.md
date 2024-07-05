@@ -62,12 +62,27 @@
   <td  align="center">프론트엔드</td>
   <td  align="center">프론트엔드</td>
   </tr>
-  
+
+  <tr width="100%">
+  <td  align="center"> <p>
+      <img src="https://avatars.githubusercontent.com/u/173746566?v=4" width="100%",height="50px"/></p></td>
+  <td  align="center"> <p>
+      <img src="https://avatars.githubusercontent.com/u/128593886?v=4" width="100%",height="50px"/></p></td>
+  <td  align="center"> <p>
+      <img src="https://avatars.githubusercontent.com/u/134187969?v=4" width="100%",height="50px"/></p></td>
+  <td  align="center"> <p>
+      <img src="https://avatars.githubusercontent.com/u/164065705?v=4" width="100%",height="50px"/></p></td>
+  <td  align="center">  <p>
+      <img src="https://avatars.githubusercontent.com/u/128278237?v=4" width="100%",height="50px"/></p></td>
+  </tr>
+
+
+
   <tr width="100%">
   <td  align="center"><p>기획 및 디자인 전반</p></td>
   <td  align="center"><p>백엔드 전반</p></td>
   <td  align="center"><p>백엔드 전반</p></td>
     <td  align="center"><p>프론트 전반</p><p>ppt 발표</p></td>
-   <td  align="center">https://avatars.githubusercontent.com/u/128278237?v=4<p>프론트 전반</p></td>
+  <td  align="center"><p>프론트 전반</p></td>
   </tr>
   </table>
