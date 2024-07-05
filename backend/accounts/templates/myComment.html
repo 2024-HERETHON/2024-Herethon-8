@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyComment</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/myComment.css' %}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar">
+          <!-- 나브바 추가 -->
+          <nav>
+            <div class="Left">
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+            </div>
+            <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                ><img src="{% static 'img/close.png' %}"
+                /></a>
+            </div>
+            </div>
+          </nav>
+          <!-- 나브바 추가 -->
+        </div>
+        <div class="side">
+          <div class="side_title">활동내역</div>
+          <div class="side_buttons">
+            <a href="{% url 'myComment' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_comment">
+                  <img src="{% static 'img/my_comment_black.svg' %}" alt="My Comments" />
+                  <span>내가 쓴 댓글</span>
+              </button>
+            </a>
+            <a href="{% url 'liked_posts' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_heart">
+                  <img src="{% static 'img/my_heart.svg' %}" alt="My Likes" />
+                  <span>좋아요 기록</span>
+              </button>
+            </a>
+            <a href="{% url 'scrap_posts' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_scrap">
+                  <img src="{% static 'img/my_scrap.svg' %}" alt="My Scrap" />
+                  <span>스크랩 기록</span>
+              </button>
+            </a>
+            <a href="{% url 'myPost' %}" style="text-decoration: none;">
+              <button class="side_button" id="my_post">
+                  <img src="{% static 'img/my_post.svg' %}" alt="My Posts" />
+                  <span>내가 쓴 글</span>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main_title" id="my_comment_title">내가 쓴 댓글</div>
+          <div class="main_line"></div>
+          <div class="main_boxs">
+            {% for comment in user_comments %}
+            <a href="{% url 'post-detail' pk=comment.post.id %}" style="text-decoration: none;">
+            <div class="main_box">
+              <div class="box_wrap">
+                <div class="post_title" id="post_title">원문 | {{ comment.post.title }}</div>
+                <div class="my_comment_content" id="my_comment_content">
+                  {{ comment.content }}
+                </div>
+                <div class="bottom">
+                  <div class="date_time">
+                    <span id="date">{{ comment.created_at }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <p>작성한 댓글이 없습니다.</p>
+            {% endfor %}
+                  <div class="my_comment_heart">
+                    <img src="{% static 'img/my_comment_heart.svg' %}" />
+                    <span id="my_comment_heart">{{ comment.like_count }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/myComment.js' %}"></script>
+</html>

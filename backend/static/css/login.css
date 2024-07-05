@@ -1,0 +1,252 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+* {
+    font-family: Pretendard; /* 모든 요소에 대해 Pretendard 폰트 적용 */
+}
+.LoginInputBoxName {
+    display: flex;
+    justify-content: center;
+    color: #444444;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.container {
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+@media (max-width: 1000px) {
+    .LoginInputBox {
+        width: 600px;
+    }
+}
+@media (min-width: 1000px) {
+    .LoginInputBox {
+        width: 900px;
+    }
+}
+.LoginInputBoxNormalElements,
+.LoginInputBoxLoginElseElements,
+.LoginMoreElseElements {
+    display: flex;
+    justify-content: center;
+}
+.LoginInputBoxNormal,
+.LoginInputBoxelse,
+.LoginInputBoxLoginElse {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.LoginMore {
+    width: 60%;
+    display: flex;
+}
+.LoginInputBoxInput {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 150px;
+    width: 100%;
+}
+
+.LoginInputBoxEmail,
+.LoginInputBoxPwd {
+    display: flex;
+    justify-content: center;
+}
+/*css 수정*/
+
+.Inputbox,
+.Inputbtn,
+.InputbtnElseK,
+.InputbtnElseG {
+    width: 100%;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.btnimg {
+    width: 80%;
+    height: 80%;
+    margin-right: 10px;
+}
+.kakakoImg {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+.InputbtnElseK {
+    border: solid 1.5px #eeeeee;
+    background-color: #fae300;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #3c1e1e;
+}
+.InputbtnElseG {
+    border: solid 1.5px #eeeeee;
+    background-color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #3c1e1e;
+}
+/*css 수정*/
+.Inputbox {
+    border: solid 1.5px #a9b388;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.Inputbox::placeholder {
+    /* text-indent: 10px;  Placeholder 텍스트 정렬 */
+}
+
+.LoginInputBoxPwd {
+    position: relative;
+    width: 100%;
+}
+
+.password-input {
+    width: 100%;
+    padding-right: 40px; /* 아이콘 공간 확보 */
+}
+
+.eyes {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.Inputbtn {
+    border: solid 1.5px #5e6f52;
+    background-color: #5e6f52;
+    color: white;
+    font-size: 20px;
+}
+.InputbtnElse {
+    border: solid 1.5px #eeeeee;
+    background-color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.LoginInputBoxCheckSave {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.LoginInputBoxLogin,
+.LoginInputBoxKakao {
+    width: 100%;
+}
+.LoginInputBoxKakao {
+    margin-bottom: 12px;
+}
+.LoginInputBoxelse {
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.LoginMoreOption,
+.LoginMoreOptionelse {
+    display: flex;
+    flex-direction: row;
+}
+.LoginMoreOption {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.LoginMoreOptionelse div {
+    margin-left: 20px;
+}
+/* 기본 체크 박스 스타일 초기화 */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative; /* 가상 요소를 포함할 수 있도록 position 속성 추가 */
+}
+
+/* 체크 박스가 체크되었을 때의 스타일 */
+input[type="checkbox"]:checked {
+    background-color: white; /* 체크된 상태의 배경색 */
+}
+
+/* 체크 박스의 체크 마크 디자인 */
+input[type="checkbox"]::before {
+    content: "\2713"; /* 체크 마크(체크 아이콘) 유니코드 */
+    font-size: 14px;
+    color: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 아이콘을 가운데 정렬 */
+    visibility: hidden;
+}
+
+/* 체크 박스가 체크되었을 때의 체크 마크 표시 */
+input[type="checkbox"]:checked::before {
+    visibility: visible;
+}
+.LoginInputBoxCheckSavetextElement {
+    color: #9f9f9f;
+    height: 100%; /* 이 부분은 부모 요소에 따라 다를 수 있습니다. */
+    display: flex;
+    align-items: center;
+}
+
+.LoginInputBoxCheckSavetext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px; /* %가 아니라 px 단위를 사용하는 것이 좋습니다. */
+    height: 100%; /* 이 부분은 부모 요소에 따라 다를 수 있습니다. */
+}
+.link {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+}
+.betweenline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    height: 100%;
+}
+.input {
+    position: relative;
+}
+
+.input .eyes {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 2px;
+    height: 30px;
+    font-size: 22px;
+    cursor: pointer;
+}
+

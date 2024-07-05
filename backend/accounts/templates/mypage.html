@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mypage</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="mypage_title">
+          <div class="bar">
+            <!--나브바 추가 시작-->
+            <nav class="nav">
+              <div class="Left">
+                <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+                  <div class="Selectbar">
+                      <div class="popluar">
+                          <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+                      </div>
+                      <div class="recommend">
+                          <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+                      </div>
+                      <div class="writenew">
+                          <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="Right">
+                  <div class="search"></div>
+                  <div class="login">
+                      <a href="{% url 'mypage' %}" class="navlinklogin">마이페이지</a>
+                  </div>
+              </div>
+            </nav>
+            <!--나브바 추가 끝-->
+          </div>
+          <!-- 인사헤더 -->
+          <div class="hello_header">
+            {% if user.author %}
+              <div id="header1">{{ user.nickname }}님 마이페이지</div>
+              <div id="header2">반갑습니다, {{ user.nickname }} 작가님!</div>
+            {% else %}
+              <div id="header1">{{ user.nickname }}님 마이페이지</div>
+              <div id="header2">반갑습니다, {{ user.nickname }}님!</div>
+            {% endif %}
+          </div>
+        </div>
+        <!-- 내용 -->
+        <div class="content_wrap">
+          <!-- 프로필 -->
+          <div class="section1">
+            <div class="profile">
+              <img id="profile_img" src="{% static 'img/profile_img.svg' %}" />
+              <p id="profile_name">{{user.nickname}}</p>
+            </div>
+            <div id="profile_line"></div>
+            <!-- 관심분야 -->
+            <div class="interest">
+              <div id="interest_title">관심분야</div>
+              <div id="interest_box">
+                <div class="my_interest" id="movie">영화</div>
+                <div class="my_interest" id="book">도서</div>
+              </div>
+            </div>
+            <!-- 선택한 댓글 글자수 -->
+            <div class="comment_length">
+              <div id="comment_length_title">현재 선택한 댓글 글자수</div>
+              <div id="length_box">
+                <button class="length_select" id="50" after>50</button>
+                <button class="length_select" id="100">100</button>
+                <button class="length_select" id="150">150</button>
+                <button class="length_select" id="200">200</button>
+                <button class="length_select" id="250">250</button>
+              </div>
+            </div>
+
+            <div id="profile_line"></div>
+            <!-- 현재 포인트 -->
+            <div class="point">
+              <span id="point_title">현재 포인트</span>
+              <span class="profile_my_point" id="my_point">{{ user.point }}P</span>
+            </div>
+
+            <div id="profile_line"></div>
+            <!-- 오늘 활동 -->
+            <div class="today_active">
+              <div id="today_active_title">오늘 활동</div>
+
+              <div id="today_active_content">
+                <div class="today_content" id="today_comment">
+                  <div class="today_active_text">댓글 작성하기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_comment">1</span>
+                    회 완료
+                  </div>
+                </div>
+                <div class="today_content" id="today_post">
+                  <div class="today_active_text">글 작성하기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_post">0</span>
+                    회 완료
+                  </div>
+                </div>
+                <div class="today_content" id="today_news">
+                  <div class="today_active_text">오늘의 뉴스 읽기</div>
+                  <div class="today_active_result">
+                    <span id="today_active_news">1</span>
+                    회 완료
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="profile_line"></div>
+
+            <button id="edit_profile">개인정보 수정하기</button>
+          </div>
+
+          <div class="section2">
+            <!-- 활동내역 -->
+            <div class="active_detail">
+              <div id="active_detail_title">활동내역</div>
+              <div class="mydetail_buttons">
+                <a href="{% url 'myComment' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_comment">
+                      <img src="{% static 'img/my_comment.svg' %}" alt="My Comments" />
+                      <span class="my_button_text" id="my_comment_text">내가 쓴 댓글</span>
+                  </button>
+                </a>
+                <a href="{% url 'liked_posts' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_heart">
+                      <img src="{% static 'img/my_heart.svg' %}" alt="My Likes" />
+                      <span class="my_button_text" id="my_heart_text">좋아요 기록</span>
+                  </button>
+                </a>
+                <a href="{% url 'scrap_posts' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_scrap">
+                      <img src="{% static 'img/my_scrap.svg' %}" alt="My Scrap" />
+                      <span class="my_button_text" id="my_scrap_text">스크랩 기록</span>
+                  </button>
+                </a>
+                <a href="{% url 'myPost' %}" style="text-decoration: none;">
+                  <button class="my_button" id="my_post">
+                      <img src="{% static 'img/my_post.svg' %}" alt="My Posts" />
+                      <span class="my_button_text" id="my_post_text">내가 쓴 글</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <!-- 메뉴 -->
+            <div class="menu">
+              <div class="menu_buttons">
+                <button class="menu_button" id="attendance">출석체크</button>
+                <button class="menu_button" id="point_store">
+                  포인트 스토어
+                </button>
+              </div>
+              <div class="menu_lines">
+                <div class="line_attendance" id="line_attendance"></div>
+                <div class="line_between"></div>
+                <div class="line_point" id="line_point"></div>
+                <div class="line_right"></div>
+              </div>
+            </div>
+            <!-- 메뉴 디테일 -->
+            <!-- 출석체크 -->
+            <div
+              class="menu_detail"
+              id="attendance_detail"
+            >
+              <div class="calendar">
+                <div id="calendar_month">2024.07월 출석</div>
+                <div id="calendar_day">
+                  <span>일</span>
+                  <span>월</span>
+                  <span>화</span>
+                  <span>수</span>
+                  <span>목</span>
+                  <span>금</span>
+                  <span>토</span>
+                </div>
+                <div id="calendar_date">
+                  <div class="calendar_day" id="date_week1">
+                    <span>01</span>
+                    <span>02</span>
+                    <span>03</span>
+                    <span>04</span>
+                    <span>05</span>
+                    <span>06</span>
+                  </div>
+                  <div class="calendar_day" id="date_week2">
+                    <span>07</span>
+                    <span>08</span>
+                    <span>09</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                  </div>
+                  <div class="calendar_day" id="date_week3">
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                  </div>
+                  <div class="calendar_day" id="date_week4">
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                    <span>25</span>
+                    <span>26</span>
+                  </div>
+                  <div class="calendar_day" id="date_week5">
+                    <span>28</span>
+                    <span>29</span>
+                    <span>30</span>
+                  </div>
+                </div>
+              </div>
+              <div class="how_point">
+                <div class="how_point_title">포인트 획득 방법</div>
+                <div class="how_point_box">
+                  <div id="how_point_info">
+                    <img src="{% static 'img/how_point.svg' %}" />
+                    <span id="info_text"
+                      >내일 하루 더 출석체크하면 포인트가 더블!</span
+                    >
+                  </div>
+                  <div id="how_point_info">
+                    <img src="{% static 'img/how_point.svg' %}" />
+                    <span id="info_text"
+                      >경제관련 글을 읽으면 포인트를 더 모을 수 있어요!</span
+                    >
+                  </div>
+                  <div id="how_point_info">
+                    <img src="{% static 'img/how_point.svg' %}" />
+                    <span id="info_text"
+                      >선택한 댓글 글자수마다 받을 수 있는 포인트가
+                      달라요!</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 메뉴 디테일 -->
+            <!-- 포인트 스토어 -->
+            <div class="menu_detail" id="point_store_detail" style="display: none">
+              <div class="usable_point">
+                <div class="usable_point_title">
+                  <span id="usable_point_text">사용 가능 포인트</span>
+                  <span class="usable_my_point" id="my_point">{{user.point}}P</span>
+                </div>
+                <div class="usable_point_box">
+                  <div id="usable_point_info">
+                    <img src="{% static 'img/how_point.svg' %}" />
+                    <span id="info_text"
+                      >포인트는 100단위로 사용가능해요.</span
+                    >
+                  </div>
+                  <div id="usable_point_info">
+                    <img src="{% static 'img/how_point.svg' %}" />
+                    <span id="info_text"
+                      >현재 사용할 수 있는 항목만 볼 수 있어요.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="change">
+                <div class="change_font">
+                  <div class="font_title">글꼴 변경하기</div>
+                  <div class="font_menu_box">
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu1_text">안녕하세요, {{user.nickname}}님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu1_point">200P</span>
+                        <button class="menu_change" id="menu1_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu2_text">안녕하세요, {{user.nickname}}님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu2_point">200P</span>
+                        <button class="menu_change" id="menu2_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="font_menu">
+                      <span class="menu_text" id="menu3_text">안녕하세요, {{user.nickname}}님</span>
+                      <div class="menu_box">
+                        <span class="menu_point" id="menu3_point">200P</span>
+                        <button class="menu_change" id="menu3_change">변경하기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="change_theme">
+                  <div class="theme_title">테마 변경하기</div>
+                  <div class="theme_menu_box">
+                    <div class="theme_menu">
+                      <div class="theme_color" id="menu1_color">
+                        <img class="theme_color_img" src="{% static 'img/theme_color_1.svg' %}" alt="">
+                        <span class="theme_color_text">다크모드</span>
+                      </div>
+                      <div class="theme_box">
+                        <span class="theme_point" id="theme1_point">200P</span>
+                        <button class="theme_change" id="theme1_change">변경하기</button>
+                      </div>
+                    </div>
+                    <div class="theme_menu">
+                      <div class="theme_color" id="menu2_color">
+                        <img class="theme_color_img" src="{% static 'img/theme_color_2.svg' %}" alt="">
+                        <span class="theme_color_text">컬러모드</span>
+                      </div>
+                      <div class="theme_box">
+                        <span class="theme_point" id="theme2_point">200P</span>
+                        <button class="theme_change" id="theme2_change">변경하기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/mypage.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Post Detail- Form을 통해 작성한것과 일반 뉴스 동일</h1>
+    <h2>{{ post.title }}</h2>
+    
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="이미지">
+    {% endif %}
+    
+    <p>Content: {{ post.content }}</p>
+    
+    <p>Writer: {{ post.writer }}</p>
+    
+    <p>Created at: {{ post.created_at }}</p>
+
+    <hr>
+
+    <h3>Comments</h3>
+
+    <hr>
+    <form method="post" action="{% url 'post-comment' post.pk %}">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">댓글 등록</button>
+    </form>
+
+    {% if post.comments.all %}
+        <ul>
+            {% for comment in post.comments.all %}
+                <li>
+                    <p>{{ comment.content }}</p>
+                    <p>Writer: {{ comment.writer }}</p>
+                    <p>Created at: {{ comment.created_at }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No comments yet.</p>
+    {% endif %}
+    
+</body>
+</html>

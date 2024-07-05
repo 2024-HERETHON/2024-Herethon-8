@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/afterMain.css' %}" />
+        <title>로그인 후 메인화면</title>
+    </head>
+    <nav class="nav" style="font-family: Pretendard;">
+        <div class="Left">
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+            <div class="Selectbar">
+                <div class="popluar">
+                    <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+                </div>
+                <div class="recommend">
+                    <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+                </div>
+                <div class="writenew">
+                    <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="{% url 'mypage' %}" class="navlinklogin">마이페이지</a>
+                <span>ㅤ</span>
+                <a href="{% url 'logout' %}" class="navlinklogin" ">로그아웃</a>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="bodyelements">
+            <div class="moveimgadv">
+                <div class="moveimgadv1">
+                    <img src="{% static 'img/홍보이미지.png' %}" class="moveimgid" />
+                </div>
+                <div class="moveimgadv2">
+                    <img src="{% static 'img/홍보이미지.png' %}" class="moveimgid" />
+                </div>
+                <div class="moveimgadv3">
+                    <img src="{% static 'img/홍보이미지.png' %}" class="moveimgid" />
+                </div>
+            </div>
+
+            <div class="newandpopluaradv">
+                <div class="newWriting">
+                    <div class="newWritingTitle">
+                        <div class="newWritingTitletext">최신 글</div>
+                        <div class="newWritingTitlemove">
+                            <a href="{% url 'recommend-main' %}" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="{% static 'img/movepage.png' %}" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="newWritingShow">
+                        <button type="button" onclick="location.href='/posts/detail/{{ latest_post.pk }}/'" class="newWritingShowbtn">
+                            <div class="newWritingElements">
+                                <div class="newWritingShowcategolory">{{ latest_post.get_category_display }}</div>
+                                <div class="newWritingShowWriting">
+                                    <div class="newWritingShowWritingtext">
+                                        <div class="newWritingShowWritingtextTitle">
+                                            {{ latest_post.title }}
+                                        </div>
+                                        <div class="newWritingShowWritingtextWhen">
+                                            <div class="newWritingShowWritingtextWhenTime">
+                                                {{ latest_post.created_at|timesince }} 전
+                                            </div>
+                                            <div class="newWritingShowWritingtextWhendivided">
+                                                |
+                                            </div>
+                                            <div class="newWritingShowWritingtextWhenDate">
+                                                {{ latest_post.created_at|date:"Y.m.d" }}
+                                            </div>
+                                        </div>
+                                        <div class="newWritingShowWritingtextstory">
+                                            {{ latest_post.content|truncatewords:20 }}
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowWritingImg">
+                                        <img src="{{ latest_post.image.url }}" class="newWritingShowWritingImgclass" id="newWritingShowWritingImgid" style="border-radius: 8px;"/>
+                                    </div>
+                                </div>
+                                <div class="newWritingShowMore">
+                                    <div class="newWritingShowMoreWho">
+                                        <div class="newWritingShowMoreWhoby">
+                                            By
+                                        </div>
+                                        <div class="newWritingShowMoreWhoName">
+                                            {{ latest_post.writer.nickname  }}
+                                        </div>
+                                    </div>
+                                    <div class="newWritingShowMoreSelect">
+                                        <div class="newWritingShowMoreSelectHeart">
+                                            <div class="heartImg">
+                                                <img src="{% static 'img/heart.png' %}" />
+                                            </div>
+                                            <div class="heartCnt">{{ latest_post.like_count }}</div>
+                                        </div>
+                                        <div class="newWritingShowMoreSelectComments">
+                                            <div class="commentImg">
+                                                <img src="{% static 'img/comments.png' %}" />
+                                            </div>
+                                            <div class="commentCnt">{{ latest_post.comment_count }}</div>
+                                        </div>
+                                        <div class="newWritingShowMoreSelectScrap">
+                                            <div class="ScrapImg">
+                                                <img src="{% static 'img/bookmark.png' %}" />
+                                            </div>
+                                            <div class="ScrapCnt">{{ latest_post.scrap_count }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="popluarWriting">
+                    <div class="popluarWritingTitle">
+                        <div class="popluarWritingTitletext">인기 글</div>
+                        <div class="popluarWritingTitlemove">
+                            <a href="{% url 'popular-main' %}" class="movelink">
+                                <div class="movingTitle">더보기</div>
+                                <div class="movingbar">
+                                    <img src="{% static 'img/movepage.png' %}"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="popluarWritingShow">
+                        <button type="button" onclick="location.href='/posts/detail/{{ most_liked_post.pk }}/'" class="popluarWritingShowbtn">
+                            <div class="newWritingElements">
+                                <div class="popluarWritingShowcategolory">{{ most_liked_post.get_category_display }}</div>
+                                <div class="popluarWritingShowWriting">
+                                    <div class="popluarWritingShowWritingtext">
+                                        <div class="popluarWritingShowWritingtextTitle">
+                                            {{ most_liked_post.title }}
+                                        </div>
+                                        <div class="popluarWritingShowWritingtextWhen">
+                                            <div class="popluarWritingShowWritingtextWhenTime">
+                                                {{ most_liked_post.created_at|timesince }} 전
+                                            </div>
+                                            <div class="popluarWritingShowWritingtextWhendivided">
+                                                |
+                                            </div>
+                                            <div class="popluarWritingShowWritingtextWhenDate">
+                                                {{ most_liked_post.created_at|date:"Y.m.d" }}
+                                            </div>
+                                        </div>
+                                        <div class="popluarWritingShowWritingtextstory">
+                                            {{ most_liked_post.content|truncatewords:20 }}
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowWritingImg">
+                                        <img src="{{ most_liked_post.image.url }}" class="popluarWritingShowWritingImgclass" id="popluarWritingShowWritingImgid" style="width: 207px; height: 124px; border-radius: 8px;"/>
+                                    </div>
+                                </div>
+                                <div class="popluarWritingShowMore">
+                                    <div class="popluarWritingShowMoreWho">
+                                        <div class="popluarWritingShowMoreWhoby">
+                                            By
+                                        </div>
+                                        <div class="popluarWritingShowMoreWhoName">
+                                            {{ most_liked_post.writer.nickname  }}
+                                        </div>
+                                    </div>
+                                    <div class="popluarWritingShowMoreSelect">
+                                        <div class="popluarWritingShowMoreSelectHeart">
+                                            <div class="heartImg">
+                                                <img src="{% static 'img/heart.png' %}" />
+                                            </div>
+                                            <div class="heartCnt">{{ most_liked_post.like_count }}</div>
+                                        </div>
+                                        <div class="popluarWritingShowMoreSelectComments">
+                                            <div class="commentImg">
+                                                <img src="{% static 'img/comments.png' %}" />
+                                            </div>
+                                            <div class="commentCnt">{{ most_liked_post.comment_count }}</div>
+                                        </div>
+                                        <div class="popluarWritingShowMoreSelectScrap">
+                                            <div class="ScrapImg">
+                                                <img src="{% static 'img/bookmark.png' %}" />
+                                            </div>
+                                            <div class="ScrapCnt">{{ most_liked_post.scrap_count }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="OnlyTodayShow">
+                <div class="OnlyTodayShowTitle">
+                    <div class="OnlyTodayShowTitleL">딱</div>
+                    <div class="OnlyTodayShowTitledDate" id="todayDate">
+                        7월 5일
+                    </div>
+                    <div class="OnlyTodayShowTitleR">
+                        오늘만 볼 수 있는 뉴스!
+                    </div>
+                </div>
+                <div class="OnlyTodayShowLeft">
+                    <div class="OnlyTodayShowLeftTitle">잔여 시간</div>
+                    <div class="OnlyTodayShowLeftTime" id="timeLeft">
+                        06:15:43
+                    </div>
+                </div>
+
+                <div class="OnlyTodayShowWriting">
+                    <div class="OnlyTodayShowWritingElement">
+                        <div class="OnlyTodayShowWritingTitle">
+                            "한국판 디즈니를 꿈꾸며"
+                        </div>
+                        <div class="OnlyTodayShowWritingTexts">
+                            네이버웹툰의 모기업인 웹툰 엔터테인먼트가 미국
+                            나스닥 시장에 상장한 첫날 흥행 마감해 네이버와
+                            웹툰주가 강세다. 28일 한국거래소에 따르면 이날 오전
+                            9시 48분 현재 네이버는 전 거래일 대비 1.45%(2400원)
+                            오른 16만7800원에 거래되고 있다. 장 초반
+                            16만9000원까지 오르기도 했다. 같은 시간 웹툰주로
+                            분류되는 미스터블루(7.74%)와 핑거스토리(4.73%),
+                            대원미디어(1.88%), 키다리스튜디오(1.10%),
+                            탑코미디어(0.32%) 등도 상승세를 보이는 상황이다.
+                            이는 웹툰 엔터테인먼트가 희망범위 상단에 공모가를
+                            확정한 데 이어 첫 거래일 주가가 10%가량 급등해 상장
+                            흥행몰이에 성공한 영향으로 풀이된다.
+                        </div>
+                        <div class="Only OnlyTodayShowWritingText">
+                            <button
+                                type="button"
+                                onclick="location.href='/posts/detail/23' "
+                                class="OnlyTodayShowLeftmorebtn"
+                            >
+                                읽어보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="FocuseWriterandWriting">
+                <div class="FocuseWriter">
+                    <div class="FocuseWriterTitle">주목할만한 작가</div>
+                    <div class="FocuseWriterShow">
+                        <div class="FocuseWriterShowFirst" id="writerFirst">
+                            <button
+                                type="button"
+                                class="focusbtn"
+                                onclick="changeWriterContentW()"
+                            >
+                                <div class="FocuseWriterImg">
+                                    <div class="FocuseWriterShowImg">
+                                        <img
+                                        src="{% static 'img/작가프로필1.png' %}"
+                                            class="FocuseWriterImgclass"
+                                            id="imgFirstW"
+                                        />
+                                    </div>
+                                </div>
+                                <div
+                                    class="FocuseWriterShowName"
+                                    id="nameFirstW"
+                                >
+                                {{ focus_author.0.user.nickname }}
+                                </div>
+                                <div
+                                    class="FocuseWriterShowCategolry"
+                                    id="categoryFirstW"
+                                >
+                                    #영화 #도서
+                                </div>
+                                <div
+                                    class="FocuseWriterShowIntro"
+                                    id="introFirstW"
+                                >
+                                {{ focus_author.1.introduction|truncatewords:15}}...
+                                </div>
+                            </button>
+                        </div>
+                        <div class="FocuseWriterShowSecond" id="writerSecond">
+                            <button
+                                type="button"
+                                class="focusbtn"
+                                onclick="changeWriterContentW()"
+                            >
+                                <div class="FocuseWriterImg">
+                                    <div class="FocuseWriterShowImg">
+                                        <img
+                                        src="{% static 'img/작가프로필2.png' %}"
+                                            class="FocuseWriterImgclass"
+                                            id="imgSecondW"
+                                        />
+                                    </div>
+                                </div>
+                                <div
+                                    class="FocuseWriterShowName"
+                                    id="nameSecondW"
+                                >
+                                {{ focus_author.1.user.nickname }}
+                                </div>
+                                <div
+                                    class="FocuseWriterShowCategolry"
+                                    id="categorySecondW"
+                                >
+                                    #과학 #영화
+                                </div>
+                                <div
+                                    class="FocuseWriterShowIntro"
+                                    id="introSecondW"
+                                >
+                                {{ focus_author.1.introduction|truncatewords:15}}...
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="FocuseWriterMore">
+                        <button
+                            type="button"
+                            onclick="changeWriterContentW()"
+                            class="focusmore"
+                        >
+                            다른 작가도 궁금해요!
+                        </button>
+                    </div>
+                </div>
+                <div class="FocuseWriting">
+                    <div class="FocuseWritingTitle">추천 글</div>
+                    <div class="FocuseWritingShow">
+                        <div class="FocuseWritingShowFirst" id="contentFirst">
+                            <button
+                                type="button"
+                                class="focusbtn"
+                                onclick="changeContentR()"
+                            >
+                                <div class="FocuseWritingShowImg">
+                                    <img
+                                    src="{{ recommended_post.0.image.url }}"
+                                        id="imgFirstR"
+                                    />
+                                </div>
+                                <div
+                                    class="FocuseWritingShowTitle"
+                                    id="titleFirstR"
+                                >
+                                    {{ recommended_post.0.title }}
+                                </div>
+                                <div class="FocuseWritingShowWho">
+                                    <div
+                                        class="FocuseWritingShowWhoby"
+                                        style="width: 10px"
+                                    >
+                                        by
+                                    </div>
+                                    <div
+                                        class="FocuseWritingShowWhoName"
+                                        id="authorFirstR"
+                                    >
+                                    {{ recommended_post.0.writer.nickname  }}
+                                    </div>
+                                </div>
+                                <div
+                                    class="FocuseWritingShowIntro"
+                                    id="introFirstR"
+                                >
+                                {{ recommended_post.0.content|truncatewords:7 }}
+                                </div>
+                            </button>
+                        </div>
+                        <div class="FocuseWritingShowSecond" id="contentSecond">
+                            <button
+                                type="button"
+                                class="focusbtn"
+                                onclick="changeContentR()"
+                            >
+                                <div class="FocuseWritingShowImg">
+                                    <img
+                                    src="{{ recommended_post.0.image.url }}"
+                                        id="imgSecondR"
+                                    />
+                                </div>
+                                <div
+                                    class="FocuseWritingShowTitle"
+                                    id="titleSecondR"
+                                >
+                                {{ recommended_post.1.title }}
+                                </div>
+                                <div class="FocuseWritingShowWho">
+                                    <div
+                                        class="FocuseWritingShowWhoby"
+                                        style="width: 10px"
+                                    >
+                                        by
+                                    </div>
+                                    <div
+                                        class="FocuseWritingShowWhoName"
+                                        id="authorSecondR"
+                                    >
+                                    {{ recommended_post.1.writer.nickname  }}
+                                    </div>
+                                </div>
+                                <div
+                                    class="FocuseWritingShowIntro"
+                                    id="introSecondR"
+                                >
+                                {{ recommended_post.0.content|truncatewords:7 }}
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="FocuseWritingMore">
+                        <button
+                            type="button"
+                            onclick="changeContentR()"
+                            class="focusmore"
+                        >
+                            다른 추천해드릴게요.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

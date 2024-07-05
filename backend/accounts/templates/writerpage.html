@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/writerpage.css' %}" />
+        <title>작가 상세 페이지</title>
+    </head>
+    <nav>
+        <div class="Left">
+            <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+        </div>
+        <div class="Right">
+            <div class="search"></div>
+            <div class="login">
+                <a href="javascript:history.back()" class="navlinklogin"
+                    ><img src="{% static 'img/close.png' %}"
+                /></a>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="writerintro">
+            <div class="writerintroimg">
+                <img
+                src="{{ author.user.profile.url }}"
+                    class="writerintroimgclass"
+                />
+            </div>
+            <div class="writerintroname">{{ author.user.nickname }}</div>
+            <div class="writerintrointer">관심 분야</div>
+            <div class="writerintorintercate">
+                <div class="writerintorintercatew">#영화</div>
+                <div class="writerintorintercatew">#도서</div>
+            </div>
+        </div>
+        <div class="switchpage">
+            <button
+                onclick="showContent('page1', this)"
+                class="btnswitch active"
+            >
+                작가 소개
+            </button>
+
+            <button onclick="showContent('page2', this)" class="btnswitch">
+                작성한 글
+            </button>
+        </div>
+        <div id="page1" class="content active">
+            <div class="pageelements">
+                <div class="writerintroduce">
+                    <div class="writerintroducetitle">작가의 말</div>
+                    <div class="writerintroducewriting">
+                        {{ author.introduction }}
+                    </div>
+                </div>
+                <div class="writerinfo">
+                    <div class="writerinfotitle">작가 정보</div>
+                    <div class="wrtierinfomation">
+                        {{ author.info }}
+                    </div>
+                    <div class="writerotherpage">
+                        <div class="writerlink">
+                            <div class="wrtierlinkicon">
+                                <div class="iconimg">
+                                    <img
+                                        src="{% static 'img/blog.png' %}"
+                                        class="iconimgclass"
+                                    />
+                                </div>
+                                <div class="writerlinkurls">
+                                    {{ author.sns }}
+                                </div>
+                            </div>
+                            <div class="writerlinkurl">
+                                <div class="iconimg">
+                                    <img
+                                        src="{% static 'img/gmail.png' %}"
+                                        class="iconimgclass"
+                                    />
+                                </div>
+                                <div class="writerlinkurls">
+                                    {{ author.user.email }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="otherwriter">
+                    <div class="otherwritertitle">비슷한 취향의 다른 작가</div>
+                    <div class="otherwriterinfo">
+                            {% for similar_author in similar_authors %}
+                        <div class="otherwriterelements">
+                            <div class="otherwriterimg">
+                                <img src="{{ similar_author.user.profile.url }}" class="otherwriterimgclass">
+                            </div>
+                            <br>
+                            <div class="otherwritername">{{ similar_author.user.nickname }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page2" class="content">
+            <div class="pageelements">
+                {% for post in author_posts %}
+                <div class="writings">
+                    <div class="writingscontents">
+                        <button
+                            type="button"
+                            onclick="location.href='/posts/detail/{{ post.pk }}/'" 
+                            class="writingscontentsbox"
+                        >
+                        
+                        <div class="writingscontentselements">
+                            <div class="writingscontentsIntro">
+                                {{ post.content|truncatewords:4 }}
+                            </div>
+                            <div class="writingscontentsMain">
+                                <div class="writingscontentstext">
+                                    <div class="writingscontentsTitle">
+                                        {{ post.title }}
+                                    </div>
+                                    <br>
+                                    <div class="writingscontentsWho">
+                                        <div class="writingscontentsWhoby">
+                                            byㅤ
+                                        </div>
+                                        <div class="writingscontentsWhoname">
+                                            {{ post.writer.nickname }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="writingscontentsImg">
+                                    <img src="{{ post.image.url }}" class="writingscontentsImgclass" />
+                                </div>
+                            </div>
+                            <div class="writingscontentsMore">
+                                <div class="writingscontentsHeart"></div>
+                                <div class="writingscontentsComments"></div>
+                                <div class="writingscontentsSaved"></div>
+                            </div>
+                        </div>
+                        
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <script src="{% static 'js/writerpage.js' %}"></script>
+    </body>

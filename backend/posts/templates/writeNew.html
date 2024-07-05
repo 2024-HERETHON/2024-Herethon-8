@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>writeNew</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/writeNew.css' %}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="bar">
+           <!--나브바 추가 시작-->
+           <nav class="nav" style="font-family: Pretendard;">
+            <div class="Left">
+              <div class="Title"><a href="{% url 'before-main' %}"><img src="{% static 'img/logo.svg' %}" /></div>
+              <div class="Selectbar">
+                <div class="popluar">
+                  <a href="{% url 'popular-main' %}" class="navlink">인기</a>
+                </div>
+                <div class="recommend">
+                  <a href="{% url 'recommend-main' %}" class="navlink">추천</a>
+                </div>
+                <div class="writenew">
+                  <a href="{% url 'post-form' %}" class="navlink">글쓰기</a>
+                </div>
+              </div>
+            </div>
+            <div class="Right">
+              <div class="search"></div>
+              <div class="login">
+                <a href="{% url 'mypage' %}"" class="navlinklogin">마이페이지</a>
+              </div>
+            </div>
+          </nav>
+          <!--나브바 추가 끝-->
+        </div>
+        <div class="write_wrap">
+          <!-- 사이드 -->
+          <div class="before_write">
+          <form action="{% url 'post-form' %}" method="post" enctype="multipart/form-data">
+            <div class="topic_check">
+              <p id="before_write_title">글쓰기 전에 먼저!</p>
+              <div class="check_box">
+                <p id="topic_title">분야 선택하기</p>
+                <div class="checklist">
+                  {% csrf_token %}
+                  {% for category, category_name in form.fields.category.choices %}
+                  <label>
+                      <input type="radio" name="category" value="{{ category }}"/>
+                      <span>{{ category_name }}</span>
+                  </label>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="write_tip">
+              <p id="tip_title">
+                글 작성 <span style="color: #e16e20">Tip</span>!
+              </p>
+              <p id="tip_content">
+                오늘 읽은 뉴스나 작가의 글에서<br />새롭게 배운 표현을 사용해보아요
+              </p>
+              <img id="tip_img" src="{% static 'img/tip_img.svg' %}" />
+            </div>
+          </div>
+
+          <!-- 글 작성 -->
+          <div class="write">
+
+              {% csrf_token %}
+              <div class="write_box" before>
+                <p id="write_post_title" class="write_title">
+                  1. 문해력과 어휘력 향상을 위해 글을 작성해보세요.
+                </p>
+                <div id="write_post">
+                  <input
+                    id="post_title"
+                    type="text"
+                    placeholder="제목"
+                    name="title"
+                    value="{{ form.title.value|default:'' }}"
+                  />
+                  <div id="line"></div>
+                  <textarea
+                    id="post_content_input"
+                    placeholder="본문을 작성해주세요"
+                    name="content"
+                  >{{ form.content.value|default:'' }}</textarea>
+                  <div id="write_post_bottom">
+                    <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;">
+                        <button id="add_img_button" type="button">
+                            <img id="add_img" src="{% static 'img/add_img_gray.svg' %}"/>
+                              <p id="add_img_text">대표 이미지 추가하기</p>
+                        </button>
+                    <!--<button id="add_img_button" type="button">
+                      <img id="add_img" src="{% static 'img/add_img_gray.svg' %}" />
+                      <p id="add_img_text">대표 이미지 추가하기</p>
+                    </button>-->
+                    <div class="text_length_check" id="post_length_check">
+                      (<span id="post_text_length">0</span>/최소 300)
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="check_summary">
+                <br>
+                <p id="check_summary_title" class="write_title">
+                  2. 작성한 글을 등록하기 전, 자신의 글을 검토해보세요.
+                </p>
+                <div id="write_summary">
+                  <textarea
+                    id="summary_content"
+                    type="text"
+                    placeholder="최소 50자로 핵심만 사용하여 정리해주세요."
+                    name="summary"
+                  ></textarea>
+                  <div class="write_summary_bottom">
+                    <div class="text_length_check" id="summary_lengh_check">
+                      (<span id="summary_text_length">0</span>/최소 50)
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <!-- 버튼 -->
+              <div class="button_box">
+                <button class="button" id="deletBtn" type="reset">삭제하기</button>
+                <button class="button" id="uploadBtn" type="submit">등록하기</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/writeNew.js' %}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const addImgButton = document.getElementById("add_img_button");
+          const imageInput = document.getElementById("imageInput");
+
+      addImgButton.addEventListener("click", () => {
+          imageInput.click(); // 이미지 파일 선택 창을 엽니다.
+          });
+
+          imageInput.addEventListener("change", () => {
+              const file = imageInput.files[0];
+              if (file) {
+                  // 이미지 파일이 선택되면 여기서 추가 작업을 할 수 있습니다.
+                  console.log(`Selected file: ${file.name}`);
+              }
+          });
+      });
+    </script>
+  </body>
+</html>
