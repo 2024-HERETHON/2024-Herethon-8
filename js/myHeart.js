@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const postLine = document.getElementById("post_button_line");
   const commentLine = document.getElementById("comment_button_line");
 
-  //기본 설정 : 글 메뉴가 눌린 상태
-  postBoxs.style.display = "flex"; // 좋아요한 글 보임
+  // //기본 설정 : 글 메뉴가 눌린 상태
+  // postBoxs.style.display = "flex"; // 좋아요한 글 보임
   postBtn.classList.add("selected");
   postLine.classList.add("selected");
-  commentBoxs.style.display = "none"; // 좋아요한 댓글 안 보임
-  commentBtn.classList.remove("selected");
-  commentLine.classList.remove("selected");
+  // commentBoxs.style.display = "none"; // 좋아요한 댓글 안 보임
+  // commentBtn.classList.remove("selected");
+  // commentLine.classList.remove("selected");
 
   // 글 메뉴가 눌렸을 때
   postBtn.addEventListener("click", () => {
